@@ -1,4 +1,25 @@
 Rails.application.routes.draw do
+
+post "oauth/callback" => "oauths#callback"
+get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
+  root :to => 'users#index'
+
+  resources :password_resets
+
+  resources :users do
+    member do
+      get :activate
+    end
+  end
+
+  resources :user_sessions
+  
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+<% if @user.first_name %>
+Congratulations, <%= @user.first_name %>
+<% else %>
+Congratulations, <%= @user.username %>
+<% end %>
+===============================================
+
+You have successfully activated your River Ranger account,
+your username is: <%= @user.username %>.
+
+To login to the site, just follow this link: <%= @url %>.
+
+Thanks for joining and have a great day!
