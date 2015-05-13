@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Document file name</th>
+      <th>Document content type</th>
+      <th>Document file size</th>
+      <th>Document updated at</th>
+      <th>Observation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.document_file_name %></td>
+        <td><%= document.document_content_type %></td>
+        <td><%= document.document_file_size %></td>
+        <td><%= document.document_updated_at %></td>
+        <td><%= document.observation %></td>
+        <td><%= link_to 'Show', document %></td>
+        <td><%= link_to 'Edit', edit_document_path(document) %></td>
+        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document', new_document_path %>
