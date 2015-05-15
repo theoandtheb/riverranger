@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'news/index'
+  get 'more', to: 'more#index'
 
   get 'map', to: 'map#index'
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
-  root :to => 'home#index'
+  root :to => 'map#index'
 
   resources :password_resets
 

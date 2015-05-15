@@ -15,5 +15,6 @@
 //= require leaflet.spin
 //= require jquery
 //= require jquery_ujs
+//= require magnific.min
 //= require turbolinks
 //= require site

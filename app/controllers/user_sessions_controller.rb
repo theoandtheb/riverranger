@@ -8,7 +8,7 @@ skip_before_filter :require_login, except: [:destroy]
 
   def create
     if @user = login(params[:email], params[:password], params[:remember])
-      redirect_back_or_to(:users, notice: 'Login successful')
+      redirect_back_or_to(:map, notice: 'Login successful')
     else
       flash.now[:alert] = 'Login failed'
       render action: 'new'
@@ -17,6 +17,6 @@ skip_before_filter :require_login, except: [:destroy]
 
   def destroy
     logout
-    redirect_to(:users, notice: 'Logged out!')
+    redirect_to(:map, notice: 'Logged out!')
   end
 end

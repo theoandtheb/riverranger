@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require "normalize"
+ *= require "magnific"
  *= require "site"
  *= depend_on "_common"
  */

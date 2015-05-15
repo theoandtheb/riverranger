@@ -65,6 +65,19 @@ form {
   }
 }
 
+.notice {
+  margin: 0;
+  padding: 0.5em 1em;
+  &.success {
+    background-color: #7ad14b; 
+    color: $white;
+  }
+  &.alert {
+    background-color: #D14B4B;
+    color: $white;
+  }
+}
+
 .button {
   background: image-url("button-background.jpg");
   border: 1px solid $brown;
@@ -200,6 +213,25 @@ body#riverranger-app {
     color: #fff;
     display: block;
     text-align: center;
+  }
+}
+
+// Intro popup
+
+#intro-popup {
+  background-color: $beige;
+  padding: 2em;
+  text-align: center;
+  img {
+    display: block;
+    margin: 0 auto 2em;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
   }
 }
 

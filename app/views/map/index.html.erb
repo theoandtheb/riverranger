@@ -7,47 +7,46 @@
 
 <div id="map"></div>
 
+<%= render "app_intro" unless current_user %>
+
 <script>
+  // Set up some default options
   var options = {
     zoom: 13
   }
+  // Set the map
   var map = L.map('map', {
     options
   });
+  // Add the tile layers
   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
   map.spin(true,{
     lines: 9, 
     length: 20,
-    color: '#0f2a47'
+    color: '#0f2a47',
+    zIndex: 1000
   });
+  // Use locate to add the users current position
   map.locate({setView: true, maxZoom: 16});
+  // Once the location is found add a marker and hide the pre-loader
   map.on('locationfound', onLocationFound);
   function onLocationFound(e) {
-    L.marker(e.latlng).addTo(map);
+    L.marker(e.latlng).bindPopup("This is me!").addTo(map);
     map.spin(false);
   }
-</script>
-
-<script>
-//   if('geolocation' in navigator){
-//     var options = {  
-//        enableHighAccuracy: false, 
-//        timeout: 5000,  
-//        maximumAge: 0 
-//     };
-
-//     navigator.geolocation.getCurrentPosition(success, error, options); 
-
-//     function success(pos){
-//        var lng = pos.coords.longitude;
-//        var lat = pos.coords.latitude;
-//     }
-//     function error(err){
-//        alert('Error: ' + err + ' :('); // alert the error message
-//     }
-//   } else {
-//     console.log('Geoocation not defined')
-//   }
+  // Load some dummy data for multiple markers
+  var places = [
+    ["Central Experimental Farm",45.389929,-75.711928],
+    ["Château Laurier",45.425567,-75.695108],
+    ["Confederation Square",45.371638,-75.682599],
+    ["Connaught Building",45.426535,-75.694755]
+  ];
+  // Set our multiple markers
+  for (var i = 0; i < places.length; i++) {
+    marker = new L.marker([places[i][1],places[i][2]])
+      .bindPopup(places[i][0])
+      .addTo(map);
+  }
 </script>

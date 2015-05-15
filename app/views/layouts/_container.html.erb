@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
   <body id="riverranger-<%= body_id %>" class="<%= body_class %>">
-    <%= content_tag :p, flash[:notice], class: "notice error" if flash[:notice] %>
+    <%= content_tag :p, flash[:notice], class: "notice success" if flash[:notice] %>
     <%= content_tag :p, flash[:alert], class: "notice alert" if flash[:alert] %>
     <%= yield %>
   </body>
