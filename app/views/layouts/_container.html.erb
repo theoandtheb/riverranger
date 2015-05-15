@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>River Ranger</title>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+  <body id="riverranger" class="<%= body_class %>">
+    <%= content_tag :p, flash[:notice], class: "notice error" if flash[:notice] %>
+    <%= content_tag :p, flash[:alert], class: "notice alert" if flash[:alert] %>
+    <%= yield %>
+  </body>
+</html>

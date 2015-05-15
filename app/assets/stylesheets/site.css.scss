@@ -1,0 +1,34 @@
+@import "common";
+
+// Core site styles
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font: 400 100%/1.4 "Courier New", Courier, monospace; 
+  width: 100%;
+}
+
+// Typography
+
+h1,h2,h3,h4 {
+  font-family: "veneerlowresregular";
+  color: $primary-color;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3.125em;
+  margin-bottom: 0.5em;
+}
+
+// Homepage 
+
+.home-index {
+  background: image-url("home-background.jpg") no-repeat top center;
+  background-size: cover;
+}

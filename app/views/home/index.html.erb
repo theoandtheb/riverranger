@@ -1,0 +1,7 @@
+<h1>We live near a beautiful river. Be a part of keeping it that way.</h1>
+
+<% if current_user %>
+  Hi, <%= current_user.first_name %>. Good to see you again.
+<% else %>
+  <%= link_to("Calling all Rangers", new_user_path) %>
+<% end %>
