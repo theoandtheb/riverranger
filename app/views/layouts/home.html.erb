@@ -1,4 +1,4 @@
-<%= render layout: 'layouts/container' do %>
+<%= render layout: 'layouts/container', locals: { :body_id => "home" } do %>
   <%= render "home_header" %>
     <%= yield %>
   <%= render "home_footer" %>

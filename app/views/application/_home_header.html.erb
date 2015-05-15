@@ -4,6 +4,7 @@
     <ul>
       <li><%= link_to("The River", "") %></li>
       <li><%= link_to("About", "") %></li>
+      <li class="logo"><%= link_to(image_tag('home-logo.png'), "/", alt: "River Ranger") %></li>
       <% if current_user %>
         <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
         <li><%= link_to "Logout", :logout, method: :post %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'map/index'
+  get 'news/index'
+
+  get 'map', to: 'map#index'
+
+  get 'news', to: 'news#index'
 
   get 'home/index'
 

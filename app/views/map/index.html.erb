@@ -1,2 +1,53 @@
-<h1>Map#index</h1>
-<p>Find me in app/views/map/index.html.erb</p>
+<% provide(:title, "Map") %>
+
+<% content_for :maps do %>
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<% end %>
+
+<div id="map"></div>
+
+<script>
+  var options = {
+    zoom: 13
+  }
+  var map = L.map('map', {
+    options
+  });
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+  map.spin(true,{
+    lines: 9, 
+    length: 20,
+    color: '#0f2a47'
+  });
+  map.locate({setView: true, maxZoom: 16});
+  map.on('locationfound', onLocationFound);
+  function onLocationFound(e) {
+    L.marker(e.latlng).addTo(map);
+    map.spin(false);
+  }
+</script>
+
+<script>
+//   if('geolocation' in navigator){
+//     var options = {  
+//        enableHighAccuracy: false, 
+//        timeout: 5000,  
+//        maximumAge: 0 
+//     };
+
+//     navigator.geolocation.getCurrentPosition(success, error, options); 
+
+//     function success(pos){
+//        var lng = pos.coords.longitude;
+//        var lat = pos.coords.latitude;
+//     }
+//     function error(err){
+//        alert('Error: ' + err + ' :('); // alert the error message
+//     }
+//   } else {
+//     console.log('Geoocation not defined')
+//   }
+</script>

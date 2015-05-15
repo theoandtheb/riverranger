@@ -2,33 +2,210 @@
 
 // Core site styles
 
+* {
+  @include box-sizing(border-box);
+}
 html {
   height: 100%;
   width: 100%;
 }
-
 body {
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
   width: 100%;
+}
+img {
+  display: block;
+  max-width: 100%;
 }
 
 // Typography
 
 h1,h2,h3,h4 {
   font-family: "veneerlowresregular";
+  font-weight: 400;
   color: $primary-color;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
-
 h1 {
   font-size: 3.125em;
   margin-bottom: 0.5em;
 }
 
-// Homepage 
+// Links
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Forms and buttons
+
+input, textarea {
+  background-color: $beige;
+  border: 0;
+  color: $brown;
+  display: block;
+  font: 400 100%/1.4 "Courier New", Courier, monospace; 
+  padding: 1em;
+  width: 100%;
+}
+textarea {
+  min-height: 200px;
+}
+form {
+  margin: 0 auto;
+  max-width: 600px;
+  > div {
+    margin-bottom: 1em;
+  }
+}
+
+.button {
+  background: image-url("button-background.jpg");
+  border: 1px solid $brown;
+  box-shadow: multiple-box-shadow(10, $brown);
+  color: $beige;
+  display: inline-block;
+  font: 400 1.8em/1 "veneerlowresregular";
+  padding: 0.6em 1.4em;
+  &:hover {
+    color: $beige;
+  }
+}
+
+// Marketing site ------------------------------------------------------------
+
+#riverranger-home {
+  
+}
+
+// Home site
 
 .home-index {
   background: image-url("home-background.jpg") no-repeat top center;
   background-size: cover;
+  text-align: center;
+}
+
+// Header
+
+.site-header {
+  max-width: 1000px;
+  text-align: center;
+}
+.home-nav {
+  font: 400 1.8em/1.4 "veneerlowresregular";
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 4em 0 0;
+  text-align: center;
+  @extend %clearfix;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline;
+    float: left;
+    text-align: center;
+    width: 20%;
+    &.logo {
+      position: relative;
+      top: -2.5em;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+// Footer 
+
+.site-footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2em 1.6em;
+  text-align: center;
+  @extend %clearfix;
+}
+
+// Application ---------------------------------------------------------------
+
+body#riverranger-app {
+  background-color: lighten($beige, 20%);
+  height: 100%;
+  padding-top: 84px;
+  &.map-index {
+    padding: 64px 0 49px;
+  }
+}
+
+// header 
+.app-header {
+  background-color: $primary-color;
+  color: $white;
+  left: 0;
+  height: 64px;
+  padding: 1em;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  right: 0;
+  h1 {
+    color: #fff;
+    font-size: 1.250em;
+  }
+  &.scroll {
+    background-color: rgba($primary-color, 0.9);
+  }
+}
+
+// Footer and navigation
+.app-footer {
+  background: $primary-color;
+  border-top: darken($primary-color, 10%);
+  bottom: 0;
+  left: 0;
+  height: 49px;
+  position: fixed;
+  right: 0;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      float: left;
+      text-align: ceter;
+      width: 20%;
+      &.logo {
+        img {
+          margin: 0 auto;
+          position: relative;
+          top: -3.5em;
+          width: 30%;
+        }
+      }
+      a {
+        display: block;
+        padding: 0.8em;
+      }
+    }
+  }
+  a {
+    color: #fff;
+    display: block;
+    text-align: center;
+  }
+}
+
+// Maps
+
+#map {
+  height: 100%;
+  width: 100%;
 }

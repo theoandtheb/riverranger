@@ -1,10 +1,15 @@
 // To contain our sass variables, mixins and extends
 
-// Variables
+// Variables -------------------------------------------------------------------
 
 $blue: #0f2a47;
+$orange: #c0591a;
+$beige: #ceccb3;
+$brown: #502a13;
+$white: #fff;
 
 $primary-color: $blue;
+$secondary-color: $orange;
 
 // Fonts
 
@@ -18,6 +23,19 @@ $primary-color: $blue;
   font-weight: normal;
   font-style: normal;
 }
+
+// Functions ---------------------------------------------------------------------
+
+@function multiple-box-shadow($depth, $color) {
+  $value: '0px 0px 0 #{$color}';
+  @for $i from 1 through $depth {
+    $value: '#{$value} , -#{$i * +1}px #{$i * +1}px 0 ' + $color;
+  }
+
+  @return unquote($value);
+}
+
+// Mixins ------------------------------------------------------------------------
 
 // Box sizing
 @mixin box-sizing($sizing-type) {
@@ -55,7 +73,7 @@ $primary-color: $blue;
   background-image: linear-gradient($deg, $startColor, $endColor); // The standard
 }
 
-// Extends
+// Extends -----------------------------------------------------------------
 
 // @extend %clearfix;
 %clearfix {

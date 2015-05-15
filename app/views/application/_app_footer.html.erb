@@ -2,10 +2,10 @@
   
   <nav>
     <ul>
-      <li><%= link_to("Add", "") %></li>
-      <li><%= link_to("Map", "") %></li>
-      <li><%= image_tag("app-logo.png", :alt => "River Ranger") %></li>
-      <li><%= link_to("News", "") %></li>
+      <li><%= link_to("Add", new_observation_path) %></li>
+      <li><%= link_to("Map", map_path) %></li>
+      <li class="logo"><%= link_to(image_tag('home-logo.png'), "/", alt: "River Ranger") %></li>
+      <li><%= link_to("News", news_path) %></li>
       <li><%= link_to("More", "") %></li>
     </ul>
   </nav>
