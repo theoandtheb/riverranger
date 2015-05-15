@@ -1,5 +1,6 @@
 class ObservationsController < ApplicationController
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :require_login, only: [:index, :show]
 
   # GET /observations
   # GET /observations.json
@@ -14,7 +15,7 @@ class ObservationsController < ApplicationController
 
   # GET /observations/new
   def new
-    @observation = Observation.new
+      @observation = Observation.new
   end
 
   # GET /observations/1/edit
