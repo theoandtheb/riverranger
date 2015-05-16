@@ -33,6 +33,14 @@ h1 {
   margin-bottom: 0.5em;
 }
 
+cite{
+  font-style: normal;
+  font-size: 0.9em;
+}
+
+p{
+  margin: 0 0 15px;
+}
 // Links
 
 a {
@@ -161,6 +169,7 @@ body#riverranger-app {
 // header 
 .app-header {
   background-color: $primary-color;
+  background-image: image-url("main-texture.png");
   color: $white;
   left: 0;
   height: 64px;
@@ -170,8 +179,8 @@ body#riverranger-app {
   top: 0;
   right: 0;
   h1 {
-    color: #fff;
-    font-size: 1.250em;
+    color: $beige;
+    font-size: 1.50em;
   }
   &.scroll {
     background-color: rgba($primary-color, 0.9);
@@ -181,31 +190,67 @@ body#riverranger-app {
 // Footer and navigation
 .app-footer {
   background: $primary-color;
+  background-image: image-url("main-texture.png");
   border-top: darken($primary-color, 10%);
   bottom: 0;
   left: 0;
-  height: 49px;
+  height: 65px;
   position: fixed;
   right: 0;
   ul {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    max-width: 600px;
     li {
       display: inline;
       float: left;
       text-align: ceter;
       width: 20%;
       &.logo {
+        a{
+          padding: 0;         
+        }
         img {
           margin: 0 auto;
           position: relative;
-          top: -3.5em;
-          width: 30%;
+          top: -20px;
+          width: 300px;
+          @include transition(all, 0.2s, ease-in-out);
+          &:hover{
+            top: -40px;
+          }
         }
+      }
+      &.add, &.map, &.news, &.more{
+        a{
+          font: 400 0.9em/1 "veneerlowresregular";
+          background: image-url("menu/add.png") no-repeat 50% 10px;
+          background-size: 25px 26px;
+          padding-top: 42px;
+          color: $white;
+          opacity: 0.6;
+          &.selected{
+            opacity: 1;
+          }
+        }
+      }
+      &.map a{
+        background-image: image-url("menu/map.png");
+      }
+      &.news a{
+        background-image: image-url("menu/news.png");
+      }
+      &.more a{
+        background-image: image-url("menu/more.png");
       }
       a {
         display: block;
         padding: 0.8em;
+        text-align: center;
+        @include transition(all, 0.2s, ease-in-out);
+        &:hover{
+          opacity: 1;
+        }
       }
     }
   }
@@ -213,6 +258,7 @@ body#riverranger-app {
     color: #fff;
     display: block;
     text-align: center;
+
   }
 }
 
@@ -240,4 +286,171 @@ body#riverranger-app {
 #map {
   height: 100%;
   width: 100%;
+}
+
+.observation{
+  background: #e5e3d2;
+  background-image: image-url("main-texture.png");
+  max-width: 600px;
+  float: right;
+  .gallery{
+    img{
+      width: 100%;
+      min-height: 400px;
+      background-color: $brown;
+    }
+    .photographer{
+      background-color: rgba($primary-color, 0.5);
+      height: 40px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+      cite{
+        padding-top: 10px;
+        color: $white;
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+  .tags{
+    padding: 30px 0;
+    background: image-url("wood.jpg");
+    @include box-shadow(0, 3px, 10px, rgba(0, 0, 0, 0.5));
+    ul.badges{
+      text-align: center;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0;
+      li{
+        list-style: none;
+        width: 130px;
+        height: 170px;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        a{
+          display: block;
+          background: image-url("badge-blue.png") no-repeat 50% 0;
+          background-size: 100px 100px;
+          img{
+            display: block;
+            margin: 0 auto;
+            width: 35px;
+            height: 35px;
+            position: relative;
+            top: 10px;
+          }
+        }
+        &.warning a{
+          background: image-url("badge-orange.png") no-repeat 50% 0;
+          background-size: 100px 100px;
+        }
+        &.danger a{
+          background: image-url("badge-red.png") no-repeat 50% 0;
+          background-size: 100px 100px;
+        }
+        &.species-at-risk a, &.wildlife-death a, &.shoreline-alterations a, &.water-quality a, &.zebra-mussels a, &.giant-hogweed a{
+          h2{
+            font-size: 1.2em;
+            margin: 5px 0;
+          }
+        }
+        &.shoreline-alterations a, &.dog-strangling-vine a, &.introduced-honeysuckle a{
+          h2{
+            font-size: 1.2em;
+            margin: 0;
+          }
+        }
+        h3{
+          color: $white;
+          font-size: 40px;
+        }
+        h2{
+          padding-top: 10px;
+          line-height: 1;
+        }
+        cite{
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.comments{
+  list-style: none;
+  margin: 50px 0;
+  padding: 0 20px;
+  li{
+
+  }
+  p{
+    max-width: 350px;
+    margin: 0 auto 20px;
+  }
+  cite{
+    opacity: 0.5;
+    text-align: center;
+    display: block;
+    .name{
+      text-transform: uppercase;
+    }
+  }
+}
+
+.science{
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+      background-color: $primary-color;
+      background-image: image-url("main-texture.png");
+      position: relative;
+      margin-bottom: 2px;
+      &.good{
+        background-color: $good;
+      }
+      &.warning{
+        background-color: $warning;
+      }
+      a{
+        display: block;
+        padding: 15px 30px;
+        overflow: hidden;
+        h1,h2,h3,cite{
+          color: $beige;
+          text-align: left;
+        }
+        h1{
+          font-size: 80px;
+          line-height: 1em;
+          margin: 0;
+        }
+        h2{
+          font-size: 35px;
+          margin-top: 30px;
+        }
+        h3{
+          font-family: courier;
+        }
+        .current, .average, .graph{
+          float: left;
+          width: 30%;
+          img{
+            max-height: 80px;
+          }
+        }
+      }
+    }
+  }
+}
+
+img.more-link{
+  width: 15px;
+  position: absolute;
+  top: 40%;
+  right: 10px;
 }

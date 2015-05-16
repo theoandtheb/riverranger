@@ -1,19 +1,267 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @observation.description %>
-</p>
+<div class="observation">
+  <section class="gallery">
+    <%= link_to(image_tag('img.jpg', alt: "Just a dummy"), "/") %>
+    <div class="photographer">
+      <cite>
+        May 4, 2014 by Kat Kavanagh
+      </cit>
+    </div>
+  </section>
+  <section class="tags">
+    <h1>Observations</h1>
+    <ul class="badges">
+      <li class="mammals">
+        <a href="#">
+          <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
+          <h3>16</h3>
+          <h2>Mammals</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="reptiles">
+        <a href="#">
+          <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
+          <h3>16</h3>
+          <h2>Reptiles</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="amphibians">
+        <a href="#">
+          <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
+          <h3>16</h3>
+          <h2>amphibians</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="fish">
+        <a href="#">
+          <%= image_tag('badge-icons/fish.png', alt: "fish") %>
+          <h3>1</h3>
+          <h2>Fish</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="plants">
+        <a href="#">
+          <%= image_tag('badge-icons/plants.png', alt: "plants") %>
+          <h3>1</h3>
+          <h2>plants</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="birds">
+        <a href="#">
+          <%= image_tag('badge-icons/birds.png', alt: "birds") %>
+          <h3>16</h3>
+          <h2>Birds</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="insects">
+        <a href="#">
+          <%= image_tag('badge-icons/insects.png', alt: "insects") %>
+          <h3>16</h3>
+          <h2>insects</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="species-at-risk warning">
+        <a href="#">
+          <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
+          <h3>16</h3>
+          <h2>species at risk</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="wildlife-death warning">
+        <a href="#">
+          <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
+          <h3>16</h3>
+          <h2>wildlife death</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="shoreline-alterations warning">
+        <a href="#">
+          <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
+          <h3>16</h3>
+          <h2>shoreline alterations</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="water-quality warning">
+        <a href="#">
+          <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
+          <h3>16</h3>
+          <h2>water quality</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="trash danger">
+        <a href="#">
+          <%= image_tag('badge-icons/trash.png', alt: "trash") %>
+          <h3>16</h3>
+          <h2>Trash</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="foam warning">
+        <a href="#">
+          <%= image_tag('badge-icons/foam.png', alt: "foam") %>
+          <h3>1</h3>
+          <h2>Foam</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="red-blooms danger">
+        <a href="#">
+          <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
+          <h3>1</h3>
+          <h2>Red Blooms</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="phragmites danger">
+        <a href="#">
+          <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
+          <h3>1</h3>
+          <h2>phragmites</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="loosestrife danger">
+        <a href="#">
+          <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
+          <h3>1</h3>
+          <h2>loosestrife</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="dog-strangling-vine danger">
+        <a href="#">
+          <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
+          <h3>1</h3>
+          <h2>dog-strangling vine</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="introduced-honeysuckle danger">
+        <a href="#">
+          <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
+          <h3>1</h3>
+          <h2>introduced honeysuckle</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="zebra-mussels danger">
+        <a href="#">
+          <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
+          <h3>1</h3>
+          <h2>zebra mussels</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+      <li class="giant-hogweed danger">
+        <a href="#">
+          <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
+          <h3>1</h3>
+          <h2>giant hogweed</h2>
+          <cite>May 4, 2014</cite>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <ul class="comments">
+    <li>
+      <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
+      <p><%= @observation.comment %></p>
+    </li>
+    <li>
+      <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
+      <p><%= @observation.comment %></p>
+    </li>
+    <li>
+      <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
+      <p><%= @observation.comment %></p>
+    </li>
+  </ul>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @observation.comment %>
-</p>
+  <section class="science">
+    <ul>
+      <li class="temperature">
+        <a href="#">
+          <h3>Temperature &#8451;</h3>
+          <div class="current">
+            <h1>16</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>12</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+      <li class="phosphates good">
+        <a href="#">
+          <h3>Phosphates mg/L</h3>
+          <div class="current">
+            <h1>&#62;0.5</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>0</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+      <li class="ecoli warning">
+        <a href="#">
+          <h3>E-coli Fecal coliforms/100mL</h3>
+          <div class="current">
+            <h1>125</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>150</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-<p>
-  <strong>Coordinates:</strong>
-  <%= @observation.coordinates %>
-</p>
 
-<%= link_to 'Edit', edit_observation_path(@observation) %> |
-<%= link_to 'Back', observations_path %>
+
+<p><%= @observation.description %></p>
+  <p>
+    <strong>Comment:</strong>
+    <%= @observation.comment %>
+  </p>
+
+  <p>
+    <strong>Coordinates:</strong>
+    <%= @observation.coordinates %>
+  </p>
+
+  <%= link_to 'Edit', edit_observation_path(@observation) %> |
+  <%= link_to 'Back', observations_path %>
+
+</div>
