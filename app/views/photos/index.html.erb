@@ -21,7 +21,7 @@
         <td><%= photo.image_content_type %></td>
         <td><%= photo.image_file_size %></td>
         <td><%= photo.image_updated_at %></td>
-        <td><%= photo.observation %></td>
+        <td><%= Observation.find(photo.observation).description %></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
