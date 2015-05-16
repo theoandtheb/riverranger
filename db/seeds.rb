@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 observation = Observation.create([{
     description: "First Observation",
-    coordinates: [51.5033630,-0.1276250],
+    coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(51.5033630, -0.1276250),
     comment: "Well, this is our first observation"
   }])
 

@@ -11,8 +11,12 @@
 </p>
 
 <p>
-  <strong>Coordinates:</strong>
-  <%= @observation.coordinates %>
+  <strong>Latitude:</strong>
+  <%= @observation.coordinates.x %>
+</p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @observation.coordinates.y %>
 </p>
 
 <%= link_to 'Edit', edit_observation_path(@observation) %> |
