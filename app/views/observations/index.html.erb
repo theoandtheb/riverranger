@@ -54,7 +54,7 @@ e.marker.openPopup();
   var places = [
     <% @observations.each do |observation| %>
       [ 
-        <%= observation.coordinates.join(", ") %>,
+        <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
         '<%= observation.description %>',
         '<%= link_to "View observation", observation %>'
       ],

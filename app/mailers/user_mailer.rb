@@ -14,14 +14,22 @@ class UserMailer < ApplicationMailer
 
   def activation_needed_email(user)
   @user = user
-  @url  = "http://0.0.0.0:3000/users/#{user.activation_token}/activate"
+  if Rails.env.production?
+    @url  = "http://45.79.134.31/users/#{user.activation_token}/activate"
+  else
+    @url  = "http://0.0.0.0:3000/users/#{user.activation_token}/activate"
+  end
   mail(:to => user.email,
        :subject => "Welcome to My Awesome Site")
   end
 
   def activation_success_email(user)
   @user = user
-  @url  = "http://0.0.0.0:3000/login"
+  if Rails.env.production?
+    @url  = "http://45.79.134.31/login"
+  else
+    @url  = "http://0.0.0.0:3000/login"
+  end
   mail(:to => user.email,
        :subject => "Your account is now activated")
   end
