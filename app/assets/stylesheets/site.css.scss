@@ -61,6 +61,22 @@ input, textarea {
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
   padding: 1em;
   width: 100%;
+  &[type="checkbox"], 
+  &[type="radio"] {
+    display: inline-block;
+    padding: 0;
+    width: auto;
+    + label + a {
+      color: $secondary-color;
+      font-weight: 600;
+      &:after {
+        content: "";
+        display: block;
+        margin-bottom: 0.5em;
+        width: 100%;
+      }
+    }
+  }
 }
 textarea {
   min-height: 200px;

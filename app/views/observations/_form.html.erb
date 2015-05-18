@@ -27,7 +27,10 @@
     <script>
       var map = L.map('location_map', {
         zoomControl: false,
-        zoom: 16
+        zoom: 16,
+        dragging: false,
+        touchZoom: false,
+        scrollWheelZoom: false
       });
       <% if params["currentlat"].blank? || params["currentlng"].blank? %>
         map.setView([currentLat, currentLng], 16);
