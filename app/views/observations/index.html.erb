@@ -5,6 +5,8 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <% end %>
 
+<div id="search-bar"></div>
+
 <div id="map"></div>
 
 <%= render "app_intro" unless current_user %>
@@ -36,6 +38,18 @@
     L.marker(e.latlng).bindPopup("This is me!").addTo(map);
     map.spin(false);
   }
+  // Lets add a map search
+  map.addControl(new L.Control.Search({
+    url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+    jsonpParam: 'json_callback',
+    propertyName: 'display_name',
+    propertyLoc: ['lat','lon'],
+    markerLocation: true,
+    collapsed: false,
+    wrapper: 'search-bar'
+  }).on('search_locationfound', function(e) {
+e.marker.openPopup();
+}));
   // Load some dummy data for multiple markers
   var places = [
     <% @observations.each do |observation| %>
