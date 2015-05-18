@@ -64,12 +64,29 @@
       '</div>'
     ).openPopup();
   }));
+  // Add ability to click on a location and add an observation
+  function onMapClick(e) {
+    L.popup()
+      .setLatLng(e.latlng)
+      .setContent(
+        '<div class="map-popup">' +
+        '<h2>Clicked location</h2>' + 
+        //'You clicked the map at ' + e.latlng.toString() +
+        '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+        '</div>'
+      )
+      .openOn(map);
+  }
+  map.on('click', onMapClick);
   // Load some dummy data for multiple markers
   var places = [
     <% @observations.each do |observation| %>
       [   
-        <%#= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>
-        <%= observation.coordinates.join(", ") %>,
+        <% if observation.coordinates.respond_to? :x %>
+          <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
+        <% else %>
+          <%= observation.coordinates.join(", ") %>,
+        <% end %>
         '<%= observation.description %>',
         '<%= link_to "View observation", observation %>'
       ],
