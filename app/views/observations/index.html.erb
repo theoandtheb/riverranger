@@ -35,7 +35,13 @@
   // Once the location is found add a marker and hide the pre-loader
   map.on('locationfound', onLocationFound);
   function onLocationFound(e) {
-    L.marker(e.latlng).bindPopup("This is me!").addTo(map);
+    L.marker(e.latlng).bindPopup(
+      '<div class="map-popup">' +
+      '<h2>Your current location</h2>' + 
+      '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+      //'<%= link_to("Add observation", new_observation_path(:currentlat => "' + e.latlng.lat + '", :currentlng => "' + e.latlng.lng + '"), class: "button mini") %>' +
+      '</div>'
+    ).addTo(map).openPopup();
     map.spin(false);
   }
   // Lets add a map search
@@ -48,13 +54,22 @@
     collapsed: false,
     wrapper: 'search-bar'
   }).on('search_locationfound', function(e) {
-e.marker.openPopup();
-}));
+    console.log('Search Location is found');
+    marker = this._markerLoc;
+    marker.bindPopup(
+      '<div class="map-popup">' +
+      '<h2>Searched location</h2>' + 
+      '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+      //'<%= link_to("Add observation", new_observation_path(:currentlat => "' + e.latlng.lat + '", :currentlng => "' + e.latlng.lng + '"), class: "button mini") %>' +
+      '</div>'
+    ).openPopup();
+  }));
   // Load some dummy data for multiple markers
   var places = [
     <% @observations.each do |observation| %>
-      [ 
-        <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
+      [   
+        <%#= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>
+        <%= observation.coordinates.join(", ") %>,
         '<%= observation.description %>',
         '<%= link_to "View observation", observation %>'
       ],
@@ -64,7 +79,7 @@ e.marker.openPopup();
   for (var i = 0; i < places.length; i++) {
     marker = new L.marker([places[i][0],places[i][1]])
       .bindPopup(
-        '<div class="map_popup">' + places[i][2] + '<p>' + places[i][3] + '</p></div>'
+        '<div class="map-popup">' + places[i][2] + '<p>' + places[i][3] + '</p></div>'
       ).addTo(map);
   }
 </script>

@@ -15,10 +15,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :coordinates, "Location" %><br>
-    <%= f.text_field :coordinates, class: "current_location" %>
-    <%#= link_to("Change", "#") %>
+  <div class="field location-input">
+    <% if params["currentlat"].blank? || params["currentlng"].blank? %>
+      <%= f.label :coordinates, "Your current location" %>
+      <%= f.text_field :coordinates, class: "set_current_location" %>
+    <% else %>
+      <%= f.label :coordinates, "Found location" %>
+      <%= f.text_field :coordinates, value: "#{params["currentlat"]},#{params["currentlng"]}" %>
+    <% end %>
+    <div id="location_map"></div>
+    <script>
+      var map = L.map('location_map', {
+        zoomControl: false,
+        zoom: 16
+      });
+      <% if params["currentlat"].blank? || params["currentlng"].blank? %>
+        map.setView([currentLat, currentLng], 16);
+        var marker = L.marker([currentLat, currentLng]).addTo(map);
+      <% else %>
+        map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
+        var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>]).addTo(map);
+      <% end %>
+      // Add the tile layers
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: ''
+      }).addTo(map);
+    </script>
+    <%= link_to("Change", root_path) %>
   </div>
 
 

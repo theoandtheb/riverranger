@@ -32,6 +32,8 @@ $(function() {
     }, 3000);
   }
 
+  $('.location-input input').hide();
+
   // On an observation page get the users current location
   if('geolocation' in navigator){
     var options = {  
@@ -42,10 +44,10 @@ $(function() {
     navigator.geolocation.getCurrentPosition(success, error, options); 
     function success(pos){
       console.log('I got your location')
-      lat = pos.coords.latitude;
-      lng = pos.coords.longitude;
+      currentLat = pos.coords.latitude;
+      currentLng = pos.coords.longitude;
        // Now set the value of the current location to the users lat/long
-       $('.current_location').val(lat + ',' +lng)
+       $('.set_current_location').val(currentLat + ',' +currentLng)
     }
     function error(err){
        console.log('Error: ' + err + ' :('); // alert the error message
