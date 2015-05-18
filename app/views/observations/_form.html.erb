@@ -1,11 +1,12 @@
+<% content_for :maps do %>
    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<% end %>
 
 <%= form_for(@observation) do |f| %>
   <% if @observation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
-
       <ul>
       <% @observation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,37 +16,20 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :coordinates, "Location" %><br>
+    <%= f.text_field :coordinates, class: "current_location" %>
+    <%#= link_to("Change", "#") %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+
   <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_area :comment %>
   </div>
-
-  <div class="field">
-    <%= f.label :coordinates %><br>
-    <%= f.text_field :coordinates %>
-  </div>
-  <div id="map"></div>
-<script>
-
-  ex = <%= :coordinates_x %>
-  why = <%= :coordinates_y %>
-  // Set up some default options
-  var options = {
-    zoom: 3
-  }
-  // Set the map
-  var L.map('map').setView([ex, why], 3);
-  // Add the tile layers
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-L.marker([ex, why]).addTo(map)
-    .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
-    .openPopup();
-</script>
 
   <div class="actions">
     <%= f.submit "Submit observation", class: "button" %>

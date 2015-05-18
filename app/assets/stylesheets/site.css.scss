@@ -161,8 +161,11 @@ body#riverranger-app {
   background-color: lighten($beige, 20%);
   height: 100%;
   padding-top: 84px;
-  &.map-index {
-    padding: 64px 0 49px;
+  &.observations-index {
+    padding: 64px 0;
+  }
+  &.observations-show {
+    padding: 64px 0 0;
   }
 }
 
@@ -194,7 +197,7 @@ body#riverranger-app {
   border-top: darken($primary-color, 10%);
   bottom: 0;
   left: 0;
-  height: 65px;
+  height: 64px;
   position: fixed;
   right: 0;
   ul {
@@ -229,7 +232,7 @@ body#riverranger-app {
           padding-top: 42px;
           color: $white;
           opacity: 0.6;
-          &.selected{
+          &.active{
             opacity: 1;
           }
         }
@@ -291,8 +294,6 @@ body#riverranger-app {
 .observation{
   background: #e5e3d2;
   background-image: image-url("main-texture.png");
-  max-width: 600px;
-  float: right;
   .gallery{
     img{
       width: 100%;
