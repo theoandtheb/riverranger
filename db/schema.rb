@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513072150) do
+ActiveRecord::Schema.define(version: 20150518170730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(version: 20150513072150) do
     t.geometry "coordinates", limit: {:srid=>4326, :type=>"point"}
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.integer  "user_id"
   end
+
+  add_index "observations", ["user_id"], name: "index_observations_on_user_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_file_name"
@@ -105,6 +108,7 @@ ActiveRecord::Schema.define(version: 20150513072150) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
   add_foreign_key "documents", "observations"
+  add_foreign_key "observations", "users"
   add_foreign_key "photos", "observations"
   add_foreign_key "studies", "observations"
 end

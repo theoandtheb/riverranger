@@ -1,4 +1,6 @@
 class Observation < ActiveRecord::Base
+	belongs_to :user
+
   def coordinates_x
     self.coordinates.x
   end
