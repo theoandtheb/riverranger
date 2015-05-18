@@ -156,12 +156,22 @@
 
   <div class="field">
     <%= f.label "", "Phosphates total (mg/L)" %><br>
+    <!--two options for this one, >0.2 or input value-->
+    <%= radio_button_tag(:phosphates_threshold, "less than 0.2") %>
+    <%= label_tag(:phosphates_threshold, "less than 0.2") %>
+
+    <%= radio_button_tag(:phosphates_other, "other") %>
     <%= text_field_tag "dummy", nil %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
     <%= f.label "", "Water clarity (Secchi depth in metres)" %><br>
+    <!--two options for this one, bottom visible or input value-->
+    <%= radio_button_tag(:secchi_bottom_visible, "bottom visible") %>
+    <%= label_tag(:secchi_bottom_visible, "bottom visible") %>
+
+    <%= radio_button_tag(:secchi_value, "other") %>
     <%= text_field_tag "dummy", nil %>
     <a href="#" class="info">?</a>
   </div>
@@ -172,8 +182,24 @@
     <a href="#" class="info">?</a>
   </div>
 
+    <div class="field">
+    <%= f.label "", "Nitries (mg/L)" %><br>
+    <!--two options for this one, less than 0.5 or input value-->
+    <%= radio_button_tag(:nitrites_threshold, "Less than 0.5") %>
+    <%= label_tag(:nitrites_threshold, "Less than 0.5") %>
+
+    <%= radio_button_tag(:nitrites_other, "other") %>
+    <%= text_field_tag "dummy", nil %>
+    <a href="#" class="info">?</a>
+  </div>
+
   <div class="field">
     <%= f.label "", "Nitrates (mg/L)" %><br>
+    <!--two options for this one, less than 0.5 or input value-->
+    <%= radio_button_tag(:nitrates_threshold, "Less than 0.5") %>
+    <%= label_tag(:nitrates_threshold, "Less than 0.5") %>
+
+    <%= radio_button_tag(:nitrates_other, "other") %>
     <%= text_field_tag "dummy", nil %>
     <a href="#" class="info">?</a>
   </div>
@@ -227,4 +253,5 @@
   <div class="actions">
     <%= f.submit "Submit observation", class: "button" %>
   </div>
+  <br /><br />
 <% end %>

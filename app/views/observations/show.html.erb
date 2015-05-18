@@ -11,7 +11,7 @@
     <h1>Observations</h1>
     <ul class="badges">
       <li class="mammals">
-        <a href="#">
+        <a href="#"><!--links to details page-->
           <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
           <h3>16</h3>
           <h2>Mammals</h2>
@@ -189,9 +189,27 @@
 
   <section class="science">
     <ul>
+      <li class="ph">
+        <a href="#"> <!--links to details page-->
+          <h3>pH</h3>
+          <div class="current">
+            <h1>6.2</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>5.5</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
       <li class="temperature">
         <a href="#">
-          <h3>Temperature &#8451;</h3>
+          <h3>Water Temperature &#8451;</h3>
           <div class="current">
             <h1>16</h1>
             <cite>4.12.2015</cite>
@@ -225,6 +243,83 @@
           <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
         </a>
       </li>
+      <li class="secchi good">
+        <a href="#">
+          <h3>Water clarity (m)</h3>
+          <div class="current">
+            <h1>3.5</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>10</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+
+      <li class="dissolved-oxygen warning">
+        <a href="#">
+          <h3>Dissolved oxygen (mg/L)</h3>
+          <div class="current">
+            <h1>3.5</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>10</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+
+      <li class="nitrites warning">
+        <a href="#">
+          <h3>nitrites (mg/L)</h3>
+          <div class="current">
+            <h1>0.6</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>0.4</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+
+      <li class="nitrates warning">
+        <a href="#">
+          <h3>nitrates (mg/L)</h3>
+          <div class="current">
+            <h1>0.6</h1>
+            <cite>4.12.2015</cite>
+          </div>
+          <div class="average">
+            <h2>0.4</h2>
+            <cite>average</cite>
+          </div>
+          <div class="graph">
+            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+            <cite>&#126; 2.2 years</cite>
+          </div>
+          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+        </a>
+      </li>
+
+
       <li class="ecoli warning">
         <a href="#">
           <h3>E-coli Fecal coliforms/100mL</h3>
@@ -242,6 +337,20 @@
           </div>
           <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
         </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="research">
+    <h2>Research</h2>
+
+    <ul>
+      <li>
+          <a href="#"> <!--links to details page-->
+            <h3>Report title</h3>
+            <cite>May 4 by Kat Kavanagh</cite>
+          </a>
+
       </li>
     </ul>
   </section>

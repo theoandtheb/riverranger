@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20150518170730) do
   create_table "observations", force: :cascade do |t|
     t.string   "description"
     t.text     "comment"
-    t.geometry "coordinates", limit: {:srid=>4326, :type=>"point"}
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.point    "coordinates"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
 
