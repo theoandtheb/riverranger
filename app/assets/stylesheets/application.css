@@ -13,6 +13,7 @@
  *= require_self
  *= require "normalize"
  *= require "magnific"
+ *= require "leaflet-search.min"
  *= require "site"
  *= depend_on "_common"
  */

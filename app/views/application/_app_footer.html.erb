@@ -2,11 +2,11 @@
   
   <nav>
     <ul>
-      <li class="add"><%= active_link_to("Add", new_observation_path) %></li>
-      <li class="map"><%= active_link_to("Map", root_path) %></li>
+      <li class="add"><%= active_link_to("Add", new_observation_path, :active => :exact) %></li>
+      <li class="map"><%= active_link_to("Map", root_path, :active => :exact) %></li>
       <li class="logo"><%= link_to(image_tag('home-logo.png', alt: "River Ranger"), "/") %></li>
-      <li class="news"><%= active_link_to("News", news_path) %></li>
-      <li class="more"><%= active_link_to("More", more_path) %></li>
+      <li class="news"><%= active_link_to("News", news_path, :active => :exact) %></li>
+      <li class="more"><%= active_link_to("More", more_path, :active => :exact) %></li>
     </ul>
   </nav>
 
