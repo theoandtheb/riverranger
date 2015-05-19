@@ -30,6 +30,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'unicorn'
 
+gem 'twitter'
+gem 'twitter-text'
+gem 'dalli'
+
 gem 'active_link_to'
 
 # Use Capistrano for deployment
