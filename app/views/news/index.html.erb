@@ -1,3 +1,17 @@
 <% provide(:title, "News") %>
 
-<p>News content goes in here</p>
+<section id="tweets" class="content">
+  
+  <ul>
+    <% @tweets.each do |tweet| %>
+      <li>
+        <% if tweet.media? %>
+          <%= image_tag("#{tweet.media[0].media_url}:thumb") %>
+        <% end %>
+        <p><%= twitter_text(tweet.text) %></p>
+        <em><%= l tweet.created_at %></em>         
+      <li>
+    <% end %>
+  </ul>
+
+</section>
