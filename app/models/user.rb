@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
   has_many :observations
+  has_many :photos, through :observations
   
   validates :password, length: { minimum: 1 }
   validates :password, confirmation: true

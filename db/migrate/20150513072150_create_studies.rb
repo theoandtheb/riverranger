@@ -4,11 +4,12 @@ class CreateStudies < ActiveRecord::Migration
       t.text :title
       t.text :author
       t.text :abstract
+      t.datetime :published
       t.string :url
       t.references :observation, index: true
 
       t.timestamps null: false
     end
-    add_foreign_key :studies, :observations
+    add_foreign_key :studies, :observations, dependent: :delete
   end
 end

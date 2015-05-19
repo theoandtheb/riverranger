@@ -9,6 +9,6 @@ class CreatePhotos < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :photos, :observations
+    add_foreign_key :photos, :observations, dependent: :delete
   end
 end

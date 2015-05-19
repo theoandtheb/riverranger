@@ -9,6 +9,6 @@ class CreateDocuments < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :documents, :observations
+    add_foreign_key :documents, :observations, dependent: :delete
   end
 end

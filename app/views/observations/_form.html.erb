@@ -49,13 +49,13 @@
 
 
   <div class="field">
-    <%= f.label :description, "Location nickname" %><br>
-    <%= f.text_field :description %>
+    <%= f.label :loc_nic, "Location nickname" %><br>
+    <%= f.text_field :loc_nic %>
   </div>
 
   <div class="field">
-    <%= f.label "", "Date observed" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= f.label :observe_on, "Date observed" %><br>
+    <%= datetime_local_field :observe_on, Time.now %>
   </div>
 
   <div class="actions">
@@ -64,97 +64,96 @@
 
   <div class="field">
     <h2>Wildlife</h2>
-    <%= check_box_tag(:mammal) %>
-    <%= label_tag(:mammal, "Mammal") %>
+    <%= f.fields_for :bools do |bools_form| %>
+    <%= bools_form.check_box :mammal %>
+    <%= bools_form.label :mammal, "Mammal" %>
+    
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:reptile) %>
-    <%= label_tag(:reptile, "reptile") %>
+    <%= bools_form.check_box :reptile %>
+    <%= bools_form.label :reptile, "Reptile" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:amphibian) %>
-    <%= label_tag(:amphibian, "amphibian") %>
+    <%= bools_form.check_box :amphibian %>
+    <%= bools_form.label :amphibian, "Amphibian" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:fish) %>
-    <%= label_tag(:fish, "fish") %>
+    <%= bools_form.check_box :fish %>
+    <%= bools_form.label :fish, "Fish" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:plant) %>
-    <%= label_tag(:plant, "plant") %>
+    <%= bools_form.check_box :plant %>
+    <%= bools_form.label :plant, "Plant" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:insect) %>
-    <%= label_tag(:insect, "insect") %>
+    <%= bools_form.check_box :insect %>
+    <%= bools_form.label :insect, "Insect" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:bird) %>
-    <%= label_tag(:bird, "bird") %>
+    <%= bools_form.check_box :bird %>
+    <%= bools_form.label :bird, "Bird" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:species_at_risk) %>
-    <%= label_tag(:species_at_risk, "species at risk") %>
+    <%= bools_form.check_box :species_at_risk %>
+    <%= bools_form.label :species_at_risk, "Species at Risk" %>
     <a href="#" class="info">?</a>
 
     <h2>Changes in conditions</h2>
 
-    <%= check_box_tag(:wildlife_death) %>
-    <%= label_tag(:wildlife_death, "wildlife death") %>
+    <%= bools_form.check_box :wildlife_death %>
+    <%= bools_form.label :wildlife_death, "Wildlife Death" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:shoreline_alterations) %>
-    <%= label_tag(:shoreline_alterations, "shoreline alterations") %>
+    <%= bools_form.check_box :shoreline_alterations %>
+    <%= bools_form.label :shoreline_alterations, "Shoreline Alterations" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:water_quality) %>
-    <%= label_tag(:water_quality, "water quality") %>
+    <%= bools_form.check_box :water_quality %>
+    <%= bools_form.label :water_quality, "Water Quality" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:trash) %>
-    <%= label_tag(:trash, "trash") %>
+    <%= bools_form.check_box :trash %>
+    <%= bools_form.label :trash, "Trash" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:foam) %>
-    <%= label_tag(:foam, "foam") %>
+    <%= bools_form.check_box :foam %>
+    <%= bools_form.label :foam, "Foam" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:red_blooms) %>
-    <%= label_tag(:red_blooms, "red blooms") %>
+    <%= bools_form.check_box :red_blooms %>
+    <%= bools_form.label :red_blooms, "Red Blooms" %>
     <a href="#" class="info">?</a>
 
     <h2>Invasive species</h2>
 
-    <%= check_box_tag(:phragmites) %>
-    <%= label_tag(:phragmites, "phragmites") %>
+    <%= bools_form.check_box :phragmites %>
+    <%= bools_form.label :phragmites, "Phragmites" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:loosestrife) %>
-    <%= label_tag(:loosestrife, "loosestrife") %>
+    <%= bools_form.check_box :loosestrife %>
+    <%= bools_form.label :loosestrife, "Loosestrife" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:dog_strangling_vine) %>
-    <%= label_tag(:dog_strangling_vine, "Dog-Strangling Vine") %>
+    <%= bools_form.check_box :dog_strangling_vine %>
+    <%= bools_form.label :dog_strangling_vine, "Dog-Strangling Vine" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:introduced_honeysuckle) %>
-    <%= label_tag(:introduced_honeysuckle, "Introduced Honeysuckle") %>
+    <%= bools_form.check_box :introduced_honeysuckle %>
+    <%= bools_form.label :introduced_honeysuckle, "Introduced Honeysuckle" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:zebra_mussels) %>
-    <%= label_tag(:zebra_mussels, "zebra mussels") %>
+    <%= bools_form.check_box :zebra_mussels %>
+    <%= bools_form.label :zebra_mussels, "Zebra Mussels" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:giant_hogweed) %>
-    <%= label_tag(:giant_hogweed, "Giant Hogweed") %>
+    <%= bools_form.check_box :giant_hogweed %>
+    <%= bools_form.label :giant_hogweed, "Giant Hogweed" %>
     <a href="#" class="info">?</a>
 
-    <%= check_box_tag(:introduced_honeysuckle) %>
-    <%= label_tag(:introduced_honeysuckle, "Introduced Honeysuckle") %>
+    <%= bools_form.check_box :other_invasive %>
+    <%= bools_form.label :other_invasive, "Other Invasive" %>
     <a href="#" class="info">?</a>
-
-    <%= check_box_tag(:other_invasive) %>
-    <%= label_tag(:other_invasive, "Other Invasive") %>
-    <a href="#" class="info">?</a>
+    <% end %>
   </div>
 
 
@@ -169,73 +168,78 @@
   </div>
 
   <div class="field">
-    <%= f.label "", "pH value (0-14)" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= f.fields_for :tests do |tests_form| %>
+    <%= tests_form.label :ph, "pH value (0-14)" %><br>
+    <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1' %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "Water Temperature  &#8451;" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= tests_form.label :temperature, "Water Temperature  &#8451;" %><br>
+    <%= tests_form.number_field :temperature, in: 0.0..100.0, :step => '.1' %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "Phosphates total (mg/L)" %><br>
+    <%= tests_form.label :phosphate, "Phosphates total (mg/L)" %><br>
     <!--two options for this one, >0.2 or input value-->
+    <!-- I think we can find a better solution than this -->
     <%= radio_button_tag(:phosphates_threshold, "less than 0.2") %>
     <%= label_tag(:phosphates_threshold, "less than 0.2") %>
 
     <%= radio_button_tag(:phosphates_other, "other") %>
-    <%= text_field_tag "dummy", nil %>
+    <%= label_tag(:phosphates_other, "less than 0.2") %>
+    <%= tests_form.number_field :phosphate, in: 0.0..1000000.0, :step => '.01' %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "Water clarity (Secchi depth in metres)" %><br>
+    <%= tests_form.label :clarity, "Water clarity (Secchi depth in metres)" %><br>
     <!--two options for this one, bottom visible or input value-->
     <%= radio_button_tag(:secchi_bottom_visible, "bottom visible") %>
     <%= label_tag(:secchi_bottom_visible, "bottom visible") %>
 
     <%= radio_button_tag(:secchi_value, "other") %>
-    <%= text_field_tag "dummy", nil %>
+    <%= tests_form.number_field :clarity, in: 0.0..1000000.0, :step => '.1' %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "Dissolved oxygen" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= tests_form.label :oxygen, "Dissolved oxygen" %><br>
+    <%= tests_form.number_field :oxygen, in: 0.0..1000000.0, :step => '.01' %>
     <a href="#" class="info">?</a>
   </div>
 
     <div class="field">
-    <%= f.label "", "Nitries (mg/L)" %><br>
+    <%= tests_form.label :nitri, "Nitries (mg/L)" %><br>
     <!--two options for this one, less than 0.5 or input value-->
+    <!-- I think we can find a better solution for this -->
     <%= radio_button_tag(:nitrites_threshold, "Less than 0.5") %>
     <%= label_tag(:nitrites_threshold, "Less than 0.5") %>
 
     <%= radio_button_tag(:nitrites_other, "other") %>
-    <%= text_field_tag "dummy", nil %>
+    <%= tests_form.number_field :nitri, in: 0.0..1000000.0, :step => '.01' %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "Nitrates (mg/L)" %><br>
+    <%= tests_form.label :nitrate, "Nitrates (mg/L)" %><br>
     <!--two options for this one, less than 0.5 or input value-->
+    <!-- I think we can find a better solution for this -->
     <%= radio_button_tag(:nitrates_threshold, "Less than 0.5") %>
     <%= label_tag(:nitrates_threshold, "Less than 0.5") %>
 
     <%= radio_button_tag(:nitrates_other, "other") %>
-    <%= text_field_tag "dummy", nil %>
+    <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01' %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "Ecoli Fecal coliforms/100mL" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= tests_form.label :ecoli, "Ecoli Fecal coliforms/100mL" %><br>
+    <%= tests_form.number_field :ecoli, in: 0.0..1000000.0, :step => '1' %>
     <a href="#" class="info">?</a>
   </div>
-
+  <% end %>
 
   <div class="field">
     <%= f.label "", "Something you tested missing?" %><br>

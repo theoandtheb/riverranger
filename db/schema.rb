@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518170730) do
+ActiveRecord::Schema.define(version: 20150519024807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,35 @@ ActiveRecord::Schema.define(version: 20150518170730) do
   end
 
   add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
+
+  create_table "bools", force: :cascade do |t|
+    t.boolean  "mammal"
+    t.boolean  "reptile"
+    t.boolean  "amphibian"
+    t.boolean  "fish"
+    t.boolean  "plant"
+    t.boolean  "insect"
+    t.boolean  "bird"
+    t.boolean  "species_at_risk"
+    t.boolean  "wildlife_death"
+    t.boolean  "shoreline_alterations"
+    t.boolean  "water_quality"
+    t.boolean  "trash"
+    t.boolean  "foam"
+    t.boolean  "red_blooms"
+    t.boolean  "phragmites"
+    t.boolean  "loosestrife"
+    t.boolean  "dog_strangling_vine"
+    t.boolean  "introduced_honeysuckle"
+    t.boolean  "zebra_mussels"
+    t.boolean  "giant_hogweed"
+    t.boolean  "other_invasive"
+    t.integer  "observation_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "bools", ["observation_id"], name: "index_bools_on_observation_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "document_file_name"
@@ -43,9 +72,11 @@ ActiveRecord::Schema.define(version: 20150518170730) do
     t.string   "description"
     t.text     "comment"
     t.geometry "coordinates", limit: {:srid=>4326, :type=>"point"}
+    t.integer  "user_id"
+    t.string   "loc_nic"
+    t.datetime "observe_on"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.integer  "user_id"
   end
 
   add_index "observations", ["user_id"], name: "index_observations_on_user_id", using: :btree
@@ -66,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150518170730) do
     t.text     "title"
     t.text     "author"
     t.text     "abstract"
+    t.datetime "published"
     t.string   "url"
     t.integer  "observation_id"
     t.datetime "created_at",     null: false
@@ -73,6 +105,22 @@ ActiveRecord::Schema.define(version: 20150518170730) do
   end
 
   add_index "studies", ["observation_id"], name: "index_studies_on_observation_id", using: :btree
+
+  create_table "tests", force: :cascade do |t|
+    t.integer  "ph"
+    t.integer  "temperature"
+    t.integer  "phosphate"
+    t.integer  "clarity"
+    t.integer  "oxygen"
+    t.integer  "nitri"
+    t.integer  "nitrate"
+    t.integer  "ecoli"
+    t.integer  "observation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "tests", ["observation_id"], name: "index_tests_on_observation_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -107,8 +155,10 @@ ActiveRecord::Schema.define(version: 20150518170730) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
+  add_foreign_key "bools", "observations"
   add_foreign_key "documents", "observations"
   add_foreign_key "observations", "users"
   add_foreign_key "photos", "observations"
   add_foreign_key "studies", "observations"
+  add_foreign_key "tests", "observations"
 end
