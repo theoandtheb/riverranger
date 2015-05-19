@@ -1,9 +1,11 @@
 <% provide(:title, "Map") %>
 
 <% content_for :maps do %>
-   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <% end %>
+
+<div id="search-bar"></div>
 
 <div id="map"></div>
 
@@ -33,13 +35,53 @@
   // Once the location is found add a marker and hide the pre-loader
   map.on('locationfound', onLocationFound);
   function onLocationFound(e) {
-    L.marker(e.latlng).bindPopup("This is me!").addTo(map);
+    L.marker(e.latlng).bindPopup(
+      '<div class="map-popup">' +
+      '<h2>Your current location</h2>' + 
+      '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+      //'<%= link_to("Add observation", new_observation_path(:currentlat => "' + e.latlng.lat + '", :currentlng => "' + e.latlng.lng + '"), class: "button mini") %>' +
+      '</div>'
+    ).addTo(map).openPopup();
     map.spin(false);
   }
+  // Lets add a map search
+  map.addControl(new L.Control.Search({
+    url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+    jsonpParam: 'json_callback',
+    propertyName: 'display_name',
+    propertyLoc: ['lat','lon'],
+    markerLocation: true,
+    collapsed: false,
+    wrapper: 'search-bar'
+  }).on('search_locationfound', function(e) {
+    console.log('Search Location is found');
+    marker = this._markerLoc;
+    marker.bindPopup(
+      '<div class="map-popup">' +
+      '<h2>Searched location</h2>' + 
+      '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+      //'<%= link_to("Add observation", new_observation_path(:currentlat => "' + e.latlng.lat + '", :currentlng => "' + e.latlng.lng + '"), class: "button mini") %>' +
+      '</div>'
+    ).openPopup();
+  }));
+  // Add ability to click on a location and add an observation
+  function onMapClick(e) {
+    L.popup()
+      .setLatLng(e.latlng)
+      .setContent(
+        '<div class="map-popup">' +
+        '<h2>Clicked location</h2>' + 
+        //'You clicked the map at ' + e.latlng.toString() +
+        '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+        '</div>'
+      )
+      .openOn(map);
+  }
+  map.on('click', onMapClick);
   // Load some dummy data for multiple markers
   var places = [
     <% @observations.each do |observation| %>
-      [ 
+      [   
         <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
         '<%= observation.description %>',
         '<%= link_to "View observation", observation %>'
@@ -50,7 +92,7 @@
   for (var i = 0; i < places.length; i++) {
     marker = new L.marker([places[i][0],places[i][1]])
       .bindPopup(
-        '<div class="map_popup">' + places[i][2] + '<p>' + places[i][3] + '</p></div>'
+        '<div class="map-popup">' + places[i][2] + '<p>' + places[i][3] + '</p></div>'
       ).addTo(map);
   }
 </script>

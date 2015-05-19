@@ -61,6 +61,22 @@ input, textarea {
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
   padding: 1em;
   width: 100%;
+  &[type="checkbox"], 
+  &[type="radio"] {
+    display: inline-block;
+    padding: 0;
+    width: auto;
+    + label + a {
+      color: $secondary-color;
+      font-weight: 600;
+      &:after {
+        content: "";
+        display: block;
+        margin-bottom: 0.5em;
+        width: 100%;
+      }
+    }
+  }
 }
 textarea {
   min-height: 200px;
@@ -96,6 +112,12 @@ form {
   padding: 0.6em 1.4em;
   &:hover {
     color: $beige;
+  }
+  &.mini {
+    color: #fff !important;
+    display: block;
+    font-size: 1.2em;
+    box-shadow: multiple-box-shadow(3, $brown);
   }
 }
 
@@ -162,7 +184,7 @@ body#riverranger-app {
   height: 100%;
   padding-top: 84px;
   &.observations-index {
-    padding: 64px 0;
+    padding: 108px 0 64px;
   }
   &.observations-show {
     padding: 64px 0 0;
@@ -290,7 +312,22 @@ body#riverranger-app {
   height: 100%;
   width: 100%;
 }
-
+#location_map {
+  height: 150px;
+  width: 100%;
+}
+#search-bar {
+  background-color: #fff;
+  background-color: rgba(255,255,255,1);
+  left: 0;
+  position: fixed !important;
+  top: 64px;
+  right: 0;
+  z-index: 1000;
+}
+.map-popup {
+  text-align: center;
+}
 .observation{
   background: #e5e3d2;
   background-image: image-url("main-texture.png");
