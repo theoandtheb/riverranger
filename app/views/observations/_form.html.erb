@@ -33,9 +33,22 @@
         scrollWheelZoom: false
       });
       <% if params["currentlat"].blank? || params["currentlng"].blank? %>
-        map.setView([currentLat, currentLng], 16);
-        var marker = L.marker([currentLat, currentLng]).addTo(map);
+        map.spin(true,{
+          lines: 9, 
+          length: 10,
+          color: '#0f2a47',
+          zIndex: 1000
+        });
+        map.locate({setView: true, maxZoom: 16});
+        map.on('locationfound', onLocationFound);
+        function onLocationFound(e) {
+          console.log('Setting via current locale')
+          L.marker(e.latlng).addTo(map);
+          $('.set_current_location').val(e.latlng.lat + ',' + e.latlng.lng);
+          map.spin(false);
+        }
       <% else %>
+        console.log('Setting via params')
         map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
         var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>]).addTo(map);
       <% end %>
