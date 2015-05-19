@@ -1,3 +1,4 @@
+<%= current_user.id %>
 <% content_for :maps do %>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -21,7 +22,7 @@
       <%= f.text_field :coordinates, class: "set_current_location" %>
     <% else %>
       <%= f.label :coordinates, "Found location" %>
-      <%= f.text_field :coordinates, value: "#{params["currentlat"]},#{params["currentlng"]}" %>
+      <%= f.text_field :coordinates, value: "RGeo::Geographic.spherical_factory(srid: 4326).point(#{params["currentlat"]}, #{params["currentlng"]})" %>
     <% end %>
     <div id="location_map"></div>
     <script>
@@ -47,7 +48,7 @@
     <%= link_to("Change", root_path) %>
   </div>
 
-
+  <%= hidden_field :user_id, current_user %>
   <div class="field">
     <%= f.label :loc_nic, "Location nickname" %><br>
     <%= f.text_field :loc_nic %>
@@ -252,34 +253,35 @@
   </div>
 
   <div class="field">
-    <%= f.label "", "report_title" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= f.fields_for :studies do |studies_form| %>
+    <%= studies_form.label :title, "Report Title" %><br>
+    <%= studies_form.text_area :title %>
   </div>
 
   <div class="field">
-    <%= f.label "", "date_published" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= studies_form.label :published, "Published On" %><br>
+    <%= datetime_local_field :published, Time.now %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "author" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= studies_form.label :author, "Credited Authors" %><br>
+    <%= studies_form.text_area :author %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "web_address" %><br>
-    <%= text_field_tag "dummy", nil %>
+    <%= studies_form.label :url, "Web Address" %><br>
+    <%= studies_form.url_field :url %>
     <a href="#" class="info">?</a>
   </div>
 
   <div class="field">
-    <%= f.label "", "synopsis" %><br>
-    <%= text_area_tag "dummy", nil %>
+    <%= studies_form.label :abstract, "Absract" %><br>
+    <%= studies_form.text_area :abstract %>
     <a href="#" class="info">?</a>
   </div>
-
+  <% end %>
   <div class="actions">
     <%= f.submit "Submit observation", class: "button" %>
   </div>
