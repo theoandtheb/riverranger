@@ -1,4 +1,3 @@
-<%= current_user.id %>
 <% content_for :maps do %>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -22,7 +21,7 @@
       <%= f.text_field :coordinates, class: "set_current_location" %>
     <% else %>
       <%= f.label :coordinates, "Found location" %>
-      <%= f.text_field :coordinates, value: "RGeo::Geographic.spherical_factory(srid: 4326).point(#{params["currentlat"]}, #{params["currentlng"]})" %>
+      <%= f.text_field :coordinates, value: "#{params["currentlat"]},#{params["currentlng"]}" %>
     <% end %>
     <div id="location_map"></div>
     <script>
@@ -34,22 +33,9 @@
         scrollWheelZoom: false
       });
       <% if params["currentlat"].blank? || params["currentlng"].blank? %>
-        map.spin(true,{
-          lines: 9, 
-          length: 10,
-          color: '#0f2a47',
-          zIndex: 1000
-        });
-        map.locate({setView: true, maxZoom: 16});
-        map.on('locationfound', onLocationFound);
-        function onLocationFound(e) {
-          console.log('Setting via current locale')
-          L.marker(e.latlng).addTo(map);
-          $('.set_current_location').val(e.latlng.lat + ',' + e.latlng.lng);
-          map.spin(false);
-        }
+        map.setView([currentLat, currentLng], 16);
+        var marker = L.marker([currentLat, currentLng]).addTo(map);
       <% else %>
-        console.log('Setting via params')
         map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
         var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>]).addTo(map);
       <% end %>
@@ -61,7 +47,7 @@
     <%= link_to("Change", root_path) %>
   </div>
 
-  <%= hidden_field :user_id, current_user %>
+
   <div class="field">
     <%= f.label :loc_nic, "Location nickname" %><br>
     <%= f.text_field :loc_nic %>

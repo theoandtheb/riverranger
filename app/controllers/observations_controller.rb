@@ -1,6 +1,7 @@
 class ObservationsController < ApplicationController
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
   skip_before_filter :require_login, only: [:index, :show]
+  before_filter :modify_coordinates_params, :only => [:create, :update]
 
   # GET /observations
   # GET /observations.json
@@ -70,6 +71,10 @@ class ObservationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_observation
       @observation = Observation.find(params[:id])
+    end
+
+    def modify_coordinates_params
+      #params['observation']['coordinates'] = RGeo::Geographic.spherical_factory(srid: 4326).point(params['observation']['coordinates'].to_s)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
