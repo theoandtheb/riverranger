@@ -486,6 +486,32 @@ body#riverranger-app {
   }
 }
 
+.research{
+  border-top: 5px dashed $primary-color;
+  border-bottom: 5px dashed $primary-color;
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+      text-align: left;
+      margin-bottom: 15px;
+      a{
+        display: block;
+        margin: 0 10px 0 20px;
+        background: image-url("more-blue.png") no-repeat 100% 50%;
+        background-size: 13px 24px;
+      }
+      h3{
+        text-align: left;
+      }
+      cite{
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
 img.more-link{
   width: 15px;
   position: absolute;
