@@ -6,7 +6,9 @@ $blue: #0f2a47;
 $orange: #c0591a;
 $beige: #ceccb3;
 $brown: #502a13;
-$white: #fff;
+$white: #fffff2;
+$good: #195d50;
+$warning: #9e5627;
 
 $primary-color: $blue;
 $secondary-color: $orange;
@@ -71,6 +73,18 @@ $secondary-color: $orange;
   background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient($deg, $startColor, $endColor); // Opera 11.10
   background-image: linear-gradient($deg, $startColor, $endColor); // The standard
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
 }
 
 // Extends -----------------------------------------------------------------

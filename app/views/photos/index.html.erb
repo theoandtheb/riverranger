@@ -1,35 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Photos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image file name</th>
-      <th>Image content type</th>
-      <th>Image file size</th>
-      <th>Image updated at</th>
-      <th>Observation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @photos.each do |photo| %>
-      <tr>
-        <td><%= photo.image_file_name %></td>
-        <td><%= photo.image_content_type %></td>
-        <td><%= photo.image_file_size %></td>
-        <td><%= photo.image_updated_at %></td>
-        <td><%= Observation.find(photo.observation).description %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<h1>Photos</h1>
 
 <%= link_to 'New Photo', new_photo_path %>
+<br>
+<br>
+<div>
+    <% @photos.each do |photo| %>
+      <div style="display:inline">
+        <div><%= Observation.find(photo.observation).description %></div> 
+        <div><%= link_to (image_tag photo.image.url(:thumb)), photo %></div>
+      </div>
+    <% end %>
+</div>

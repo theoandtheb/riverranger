@@ -26,11 +26,18 @@ class ObservationsController < ApplicationController
   # POST /observations.json
   def create
     @observation = Observation.new(observation_params)
+    @photo = Photo.new(photo_params)
 
     respond_to do |format|
       if @observation.save
-        format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
-        format.json { render :show, status: :created, location: @observation }
+        @photo.observation_id = @observation.id
+        if @photo.save
+          format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
+          format.json { render :show, status: :created, location: @observation }
+        else
+          format.html { render :new }
+          format.json { render json: @observation.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @observation.errors, status: :unprocessable_entity }
@@ -66,10 +73,16 @@ class ObservationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_observation
       @observation = Observation.find(params[:id])
+      @photo = Photo.find_by(observation_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
       params.require(:observation).permit(:description, :comment, :coordinates)
     end
+  
+    def photo_params
+      params.require(:observation).permit(:image)
+    end
+    
 end

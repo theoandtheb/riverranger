@@ -3,7 +3,7 @@ class CreateObservations < ActiveRecord::Migration
     create_table :observations do |t|
       t.string :description
       t.text :comment
-      t.point :coordinates, geographic: true
+      t.st_point :coordinates, srid: 4326
 
       t.timestamps null: false
     end

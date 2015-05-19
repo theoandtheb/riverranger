@@ -1,31 +1,98 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Map") %>
 
-<h1>Listing Observations</h1>
+<% content_for :maps do %>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Comment</th>
-      <th>Coordinates</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="search-bar"></div>
 
-  <tbody>
+<div id="map"></div>
+
+<%= render "app_intro" unless current_user %>
+
+<script>
+  // Set up some default options
+  var options = {
+    zoom: 13
+  }
+  // Set the map
+  var map = L.map('map', {
+    options
+  });
+  // Add the tile layers
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+  map.spin(true,{
+    lines: 9, 
+    length: 20,
+    color: '#0f2a47',
+    zIndex: 1000
+  });
+  // Use locate to add the users current position
+  map.locate({setView: true, maxZoom: 16});
+  // Once the location is found add a marker and hide the pre-loader
+  map.on('locationfound', onLocationFound);
+  function onLocationFound(e) {
+    L.marker(e.latlng).bindPopup(
+      '<div class="map-popup">' +
+      '<h2>Your current location</h2>' + 
+      '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+      //'<%= link_to("Add observation", new_observation_path(:currentlat => "' + e.latlng.lat + '", :currentlng => "' + e.latlng.lng + '"), class: "button mini") %>' +
+      '</div>'
+    ).addTo(map).openPopup();
+    map.spin(false);
+  }
+  // Lets add a map search
+  map.addControl(new L.Control.Search({
+    url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+    jsonpParam: 'json_callback',
+    propertyName: 'display_name',
+    propertyLoc: ['lat','lon'],
+    markerLocation: true,
+    collapsed: false,
+    wrapper: 'search-bar'
+  }).on('search_locationfound', function(e) {
+    console.log('Search Location is found');
+    marker = this._markerLoc;
+    marker.bindPopup(
+      '<div class="map-popup">' +
+      '<h2>Searched location</h2>' + 
+      '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+      //'<%= link_to("Add observation", new_observation_path(:currentlat => "' + e.latlng.lat + '", :currentlng => "' + e.latlng.lng + '"), class: "button mini") %>' +
+      '</div>'
+    ).openPopup();
+  }));
+  // Add ability to click on a location and add an observation
+  function onMapClick(e) {
+    L.popup()
+      .setLatLng(e.latlng)
+      .setContent(
+        '<div class="map-popup">' +
+        '<h2>Clicked location</h2>' + 
+        //'You clicked the map at ' + e.latlng.toString() +
+        '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+        '</div>'
+      )
+      .openOn(map);
+  }
+  map.on('click', onMapClick);
+  // Load some dummy data for multiple markers
+  var places = [
     <% @observations.each do |observation| %>
-      <tr>
-        <td><%= observation.description %></td>
-        <td><%= observation.comment %></td>
-        <td><%= observation.coordinates %></td>
-        <td><%= link_to 'Show', observation %></td>
-        <td><%= link_to 'Edit', edit_observation_path(observation) %></td>
-        <td><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      [   
+        <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
+        '<%= observation.description %>',
+        '<%= link_to "View observation", observation %>'
+      ],
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Observation', new_observation_path %>
+  ];
+  // Set our multiple markers
+  for (var i = 0; i < places.length; i++) {
+    marker = new L.marker([places[i][0],places[i][1]])
+      .bindPopup(
+        '<div class="map-popup">' + places[i][2] + '<p>' + places[i][3] + '</p></div>'
+      ).addTo(map);
+  }
+</script>

@@ -11,10 +11,12 @@
 // about supported directives.
 //
 //= require modernizr-latest
-//= require spin.min
-//= require leaflet.spin
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require leaflet.spin
+//= require leaflet-search.min
+//= require spin.min
 //= require magnific.min
 //= require turbolinks
 //= require site
