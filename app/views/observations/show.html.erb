@@ -10,166 +10,206 @@
   <section class="tags">
     <h1>Observations</h1>
     <ul class="badges">
-      <li class="mammals">
-        <a href="#"><!--links to details page-->
-          <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
-          <h3>16</h3>
-          <h2>Mammals</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="reptiles">
-        <a href="#">
-          <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
-          <h3>16</h3>
-          <h2>Reptiles</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="amphibians">
-        <a href="#">
-          <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
-          <h3>16</h3>
-          <h2>amphibians</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="fish">
-        <a href="#">
-          <%= image_tag('badge-icons/fish.png', alt: "fish") %>
-          <h3>1</h3>
-          <h2>Fish</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="plants">
-        <a href="#">
-          <%= image_tag('badge-icons/plants.png', alt: "plants") %>
-          <h3>1</h3>
-          <h2>plants</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="birds">
-        <a href="#">
-          <%= image_tag('badge-icons/birds.png', alt: "birds") %>
-          <h3>16</h3>
-          <h2>Birds</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="insects">
-        <a href="#">
-          <%= image_tag('badge-icons/insects.png', alt: "insects") %>
-          <h3>16</h3>
-          <h2>insects</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="species-at-risk warning">
-        <a href="#">
-          <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
-          <h3>16</h3>
-          <h2>species at risk</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="wildlife-death warning">
-        <a href="#">
-          <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
-          <h3>16</h3>
-          <h2>wildlife death</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="shoreline-alterations warning">
-        <a href="#">
-          <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
-          <h3>16</h3>
-          <h2>shoreline alterations</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="water-quality warning">
-        <a href="#">
-          <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
-          <h3>16</h3>
-          <h2>water quality</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="trash danger">
-        <a href="#">
-          <%= image_tag('badge-icons/trash.png', alt: "trash") %>
-          <h3>16</h3>
-          <h2>Trash</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
+      <% if @bools.mammal %>
+        <li class="mammals">
+          <a href="#"><!--links to details page-->
+            <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
+            <h3><%= @bools.mammal ? "1" : "0" %></h3>
+            <h2>Mammals</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.reptile %>
+        <li class="reptiles">
+          <a href="#">
+            <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
+            <h3><%= @bools.reptile ? "1" : "0" %></h3>
+            <h2>Reptiles</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.amphibian %>
+        <li class="amphibians">
+          <a href="#">
+            <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
+            <h3><%= @bools.amphibian ? "1" : "0" %></h3>
+            <h2>amphibians</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.fish %>
+        <li class="fish">
+          <a href="#">
+            <%= image_tag('badge-icons/fish.png', alt: "fish") %>
+            <h3><%= @bools.fish ? "1" : "0" %></h3>
+            <h2>Fish</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.plant %>
+        <li class="plants">
+          <a href="#">
+            <%= image_tag('badge-icons/plants.png', alt: "plants") %>
+            <h3><%= @bools.plant ? "1" : "0" %></h3>
+            <h2>plants</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.bird %>
+        <li class="birds">
+          <a href="#">
+            <%= image_tag('badge-icons/birds.png', alt: "birds") %>
+            <h3><%= @bools.bird ? "1" : "0" %></h3>
+            <h2>Birds</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.insect %>
+        <li class="insects">
+          <a href="#">
+            <%= image_tag('badge-icons/insects.png', alt: "insects") %>
+            <h3><%= @bools.insect ? "1" : "0" %></h3>
+            <h2>insects</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.species_at_risk %>
+        <li class="species-at-risk warning">
+          <a href="#">
+            <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
+            <h3><%= @bools.species_at_risk ? "1" : "0" %></h3>
+            <h2>species at risk</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.wildlife_death %>
+        <li class="wildlife-death warning">
+          <a href="#">
+            <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
+            <h3><%= @bools.wildlife_death ? "1" : "0" %></h3>
+            <h2>wildlife death</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.shoreline_alterations %>
+        <li class="shoreline-alterations warning">
+          <a href="#">
+            <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
+            <h3><%= @bools.shoreline_alterations ? "1" : "0" %></h3>
+            <h2>shoreline alterations</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.water_quality %>
+        <li class="water-quality warning">
+          <a href="#">
+            <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
+            <h3><%= @bools.water_quality ? "1" : "0" %></h3>
+            <h2>water quality</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.trash %>
+        <li class="trash danger">
+          <a href="#">
+            <%= image_tag('badge-icons/trash.png', alt: "trash") %>
+            <h3><%= @bools.trash ? "1" : "0" %></h3>
+            <h2>Trash</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.foam %>
       <li class="foam warning">
         <a href="#">
           <%= image_tag('badge-icons/foam.png', alt: "foam") %>
-          <h3>1</h3>
+          <h3><%= @bools.foam ? "1" : "0" %></h3>
           <h2>Foam</h2>
           <cite>May 4, 2014</cite>
         </a>
       </li>
-      <li class="red-blooms danger">
-        <a href="#">
-          <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
-          <h3>1</h3>
-          <h2>Red Blooms</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="phragmites danger">
-        <a href="#">
-          <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
-          <h3>1</h3>
-          <h2>phragmites</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="loosestrife danger">
-        <a href="#">
-          <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
-          <h3>1</h3>
-          <h2>loosestrife</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="dog-strangling-vine danger">
-        <a href="#">
-          <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
-          <h3>1</h3>
-          <h2>dog-strangling vine</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="introduced-honeysuckle danger">
-        <a href="#">
-          <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
-          <h3>1</h3>
-          <h2>introduced honeysuckle</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="zebra-mussels danger">
-        <a href="#">
-          <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
-          <h3>1</h3>
-          <h2>zebra mussels</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
-      <li class="giant-hogweed danger">
-        <a href="#">
-          <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
-          <h3>1</h3>
-          <h2>giant hogweed</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
+      <% end %>
+      <% if @bools.red_blooms %>
+        <li class="red-blooms danger">
+          <a href="#">
+            <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
+            <h3><%= @bools.red_blooms ? "1" : "0" %></h3>
+            <h2>Red Blooms</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.phragmites %>
+        <li class="phragmites danger">
+          <a href="#">
+            <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
+            <h3><%= @bools.phragmites ? "1" : "0" %></h3>
+            <h2>phragmites</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.loosestrife %>
+        <li class="loosestrife danger">
+          <a href="#">
+            <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
+            <h3><%= @bools.loosestrife ? "1" : "0" %></h3>
+            <h2>loosestrife</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.dog_strangling_vine %>
+        <li class="dog-strangling-vine danger">
+          <a href="#">
+            <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
+            <h3><%= @bools.dog_strangling_vine ? "1" : "0" %></h3>
+            <h2>dog-strangling vine</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.introduced_honeysuckle %>
+        <li class="introduced-honeysuckle danger">
+          <a href="#">
+            <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
+            <h3><%= @bools.introduced_honeysuckle ? "1" : "0" %></h3>
+            <h2>introduced honeysuckle</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.zebra_mussels %>
+        <li class="zebra-mussels danger">
+          <a href="#">
+            <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
+            <h3><%= @bools.zebra_mussels ? "1" : "0" %></h3>
+            <h2>zebra mussels</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
+      <% if @bools.giant_hogweed %>
+        <li class="giant-hogweed danger">
+          <a href="#">
+            <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
+            <h3><%= @bools.giant_hogweed ? "1" : "0" %></h3>
+            <h2>giant hogweed</h2>
+            <cite>May 4, 2014</cite>
+          </a>
+        </li>
+      <% end %>
     </ul>
   </section>
   <ul class="comments">
@@ -189,155 +229,166 @@
 
   <section class="science">
     <ul>
-      <li class="ph">
-        <a href="#"> <!--links to details page-->
-          <h3>pH</h3>
-          <div class="current">
-            <h1>6.2</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>5.5</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-      <li class="temperature">
-        <a href="#">
-          <h3>Water Temperature &#8451;</h3>
-          <div class="current">
-            <h1>16</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>12</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-      <li class="phosphates good">
-        <a href="#">
-          <h3>Phosphates mg/L</h3>
-          <div class="current">
-            <h1>&#62;0.5</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>0</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-      <li class="secchi good">
-        <a href="#">
-          <h3>Water clarity (m)</h3>
-          <div class="current">
-            <h1>3.5</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>10</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-
-      <li class="dissolved-oxygen warning">
-        <a href="#">
-          <h3>Dissolved oxygen (mg/L)</h3>
-          <div class="current">
-            <h1>3.5</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>10</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-
-      <li class="nitrites warning">
-        <a href="#">
-          <h3>nitrites (mg/L)</h3>
-          <div class="current">
-            <h1>0.6</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>0.4</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-
-      <li class="nitrates warning">
-        <a href="#">
-          <h3>nitrates (mg/L)</h3>
-          <div class="current">
-            <h1>0.6</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>0.4</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
-
-
-      <li class="ecoli warning">
-        <a href="#">
-          <h3>E-coli Fecal coliforms/100mL</h3>
-          <div class="current">
-            <h1>125</h1>
-            <cite>4.12.2015</cite>
-          </div>
-          <div class="average">
-            <h2>150</h2>
-            <cite>average</cite>
-          </div>
-          <div class="graph">
-            <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-            <cite>&#126; 2.2 years</cite>
-          </div>
-          <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-        </a>
-      </li>
+      <% if @tests.ph %>
+        <li class="ph">
+          <a href="#"> <!--links to details page-->
+            <h3>pH</h3>
+            <div class="current">
+              <h1><%= @tests.ph %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>5.5</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.temperature %>
+        <li class="temperature">
+          <a href="#">
+            <h3>Water Temperature &#8451;</h3>
+            <div class="current">
+              <h1><%= @tests.temperature %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>12</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.phosphate %>
+        <li class="phosphates good">
+          <a href="#">
+            <h3>Phosphates mg/L</h3>
+            <div class="current">
+              <h1><%= @tests.phosphate %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>0</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.clarity %>
+        <li class="secchi good">
+          <a href="#">
+            <h3>Water clarity (m)</h3>
+            <div class="current">
+              <h1><%= @tests.clarity %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>10</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.oxygen %>
+        <li class="dissolved-oxygen warning">
+          <a href="#">
+            <h3>Dissolved oxygen (mg/L)</h3>
+            <div class="current">
+              <h1><%= @tests.oxygen %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>10</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.nitri %>
+        <li class="nitrites warning">
+          <a href="#">
+            <h3>nitrites (mg/L)</h3>
+            <div class="current">
+              <h1><%= @tests.nitri %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>0.4</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.nitrate %>
+        <li class="nitrates warning">
+          <a href="#">
+            <h3>nitrates (mg/L)</h3>
+            <div class="current">
+              <h1><%= @tests.nitrate %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>0.4</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
+      <% if @tests.ecoli %>
+        <li class="ecoli warning">
+          <a href="#">
+            <h3>E-coli Fecal coliforms/100mL</h3>
+            <div class="current">
+              <h1><%= @tests.ecoli %></h1>
+              <cite>4.12.2015</cite>
+            </div>
+            <div class="average">
+              <h2>150</h2>
+              <cite>average</cite>
+            </div>
+            <div class="graph">
+              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
+              <cite>&#126; 2.2 years</cite>
+            </div>
+            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+          </a>
+        </li>
+      <% end %>
     </ul>
   </section>
 
