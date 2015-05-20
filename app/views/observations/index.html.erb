@@ -82,7 +82,7 @@
   var places = [
     <% @observations.each do |observation| %>
       [   
-          <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
+        <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
         '<%= observation.loc_nic %>',
         '<%= link_to "View observation", observation %>'
       ],

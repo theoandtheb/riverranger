@@ -44,7 +44,7 @@
         function onLocationFound(e) {
           console.log('Setting via current locale')
           L.marker(e.latlng).addTo(map);
-          $('.set_current_location').val(e.latlng.lat + ',' + e.latlng.lng);
+          $('.set_current_location').val('POINT(' + e.latlng.lat + ',' + e.latlng.lng + ')');
           map.spin(false);
         }
       <% else %>
