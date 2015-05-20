@@ -7,12 +7,13 @@
       </cit>
     </div>
   </section>
+  <% unless @bools.nil? %>
   <section class="tags">
     <h1>Observations</h1>
     <ul class="badges">
       <% if @bools.mammal %>
         <li class="mammals">
-          <a href="#">
+          <a href=<%= mammal_path %>>
               <!--links to details page
                 On details page for tags, will need to output all observations... 
                 date, recorded by, in a list.  Mark will be committing the logic to create this new page (and link) as he did it last night
@@ -27,7 +28,7 @@
       <% end %>
       <% if @bools.reptile %>
         <li class="reptiles">
-          <a href="#">
+         <a href=<%= reptile_path %>>
             <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
             <h3><%= @bools.reptile ? "1" : "0" %></h3>
             <h2>Reptiles</h2>
@@ -37,7 +38,7 @@
       <% end %>
       <% if @bools.amphibian %>
         <li class="amphibians">
-          <a href="#">
+          <a href=<%= amphibian_path %>>
             <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
             <h3><%= @bools.amphibian ? "1" : "0" %></h3>
             <h2>amphibians</h2>
@@ -47,7 +48,7 @@
       <% end %>
       <% if @bools.fish %>
         <li class="fish">
-          <a href="#">
+          <a href=<%= fish_path %>>
             <%= image_tag('badge-icons/fish.png', alt: "fish") %>
             <h3><%= @bools.fish ? "1" : "0" %></h3>
             <h2>Fish</h2>
@@ -57,7 +58,7 @@
       <% end %>
       <% if @bools.plant %>
         <li class="plants">
-          <a href="#">
+          <a href=<%= plant_path %>>
             <%= image_tag('badge-icons/plants.png', alt: "plants") %>
             <h3><%= @bools.plant ? "1" : "0" %></h3>
             <h2>plants</h2>
@@ -67,7 +68,7 @@
       <% end %>
       <% if @bools.bird %>
         <li class="birds">
-          <a href="#">
+          <a href= <%= bird_path %>>
             <%= image_tag('badge-icons/birds.png', alt: "birds") %>
             <h3><%= @bools.bird ? "1" : "0" %></h3>
             <h2>Birds</h2>
@@ -77,7 +78,7 @@
       <% end %>
       <% if @bools.insect %>
         <li class="insects">
-          <a href="#">
+          <a href=<%= insect_path %>>
             <%= image_tag('badge-icons/insects.png', alt: "insects") %>
             <h3><%= @bools.insect ? "1" : "0" %></h3>
             <h2>insects</h2>
@@ -217,6 +218,8 @@
       <% end %>
     </ul>
   </section>
+  <% end %>
+  
   <ul class="comments">
     <li>
       <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
@@ -233,6 +236,7 @@
     </li>
   </ul>
 
+  <% unless @tests.nil? %>
   <section class="science">
     <ul>
       <% if @tests.ph %>
@@ -397,7 +401,8 @@
       <% end %>
     </ul>
   </section>
-
+  <% end %>
+  
   <!--if statement should wrap this whole section to not display if there are no reports-->
   <section class="research">
     <h1>Research</h1>

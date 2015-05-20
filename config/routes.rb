@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  
+  get 'home/index'
 
   get 'more', to: 'more#index'
 
   get 'map', to: 'map#index'
 
   get 'news', to: 'news#index'
-
-  get 'home/index'
 
   resources :studies
 
@@ -15,7 +15,17 @@ Rails.application.routes.draw do
   resources :documents
 
   resources :observations
-
+  
+  #Tags
+  get 'amphibian', to: 'help#amphibian'
+  get 'bird', to: 'help#bird'
+  get 'fish', to: 'help#fish'
+  get 'insect', to: 'help#insect'
+  get 'mammal', to: 'help#mammal'
+  get 'plant', to: 'help#plant'  
+  get 'reptile', to: 'help#reptile'
+  
+  
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
