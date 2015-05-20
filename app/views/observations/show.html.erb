@@ -88,7 +88,7 @@
       <% end %>
       <% if @bools.species_at_risk %>
         <li class="species-at-risk warning">
-          <a href="#">
+          <a href=<%= species_at_risk_path %>>
             <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
             <h3><%= @bools.species_at_risk ? "1" : "0" %></h3>
             <h2>species at risk</h2>
@@ -98,7 +98,7 @@
       <% end %>
       <% if @bools.wildlife_death %>
         <li class="wildlife-death warning">
-          <a href="#">
+          <a href=<%= wildlife_death_path %>>
             <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
             <h3><%= @bools.wildlife_death ? "1" : "0" %></h3>
             <h2>wildlife death</h2>
@@ -108,7 +108,7 @@
       <% end %>
       <% if @bools.shoreline_alterations %>
         <li class="shoreline-alterations warning">
-          <a href="#">
+          <a href=<%= shoreline_alterations_path %>>
             <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
             <h3><%= @bools.shoreline_alterations ? "1" : "0" %></h3>
             <h2>shoreline alterations</h2>
@@ -118,7 +118,7 @@
       <% end %>
       <% if @bools.water_quality %>
         <li class="water-quality warning">
-          <a href="#">
+          <a href=<%= water_quality_path %>>
             <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
             <h3><%= @bools.water_quality ? "1" : "0" %></h3>
             <h2>water quality</h2>
@@ -128,7 +128,7 @@
       <% end %>
       <% if @bools.trash %>
         <li class="trash danger">
-          <a href="#">
+          <a href=<%= trash_path %>>
             <%= image_tag('badge-icons/trash.png', alt: "trash") %>
             <h3><%= @bools.trash ? "1" : "0" %></h3>
             <h2>Trash</h2>
@@ -138,7 +138,7 @@
       <% end %>
       <% if @bools.foam %>
       <li class="foam warning">
-        <a href="#">
+        <a href=<%= foam_path %>>
           <%= image_tag('badge-icons/foam.png', alt: "foam") %>
           <h3><%= @bools.foam ? "1" : "0" %></h3>
           <h2>Foam</h2>
@@ -148,7 +148,7 @@
       <% end %>
       <% if @bools.red_blooms %>
         <li class="red-blooms danger">
-          <a href="#">
+          <a href=<%= red_blooms_path %>>
             <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
             <h3><%= @bools.red_blooms ? "1" : "0" %></h3>
             <h2>Red Blooms</h2>
@@ -158,7 +158,7 @@
       <% end %>
       <% if @bools.phragmites %>
         <li class="phragmites danger">
-          <a href="#">
+          <a href=<%= phragmites_path %>>
             <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
             <h3><%= @bools.phragmites ? "1" : "0" %></h3>
             <h2>phragmites</h2>
@@ -168,7 +168,7 @@
       <% end %>
       <% if @bools.loosestrife %>
         <li class="loosestrife danger">
-          <a href="#">
+          <a href=<%= loosestrife_path %>>
             <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
             <h3><%= @bools.loosestrife ? "1" : "0" %></h3>
             <h2>loosestrife</h2>
@@ -178,7 +178,7 @@
       <% end %>
       <% if @bools.dog_strangling_vine %>
         <li class="dog-strangling-vine danger">
-          <a href="#">
+          <a href=<%= dog_strangling_vine_path %>>
             <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
             <h3><%= @bools.dog_strangling_vine ? "1" : "0" %></h3>
             <h2>dog-strangling vine</h2>
@@ -188,7 +188,7 @@
       <% end %>
       <% if @bools.introduced_honeysuckle %>
         <li class="introduced-honeysuckle danger">
-          <a href="#">
+          <a href=<%= introduced_honeysuckle_path %>>
             <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
             <h3><%= @bools.introduced_honeysuckle ? "1" : "0" %></h3>
             <h2>introduced honeysuckle</h2>
@@ -198,7 +198,7 @@
       <% end %>
       <% if @bools.zebra_mussels %>
         <li class="zebra-mussels danger">
-          <a href="#">
+          <a href=<%= zebra_mussels_path %>>
             <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
             <h3><%= @bools.zebra_mussels ? "1" : "0" %></h3>
             <h2>zebra mussels</h2>
@@ -208,7 +208,7 @@
       <% end %>
       <% if @bools.giant_hogweed %>
         <li class="giant-hogweed danger">
-          <a href="#">
+          <a href=<%= giant_hogweed_path %>>
             <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
             <h3><%= @bools.giant_hogweed ? "1" : "0" %></h3>
             <h2>giant hogweed</h2>
