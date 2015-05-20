@@ -9,14 +9,21 @@ class ObservationsController < ApplicationController
     @observations = Observation.all
   end
 
-  # GET /observations/1
-  # GET /observations/1.json
+# GET /observations/1
+ # GET /observations/1.json
   def show
+<<<<<<< HEAD
     @observations = Observation.all
     @bools = Bool.find_by(observation_id: params[:id])
     @tests = Test.find_by(observation_id: params[:id])
+=======
+   @observations = Observation.all
+   @bools = Bool.find_by(observation_id: params[:id])
+   @tests = Test.find_by(observation_id: params[:id])
+>>>>>>> 75d5fd34529106a900e539fa344d47881286ca5d
   end
 
+ 
   # GET /observations/new
   def new
       @observation = Observation.new
@@ -85,3 +92,6 @@ class ObservationsController < ApplicationController
       params.require(:observation).permit(:description, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :_destroy])
     end
 end
+
+
+
