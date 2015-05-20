@@ -12,15 +12,9 @@ class ObservationsController < ApplicationController
 # GET /observations/1
  # GET /observations/1.json
   def show
-<<<<<<< HEAD
     @observations = Observation.all
     @bools = Bool.find_by(observation_id: params[:id])
     @tests = Test.find_by(observation_id: params[:id])
-=======
-   @observations = Observation.all
-   @bools = Bool.find_by(observation_id: params[:id])
-   @tests = Test.find_by(observation_id: params[:id])
->>>>>>> 75d5fd34529106a900e539fa344d47881286ca5d
   end
 
  
