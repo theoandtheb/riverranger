@@ -10,40 +10,44 @@
   <section class="tags">
     <h1>Observations</h1>
     <ul class="badges">
+      <% if @bools.mammal %>
       <li class="mammals">
-        <a href="#"><!--links to details page-->
+        <a href=<%= mammal_path %>>
           <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
-          <h3>16</h3>
+          <h3>1</h3>
           <h2>Mammals</h2>
           <cite>May 4, 2014</cite>
         </a>
       </li>
+      <% end %>
       <li class="reptiles">
-        <a href="#">
+        <a href=<%= reptile_path %>>
           <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
-          <h3>16</h3>
+          <h3><%= @bools.reptile ? "1" : "0" %></h3>
           <h2>Reptiles</h2>
           <cite>May 4, 2014</cite>
         </a>
       </li>
       <li class="amphibians">
-        <a href="#">
+        <a href=<%= amphibian_path %>>
           <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
-          <h3>16</h3>
+          <h3><%= @bools.amphibian ? "1" : "0" %></h3>
           <h2>amphibians</h2>
           <cite>May 4, 2014</cite>
         </a>
       </li>
+      <% if true %>
       <li class="fish">
-        <a href="#">
+        <a href=<%= fish_path %>>
           <%= image_tag('badge-icons/fish.png', alt: "fish") %>
-          <h3>1</h3>
+          <h3><%= @bools.fish ? "1" : "0" %></h3>
           <h2>Fish</h2>
           <cite>May 4, 2014</cite>
         </a>
       </li>
+      <% end %>
       <li class="plants">
-        <a href="#">
+        <a href=<%= plant_path %>>
           <%= image_tag('badge-icons/plants.png', alt: "plants") %>
           <h3>1</h3>
           <h2>plants</h2>
@@ -51,7 +55,7 @@
         </a>
       </li>
       <li class="birds">
-        <a href="#">
+        <a href=<%= bird_path %>>
           <%= image_tag('badge-icons/birds.png', alt: "birds") %>
           <h3>16</h3>
           <h2>Birds</h2>
@@ -59,7 +63,7 @@
         </a>
       </li>
       <li class="insects">
-        <a href="#">
+        <a href=<%= insect_path %>>
           <%= image_tag('badge-icons/insects.png', alt: "insects") %>
           <h3>16</h3>
           <h2>insects</h2>
