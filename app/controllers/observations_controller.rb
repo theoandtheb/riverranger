@@ -74,11 +74,11 @@ class ObservationsController < ApplicationController
     end
 
     def modify_coordinates_params
-      #params['observation']['coordinates'] = RGeo::Geographic.spherical_factory(srid: 4326).point(params['observation']['coordinates'].to_s)
+      params['observation']['user_id'] = current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
-      params.require(:observation).permit(:description, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :_destroy])
+      params.require(:observation).permit(:description, :loc_nic, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :_destroy])
     end
 end

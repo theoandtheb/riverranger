@@ -4,6 +4,7 @@ ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 gem 'pg'
+gem 'rgeo'
 gem 'activerecord-postgis-adapter', '3.0.0.beta5'
 gem 'sorcery'
 # Use SCSS for stylesheets

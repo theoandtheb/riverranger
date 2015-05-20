@@ -21,7 +21,7 @@
       <%= f.text_field :coordinates, class: "set_current_location" %>
     <% else %>
       <%= f.label :coordinates, "Found location" %>
-      <%= f.text_field :coordinates, value: "#{params["currentlat"]},#{params["currentlng"]}" %>
+      <%= f.text_field :coordinates, value: "POINT(#{params["currentlat"]} #{params["currentlng"]})" %>
     <% end %>
     <div id="location_map"></div>
     <script>
