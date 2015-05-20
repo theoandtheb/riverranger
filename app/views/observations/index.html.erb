@@ -82,10 +82,8 @@
   var places = [
     <% @observations.each do |observation| %>
       [   
-        <% if observation.coordinates.respond_to? :x %>
           <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
-        <% end %>
-        '<%= observation.description %>',
+        '<%= observation.loc_nic %>',
         '<%= link_to "View observation", observation %>'
       ],
     <% end %>
