@@ -38,6 +38,13 @@ cite{
   font-size: 0.9em;
 }
 
+.caption{
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.9em;
+  border-bottom: 1px dashed $beige;
+}
+
 p{
   margin: 0 0 15px;
 }
@@ -523,4 +530,50 @@ img.more-link{
   position: absolute;
   top: 40%;
   right: 10px;
+}
+
+.table-observers{
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  border-top: 2px dashed $primary-color;
+  li{
+    border-bottom: 2px dashed $primary-color;
+    padding: 5px 10px;
+  }
+  cite.date{
+    display: inline-block;
+    width: 200px;
+  }
+}
+.helpers{
+  max-width: 1000px;
+  margin: 0 auto;
+  h2{
+    margin: 30px 0 10px;
+  }
+  .reported-by, .description{
+    width: 50%;
+    float: left;
+    padding: 10px 0px;
+    @media only screen and (max-width : 600px){
+      width: 100%;
+      float: none;
+    }
+  }
+  .description{
+    padding: 10px 70px 10px 20px;
+
+    ul, p{
+      font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+    }
+    ul{
+      margin: 15px 0 25px 20px;
+      padding: 0;
+      li{
+        margin-bottom: 10px;
+
+      }
+    }
+  }
 }
