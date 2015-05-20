@@ -12,14 +12,19 @@
     <h1>Observations</h1>
     <ul class="badges">
       <% if @bools.mammal %>
-      <li class="mammals">
-        <a href=<%= mammal_path %>>
-          <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
-          <h3>1</h3>
-          <h2>Mammals</h2>
-          <cite>May 4, 2014</cite>
-        </a>
-      </li>
+        <li class="mammals">
+          <a href=<%= mammal_path %>>
+              <!--links to details page
+                On details page for tags, will need to output all observations... 
+                date, recorded by, in a list.  Mark will be committing the logic to create this new page (and link) as he did it last night
+
+            -->
+            <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
+            <h3><%= @bools.mammal ? "1" : "0" %></h3><!--this is displaying one or zero, it should be a count of all observation lines for mammals for this spot-->
+            <h2>Mammals</h2>
+            <cite>May 4, 2014</cite><!--this should be the LAST recorded date-->
+          </a>
+        </li>
       <% end %>
       <% if @bools.reptile %>
         <li class="reptiles">
@@ -220,6 +225,7 @@
       <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
       <p><%= @observation.comment %></p>
     </li>
+    <!--this should display the comments, one in each section with date and observer name-->
     <li>
       <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
       <p><%= @observation.comment %></p>
@@ -235,19 +241,19 @@
     <ul>
       <% if @tests.ph %>
         <li class="ph">
-          <a href="#"> <!--links to details page-->
+          <a href="#"> <!--links to details page: on this page we again give the table of data, same as the tags (it will just be rendered into a graph-->
             <h3>pH</h3>
             <div class="current">
-              <h1><%= @tests.ph %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests.ph %></h1><!--this is always the last observation-->
+              <cite>4.12.2015</cite><!--last observation date-->
             </div>
             <div class="average">
-              <h2>5.5</h2>
+              <h2>5.5</h2><!--this is the average of all observations-->
               <cite>average</cite>
             </div>
-            <div class="graph">
+            <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
               <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
+              <cite>&#126; 2.2 years</cite><!--this is the date range in months/years of the shown observations (nice to have feature)-->
             </div>
             <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
           </a>
@@ -419,7 +425,11 @@
     </ul>
   </section>
 
-
+  <section class="add-more">
+    <a class="button" href="#">Add to this observation</a>
+    <!--this should bring you back to the form but with changing location attributes unavailable.  You will be adding to this observation point-->
+    <cite>This will add data to this location</cite>
+  </section>
 
 <p><%= @observation.description %></p>
   <p>
