@@ -7,6 +7,7 @@
       </cit>
     </div>
   </section>
+  <% unless @bools.nil? %>
   <section class="tags">
     <h1>Observations</h1>
     <ul class="badges">
@@ -212,6 +213,8 @@
       <% end %>
     </ul>
   </section>
+  <% end %>
+  
   <ul class="comments">
     <li>
       <cite>12.4.2014 <span class="name">by Kat Kavanagh</span></cite>
@@ -227,6 +230,7 @@
     </li>
   </ul>
 
+  <% unless @tests.nil? %>
   <section class="science">
     <ul>
       <% if @tests.ph %>
@@ -391,7 +395,8 @@
       <% end %>
     </ul>
   </section>
-
+  <% end %>
+  
   <!--if statement should wrap this whole section to not display if there are no reports-->
   <section class="research">
     <h1>Research</h1>
