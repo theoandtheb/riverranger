@@ -239,7 +239,7 @@
   <% unless @tests.nil? %>
   <section class="science">
     <ul>
-      <% if @tests.ph %>
+      <% unless @tests.ph.nil? %>
         <li class="ph">
           <a href="#"> <!--links to details page: on this page we again give the table of data, same as the tags (it will just be rendered into a graph-->
             <h3>pH</h3>
@@ -259,7 +259,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.temperature %>
+      <% unless @tests.temperature.nil? %>
         <li class="temperature">
           <a href="#">
             <h3>Water Temperature &#8451;</h3>
@@ -279,7 +279,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.phosphate %>
+      <% unless @tests.phosphate.nil? %>
         <li class="phosphates good">
           <a href="#">
             <h3>Phosphates mg/L</h3>
@@ -299,7 +299,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.clarity %>
+      <% unless @tests.clarity.nil? %>
         <li class="secchi good">
           <a href="#">
             <h3>Water clarity (m)</h3>
@@ -319,7 +319,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.oxygen %>
+      <% unless @tests.oxygen.nil? %>
         <li class="dissolved-oxygen warning">
           <a href="#">
             <h3>Dissolved oxygen (mg/L)</h3>
@@ -339,7 +339,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.nitri %>
+      <% unless @tests.nitri.nil? %>
         <li class="nitrites warning">
           <a href="#">
             <h3>nitrites (mg/L)</h3>
@@ -359,7 +359,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.nitrate %>
+      <% unless @tests.nitrate.nil? %>
         <li class="nitrates warning">
           <a href="#">
             <h3>nitrates (mg/L)</h3>
@@ -379,7 +379,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.ecoli %>
+      <% unless @tests.ecoli.nil? %>
         <li class="ecoli warning">
           <a href="#">
             <h3>E-coli Fecal coliforms/100mL</h3>
