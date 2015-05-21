@@ -1,301 +1,310 @@
-<% content_for :maps do %>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<% end %>
+<div class="observation-container">
+  <h1>New Observation</h1>
+  <% content_for :maps do %>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <% end %>
 
-<%= form_for(@observation) do |f| %>
-  <% if @observation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
-      <ul>
-      <% @observation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@observation) do |f| %>
+    <% if @observation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
+        <ul>
+        <% @observation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="map-container">
+      <div class="field location-input">
+        <% if params["currentlat"].blank? || params["currentlng"].blank? %>
+          <!--%= f.label :coordinates, "Your current location" %-->
+          <%= f.text_field :coordinates, class: "set_current_location" %>
+        <% else %>
+          <%= f.label :coordinates, "Found location" %>
+          <%= f.text_field :coordinates, value: "POINT(#{params["currentlat"]} #{params["currentlng"]})" %>
+        <% end %>
+        <div id="location_map"></div>
+        <script>
+          var map = L.map('location_map', {
+            zoomControl: false,
+            zoom: 16,
+            dragging: false,
+            touchZoom: false,
+            scrollWheelZoom: false
+          });
+          <% if params["currentlat"].blank? || params["currentlng"].blank? %>
+            map.spin(true,{
+              lines: 9, 
+              length: 10,
+              color: '#0f2a47',
+              zIndex: 1000
+            });
+            map.locate({setView: true, maxZoom: 16});
+            map.on('locationfound', onLocationFound);
+            function onLocationFound(e) {
+              console.log('Setting via current locale')
+              L.marker(e.latlng).addTo(map);
+              $('.set_current_location').val(e.latlng.lat + ',' + e.latlng.lng);
+              map.spin(false);
+            }
+          <% else %>
+            console.log('Setting via params')
+            map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
+            var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>]).addTo(map);
+          <% end %>
+          // Add the tile layers
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: ''
+          }).addTo(map);
+        </script>
+        <%= link_to("Choose new location", root_path, :class=>"button mini") %>
+      </div>
+    </div>
+    <div class="other-form-fields-container">
+      <div class="field">
+        <%= f.label :loc_nic, "Location nickname" %><br>
+        <%= f.text_field :loc_nic, :placeholder => "eg. Riverain Park" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :observe_on, "Date observed" %><br>
+        <%= datetime_local_field :observe_on, Time.now %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Add photo", class: "button" %>
+      </div>
+
+      <div class="field">
+        <h2>Wildlife</h2>
+        <%= f.fields_for :bools do |bools_form| %>
+        <%= bools_form.check_box :mammal %>
+        <%= bools_form.label :mammal, "Mammal" %>
+        
+        <a href=<%= mammal_path %> class="info">?</a>
+
+        <%= bools_form.check_box :reptile %>
+        <%= bools_form.label :reptile, "Reptile" %>
+        <a href=<%= reptile_path %> class="info">?</a>
+
+        <%= bools_form.check_box :amphibian %>
+        <%= bools_form.label :amphibian, "Amphibian" %>
+        <a href=<%= amphibian_path %> class="info">?</a>
+
+        <%= bools_form.check_box :fish %>
+        <%= bools_form.label :fish, "Fish" %>
+        <a href=<%= fish_path %> class="info">?</a>
+
+        <%= bools_form.check_box :plant %>
+        <%= bools_form.label :plant, "Plant" %>
+        <a href=<%= plant_path %> class="info">?</a>
+
+        <%= bools_form.check_box :insect %>
+        <%= bools_form.label :insect, "Insect" %>
+        <a href=<%= insect_path %> class="info">?</a>
+
+        <%= bools_form.check_box :bird %>
+        <%= bools_form.label :bird, "Bird" %>
+        <a href=<%= bird_path %> class="info">?</a>
+
+        <%= bools_form.check_box :species_at_risk %>
+        <%= bools_form.label :species_at_risk, "Species at Risk" %>
+        <a href=<%= species_at_risk_path %> class="info">?</a>
+
+        <h2>Changes in conditions</h2>
+
+        <%= bools_form.check_box :wildlife_death %>
+        <%= bools_form.label :wildlife_death, "Wildlife Death" %>
+        <a href=<%= wildlife_death_path %> class="info">?</a>
+
+        <%= bools_form.check_box :shoreline_alterations %>
+        <%= bools_form.label :shoreline_alterations, "Shoreline Alterations" %>
+        <a href=<%= shoreline_alterations_path %> class="info">?</a>
+
+        <%= bools_form.check_box :water_quality %>
+        <%= bools_form.label :water_quality, "Water Quality" %>
+        <a href=<%= water_quality_path %> class="info">?</a>
+
+        <%= bools_form.check_box :trash %>
+        <%= bools_form.label :trash, "Trash" %>
+        <a href=<%= trash_path %> class="info">?</a>
+
+        <%= bools_form.check_box :foam %>
+        <%= bools_form.label :foam, "Foam" %>
+        <a href=<%= foam_path %> class="info">?</a>
+
+        <%= bools_form.check_box :red_blooms %>
+        <%= bools_form.label :red_blooms, "Red Blooms" %>
+        <a href=<%= red_blooms_path %> class="info">?</a>
+
+        <h2>Invasive species</h2>
+
+        <%= bools_form.check_box :phragmites %>
+        <%= bools_form.label :phragmites, "Phragmites" %>
+        <a href=<%= phragmites_path %> class="info">?</a>
+
+        <%= bools_form.check_box :loosestrife %>
+        <%= bools_form.label :loosestrife, "Loosestrife" %>
+        <a href=<%= loosestrife_path %> class="info">?</a>
+
+        <%= bools_form.check_box :dog_strangling_vine %>
+        <%= bools_form.label :dog_strangling_vine, "Dog-Strangling Vine" %>
+        <a href=<%= dog_strangling_vine_path %> class="info">?</a>
+
+        <%= bools_form.check_box :introduced_honeysuckle %>
+        <%= bools_form.label :introduced_honeysuckle, "Introduced Honeysuckle" %>
+        <a href=<%= introduced_honeysuckle_path %> class="info">?</a>
+
+        <%= bools_form.check_box :zebra_mussels %>
+        <%= bools_form.label :zebra_mussels, "Zebra Mussels" %>
+        <a href=<%= zebra_mussels_path %> class="info">?</a>
+
+        <%= bools_form.check_box :giant_hogweed %>
+        <%= bools_form.label :giant_hogweed, "Giant Hogweed" %>
+        <a href=<%= giant_hogweed_path %> class="info">?</a>
+
+        <%= bools_form.check_box :other_invasive %>
+        <%= bools_form.label :other_invasive, "Other Invasive" %>
+        <a href="#" class="info">?</a>
+        <% end %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :comment %><br>
+        <%= f.text_area :comment %>
+      </div>
+
+      <div class="field">
+        <h1>Test data</h1>
+        <h3>Do you have a test kit?</h3><!--a href="#" class="info">?</a-->
+      </div>
+      <div class="test-data">
+        <div class="field">
+          <%= f.fields_for :tests do |tests_form| %>
+          <%= tests_form.label :ph, "pH value (0-14)" %>
+          <a href=<%= ph_path %> class="info">?</a><br>
+          <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1' %>
+          
+        </div>
+
+        <div class="field">
+          <%= tests_form.label :temperature, "Water Temperature  ℃" %>
+          <a href=<%= temperature_path %> class="info">?</a><br>
+          <%= tests_form.number_field :temperature, in: 0.0..100.0, :step => '.1' %>
+          
+        </div>
+
+        <div class="field">
+          <%= tests_form.label :phosphate, "Phosphates total (mg/L)" %>
+          <a href=<%= phosphate_path %> class="info">?</a><br>
+          <!--two options for this one, >0.2 or input value-->
+          <!-- I think we can find a better solution than this -->
+          <%= radio_button_tag(:phosphates_threshold, "less than 0.2") %>
+          <%= label_tag(:phosphates_threshold, "less than 0.2") %>
+
+          <%= radio_button_tag(:phosphates_other, "other") %>
+          <%= label_tag(:phosphates_other, "Other") %>
+          <%= tests_form.number_field :phosphate, in: 0.0..1000000.0, :step => '.01' %>
+          
+        </div>
+
+        <div class="field">
+          <%= tests_form.label :clarity, "Water clarity (Secchi depth in metres)" %>
+          <a href=<%= clarity_path %> class="info">?</a><br>
+          <!--two options for this one, bottom visible or input value-->
+          <%= radio_button_tag(:secchi_bottom_visible, "bottom visible") %>
+          <%= label_tag(:secchi_bottom_visible, "bottom visible") %>
+
+          <%= radio_button_tag(:secchi_value, "other") %>
+          <%= tests_form.number_field :clarity, in: 0.0..1000000.0, :step => '.1' %>
+          
+        </div>
+
+        <div class="field">
+          <%= tests_form.label :oxygen, "Dissolved oxygen" %>
+          <a href=<%= oxygen_path %> class="info">?</a><br>
+          <%= tests_form.number_field :oxygen, in: 0.0..1000000.0, :step => '.01' %>
+          
+        </div>
+
+          <div class="field">
+          <%= tests_form.label :nitri, "Nitries (mg/L)" %>
+          <a href=<%= nitri_path %> class="info">?</a><br>
+          <!--two options for this one, less than 0.5 or input value-->
+          <!-- I think we can find a better solution for this -->
+          <%= radio_button_tag(:nitrites_threshold, "Less than 0.5") %>
+          <%= label_tag(:nitrites_threshold, "Less than 0.5") %>
+
+          <%= radio_button_tag(:nitrites_other, "other") %>
+          <%= tests_form.number_field :nitri, in: 0.0..1000000.0, :step => '.01' %>
+          
+        </div>
+
+        <div class="field">
+          <%= tests_form.label :nitrate, "Nitrates (mg/L)" %>
+          <a href=<%= nitrate_path %> class="info">?</a><br>
+          <!--two options for this one, less than 0.5 or input value-->
+          <!-- I think we can find a better solution for this -->
+          <%= radio_button_tag(:nitrates_threshold, "Less than 0.5") %>
+          <%= label_tag(:nitrates_threshold, "Less than 0.5") %>
+
+          <%= radio_button_tag(:nitrates_other, "other") %>
+          <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01' %>
+          
+        </div>
+
+        <div class="field">
+          <%= tests_form.label :ecoli, "Ecoli Fecal coliforms/100mL" %>
+          <a href=<%= ecoli_path %> class="info">?</a><br>
+          <%= tests_form.number_field :ecoli, in: 0.0..1000000.0, :step => '1' %>
+          
+        </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label "", "Something you tested missing?" %> <a href="#" class="info">Let us know</a><br>
+        </div>
+      </div>
+
+      <div class="field">
+        <h1>Add Research</h1><a href="#" class="info">?</a>
+        <a href="#" class="button mini">Add a research paper</a>
+      </div>
+      <div class="research-reports">
+        <div class="field">
+          <%= f.fields_for :studies do |studies_form| %>
+          <%= studies_form.label :title, "Report Title" %><br>
+          <%= studies_form.text_area :title %>
+        </div>
+
+        <div class="field">
+          <%= studies_form.label :published, "Published On" %><br>
+          <%= datetime_local_field :published, Time.now %>
+        </div>
+
+        <div class="field">
+          <%= studies_form.label :author, "Credited Authors" %><br>
+          <%= studies_form.text_area :author %>
+        </div>
+
+        <div class="field">
+          <%= studies_form.label :url, "Web Address" %><br>
+          <%= studies_form.url_field :url %>
+        </div>
+
+        <div class="field">
+          <%= studies_form.label :abstract, "Abstract" %><br>
+          <%= studies_form.text_area :abstract %>
+        </div>
+        <% end %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Submit observation", class: "button" %>
+      </div>
+      <br /><br />
     </div>
   <% end %>
-
-  <div class="field location-input">
-    <% if params["currentlat"].blank? || params["currentlng"].blank? %>
-      <%= f.label :coordinates, "Your current location" %>
-      <%= f.text_field :coordinates, class: "set_current_location" %>
-    <% else %>
-      <%= f.label :coordinates, "Found location" %>
-      <%= f.text_field :coordinates, value: "POINT(#{params["currentlat"]} #{params["currentlng"]})" %>
-    <% end %>
-    <div id="location_map"></div>
-    <script>
-      var map = L.map('location_map', {
-        zoomControl: false,
-        zoom: 16,
-        dragging: false,
-        touchZoom: false,
-        scrollWheelZoom: false
-      });
-      <% if params["currentlat"].blank? || params["currentlng"].blank? %>
-        map.spin(true,{
-          lines: 9, 
-          length: 10,
-          color: '#0f2a47',
-          zIndex: 1000
-        });
-        map.locate({setView: true, maxZoom: 16});
-        map.on('locationfound', onLocationFound);
-        function onLocationFound(e) {
-          console.log('Setting via current locale')
-          L.marker(e.latlng).addTo(map);
-          $('.set_current_location').val(e.latlng.lat + ',' + e.latlng.lng);
-          map.spin(false);
-        }
-      <% else %>
-        console.log('Setting via params')
-        map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
-        var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>]).addTo(map);
-      <% end %>
-      // Add the tile layers
-      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: ''
-      }).addTo(map);
-    </script>
-    <%= link_to("Change", root_path) %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :loc_nic, "Location nickname" %><br>
-    <%= f.text_field :loc_nic %>
-  </div>
-
-  <div class="field">
-    <%= f.label :observe_on, "Date observed" %><br>
-    <%= datetime_local_field :observe_on, Time.now %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Add photo", class: "button" %>
-  </div>
-
-  <div class="field">
-    <h2>Wildlife</h2>
-    <%= f.fields_for :bools do |bools_form| %>
-    <%= bools_form.check_box :mammal %>
-    <%= bools_form.label :mammal, "Mammal" %>
-    
-    <a href=<%= mammal_path %> class="info">?</a>
-
-    <%= bools_form.check_box :reptile %>
-    <%= bools_form.label :reptile, "Reptile" %>
-    <a href=<%= reptile_path %> class="info">?</a>
-
-    <%= bools_form.check_box :amphibian %>
-    <%= bools_form.label :amphibian, "Amphibian" %>
-    <a href=<%= amphibian_path %> class="info">?</a>
-
-    <%= bools_form.check_box :fish %>
-    <%= bools_form.label :fish, "Fish" %>
-    <a href=<%= fish_path %> class="info">?</a>
-
-    <%= bools_form.check_box :plant %>
-    <%= bools_form.label :plant, "Plant" %>
-    <a href=<%= plant_path %> class="info">?</a>
-
-    <%= bools_form.check_box :insect %>
-    <%= bools_form.label :insect, "Insect" %>
-    <a href=<%= insect_path %> class="info">?</a>
-
-    <%= bools_form.check_box :bird %>
-    <%= bools_form.label :bird, "Bird" %>
-    <a href=<%= bird_path %> class="info">?</a>
-
-    <%= bools_form.check_box :species_at_risk %>
-    <%= bools_form.label :species_at_risk, "Species at Risk" %>
-    <a href=<%= species_at_risk_path %> class="info">?</a>
-
-    <h2>Changes in conditions</h2>
-
-    <%= bools_form.check_box :wildlife_death %>
-    <%= bools_form.label :wildlife_death, "Wildlife Death" %>
-    <a href=<%= wildlife_death_path %> class="info">?</a>
-
-    <%= bools_form.check_box :shoreline_alterations %>
-    <%= bools_form.label :shoreline_alterations, "Shoreline Alterations" %>
-    <a href=<%= shoreline_alterations_path %> class="info">?</a>
-
-    <%= bools_form.check_box :water_quality %>
-    <%= bools_form.label :water_quality, "Water Quality" %>
-    <a href=<%= water_quality_path %> class="info">?</a>
-
-    <%= bools_form.check_box :trash %>
-    <%= bools_form.label :trash, "Trash" %>
-    <a href=<%= trash_path %> class="info">?</a>
-
-    <%= bools_form.check_box :foam %>
-    <%= bools_form.label :foam, "Foam" %>
-    <a href=<%= foam_path %> class="info">?</a>
-
-    <%= bools_form.check_box :red_blooms %>
-    <%= bools_form.label :red_blooms, "Red Blooms" %>
-    <a href=<%= red_blooms_path %> class="info">?</a>
-
-    <h2>Invasive species</h2>
-
-    <%= bools_form.check_box :phragmites %>
-    <%= bools_form.label :phragmites, "Phragmites" %>
-    <a href=<%= phragmites_path %> class="info">?</a>
-
-    <%= bools_form.check_box :loosestrife %>
-    <%= bools_form.label :loosestrife, "Loosestrife" %>
-    <a href=<%= loosestrife_path %> class="info">?</a>
-
-    <%= bools_form.check_box :dog_strangling_vine %>
-    <%= bools_form.label :dog_strangling_vine, "Dog-Strangling Vine" %>
-    <a href=<%= dog_strangling_vine_path %> class="info">?</a>
-
-    <%= bools_form.check_box :introduced_honeysuckle %>
-    <%= bools_form.label :introduced_honeysuckle, "Introduced Honeysuckle" %>
-    <a href=<%= introduced_honeysuckle_path %> class="info">?</a>
-
-    <%= bools_form.check_box :zebra_mussels %>
-    <%= bools_form.label :zebra_mussels, "Zebra Mussels" %>
-    <a href=<%= zebra_mussels_path %> class="info">?</a>
-
-    <%= bools_form.check_box :giant_hogweed %>
-    <%= bools_form.label :giant_hogweed, "Giant Hogweed" %>
-    <a href=<%= giant_hogweed_path %> class="info">?</a>
-
-    <%= bools_form.check_box :other_invasive %>
-    <%= bools_form.label :other_invasive, "Other Invasive" %>
-    <a href="#" class="info">?</a>
-    <% end %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </div>
-
-  <div class="field">
-    <h2>Test data</h2>
-    <h3>Do you have a test kit?</h3><a href="#" class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= f.fields_for :tests do |tests_form| %>
-    <%= tests_form.label :ph, "pH value (0-14)" %><br>
-    <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1' %>
-    <a href=<%= ph_path %> class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= tests_form.label :temperature, "Water Temperature  &#8451;" %><br>
-    <%= tests_form.number_field :temperature, in: 0.0..100.0, :step => '.1' %>
-    <a href=<%= temperature_path %> class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= tests_form.label :phosphate, "Phosphates total (mg/L)" %><br>
-    <!--two options for this one, >0.2 or input value-->
-    <!-- I think we can find a better solution than this -->
-    <%= radio_button_tag(:phosphates_threshold, "less than 0.2") %>
-    <%= label_tag(:phosphates_threshold, "less than 0.2") %>
-
-    <%= radio_button_tag(:phosphates_other, "other") %>
-    <%= label_tag(:phosphates_other, "less than 0.2") %>
-    <%= tests_form.number_field :phosphate, in: 0.0..1000000.0, :step => '.01' %>
-    <a href=<%= phosphate_path %> class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= tests_form.label :clarity, "Water clarity (Secchi depth in metres)" %><br>
-    <!--two options for this one, bottom visible or input value-->
-    <%= radio_button_tag(:secchi_bottom_visible, "bottom visible") %>
-    <%= label_tag(:secchi_bottom_visible, "bottom visible") %>
-
-    <%= radio_button_tag(:secchi_value, "other") %>
-    <%= tests_form.number_field :clarity, in: 0.0..1000000.0, :step => '.1' %>
-    <a href=<%= clarity_path %> class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= tests_form.label :oxygen, "Dissolved oxygen" %><br>
-    <%= tests_form.number_field :oxygen, in: 0.0..1000000.0, :step => '.01' %>
-    <a href=<%= oxygen_path %> class="info">?</a>
-  </div>
-
-    <div class="field">
-    <%= tests_form.label :nitri, "Nitries (mg/L)" %><br>
-    <!--two options for this one, less than 0.5 or input value-->
-    <!-- I think we can find a better solution for this -->
-    <%= radio_button_tag(:nitrites_threshold, "Less than 0.5") %>
-    <%= label_tag(:nitrites_threshold, "Less than 0.5") %>
-
-    <%= radio_button_tag(:nitrites_other, "other") %>
-    <%= tests_form.number_field :nitri, in: 0.0..1000000.0, :step => '.01' %>
-    <a href=<%= nitri_path %> class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= tests_form.label :nitrate, "Nitrates (mg/L)" %><br>
-    <!--two options for this one, less than 0.5 or input value-->
-    <!-- I think we can find a better solution for this -->
-    <%= radio_button_tag(:nitrates_threshold, "Less than 0.5") %>
-    <%= label_tag(:nitrates_threshold, "Less than 0.5") %>
-
-    <%= radio_button_tag(:nitrates_other, "other") %>
-    <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01' %>
-    <a href=<%= nitrate_path %> class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= tests_form.label :ecoli, "Ecoli Fecal coliforms/100mL" %><br>
-    <%= tests_form.number_field :ecoli, in: 0.0..1000000.0, :step => '1' %>
-    <a href=<%= ecoli_path %> class="info">?</a>
-  </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "", "Something you tested missing?" %><br>
-    <%= f.submit "Let us know", class: "button" %>
-  </div>
-
-  <div class="field">
-    <h2>Add Research</h2>
-    <h3>Are you a researcher?</h3><a href="#" class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= f.fields_for :studies do |studies_form| %>
-    <%= studies_form.label :title, "Report Title" %><br>
-    <%= studies_form.text_area :title %>
-  </div>
-
-  <div class="field">
-    <%= studies_form.label :published, "Published On" %><br>
-    <%= datetime_local_field :published, Time.now %>
-    <a href="#" class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= studies_form.label :author, "Credited Authors" %><br>
-    <%= studies_form.text_area :author %>
-    <a href="#" class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= studies_form.label :url, "Web Address" %><br>
-    <%= studies_form.url_field :url %>
-    <a href="#" class="info">?</a>
-  </div>
-
-  <div class="field">
-    <%= studies_form.label :abstract, "Absract" %><br>
-    <%= studies_form.text_area :abstract %>
-    <a href="#" class="info">?</a>
-  </div>
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Submit observation", class: "button" %>
-  </div>
-  <br /><br />
-<% end %>
+</div>

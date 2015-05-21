@@ -51,7 +51,8 @@ p{
 // Links
 
 a {
-  color: $primary-color;
+  color: $secondary-color;
+  font-weight: bold;
   text-decoration: none;
   &:hover {
     color: $secondary-color;
@@ -61,23 +62,28 @@ a {
 // Forms and buttons
 
 input, textarea {
-  background-color: $beige;
-  @include gradient-directional($startColor: $beige, $endColor: #d8d6bf, $deg: 0deg);
+  background-color: $white;
   border: 0;
   color: $brown;
   display: block;
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
   padding: 1em;
   width: 100%;
+  margin-bottom: 30px;
+  &.short{
+    width: 50%;
+  }
   @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.2), inset);
   &[type="checkbox"], 
   &[type="radio"] {
     display: inline-block;
-    padding: 0;
+    padding: 10px;
     width: auto;
+    margin: 0;
     + label + a {
       color: $secondary-color;
       font-weight: 600;
+      margin: 10px 0;
       &:after {
         content: "";
         display: block;
@@ -91,12 +97,51 @@ textarea {
   min-height: 200px;
   @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.075), inset);
 }
+.observation-container{
+  background-color: $white;
+  background-image: image-url("main-texture.png");
+  padding: 40px 0;
+}
 form {
   margin: 0 auto 50px;
   max-width: 600px;
+  &.new_observation{
+    padding: 40px;
+    margin: 0 auto;
+    @media (min-width: 700px) {
+      max-width: 100%;
+      overflow: hidden;
+      .map-container{
+        width: 50%;
+        float: left;
+        margin-right: 10%;
+      }
+      .other-form-fields-container{
+        width: 40%;
+        max-width: 500px;
+        float: left;
+      }
+    }
+  }
   > div {
     margin-bottom: 1em;
   }
+  h2{
+    text-align: left;
+    margin: 30px 0 10px;
+  }
+  h1{
+    margin-top: 60px;
+  }
+}
+
+.set_current_location{
+  display: none;
+}
+
+a.info{
+  color: $secondary-color;
+  font-weight: bold;
 }
 
 .notice {
@@ -116,7 +161,7 @@ form {
   background: image-url("button-background.jpg");
   border: 1px solid $brown;
   box-shadow: multiple-box-shadow(10, $brown);
-  color: $beige;
+  color: $white;
   display: inline-block;
   font: 400 1.8em/1 "veneerlowresregular";
   padding: 0.6em 1.4em;
@@ -124,11 +169,23 @@ form {
     color: $beige;
   }
   &.mini {
+    border: 1px solid #000;
+    background: $primary-color image-url("main-texture.png");
     color: #fff !important;
-    display: block;
-    font-size: 1.2em;
-    box-shadow: multiple-box-shadow(3, $brown);
+    display: inline-block;
+    font-size: 1em;
+    padding: 0.5em 1.2em;
+    box-shadow: multiple-box-shadow(3, $primary-color);
   }
+}
+input.button{
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
+}
+
+.research-reports{
+  //display: none;
 }
 
 // Marketing site ------------------------------------------------------------
@@ -192,7 +249,7 @@ form {
 body#riverranger-app {
   background-color: lighten($beige, 20%);
   height: 100%;
-  padding-top: 84px;
+  padding-top: 54px;
   &.observations-index {
     padding: 108px 0 64px;
   }
@@ -328,6 +385,9 @@ body#riverranger-app {
 #location_map {
   height: 150px;
   width: 100%;
+  @media (min-width: 700px) {
+    height: 500px;
+  }
 }
 #search-bar {
   background-color: #fff;
