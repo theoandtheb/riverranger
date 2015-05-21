@@ -70,7 +70,7 @@
 
       <div class="field">
         <%= f.label :observe_on, "Date observed" %><br>
-        <%= datetime_local_field :observe_on, Time.now %>
+        <%= datetime_local_field :observe_on, Time.now, value: Time.now.strftime("%FT%R") %>
       </div>
 
       <div class="field">

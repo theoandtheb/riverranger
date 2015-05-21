@@ -28,7 +28,7 @@ $(function() {
   // Hide alert notices after a short time
   if($('.notice').length) {
     setTimeout(function(){ 
-      $('.notice').fadeOut();
+      $('.notice').fadeOut().remove();
     }, 3000);
   }
 
