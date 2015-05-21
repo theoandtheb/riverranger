@@ -34,4 +34,10 @@ $(function() {
 
   $('.location-input input').hide();
 
+  $('.user-tasks').hide();
+  $('.settings').on('click', function() {
+    console.log('clicked');
+    $('.user-tasks').slideToggle();
+  });
+
 });
