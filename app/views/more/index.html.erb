@@ -1,12 +1,24 @@
 <% provide(:title, "More") %>
 
-<ul>
-  <li><%= link_to("About", "") %></li>
-  <% if current_user %>
-    <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-    <li><%= link_to "Logout", :logout, method: :post %>
-  <% else %>
-    <li><%= link_to "Register", new_user_path %></li>
-    <li><%= link_to "Login", :login %></li>
-  <% end %>
-</ul>
+<section class="about">
+  <h1>Who is the River Ranger?</h1>
+  <p>Embracing the ethos of summer camp, becoming a River Ranger puts you in touch with others who are interested in wildlife, preservation and recreation all to do with the Ottawa River and its Watershed.  They are like the 'junior' RiverKeepers, who are curious and want to help.  This app is a tool where Riverkeepers can speak to concerned citizens.</p>
+  <h2>River Rangers are...</h2>
+  <ul>
+    <li>Residents who live along the river</li>
+    <li>Kids who want to learn about ecology</li>
+    <li>Concerned citizens who want to keep the river healthy</li>
+    <li>Long-time RiverKeeper water testers</li>
+    <li>Researchers who wish to share their findings with the public</li>
+  </ul> 
+  <h2>What you can do</h2>
+  <ul>
+      <li>Record observations using photos, badges, and comments and link them to a location</li>
+      <li>Testers can enter in pH, Temperature, Phosphates, Dissolved Oxygen, Nitrites, Nitrates, and E-coli</li>
+      <li>Researchers can add links to their work as well as the synopsis and date published</li>
+      <li>See what other observations are nearby</li>
+      <li>Confirm others' observations with your own</li>
+      <li>Conservation authorities are notified of any signs of trash, red blooms or invasive species</li>
+      <li>Define your own area of interest <em>Coming soon!</em></li>
+  </ul>
+</section>

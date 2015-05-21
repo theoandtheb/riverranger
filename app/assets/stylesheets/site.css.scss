@@ -99,12 +99,8 @@ textarea {
   @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.075), inset);
 }
 form {
-  margin: 0 auto 50px;
+  margin: 50px auto;
   max-width: 600px;
-  &.new_observation{
-    padding: 0;
-    margin: 0 auto;
-  }
   > div {
     margin-bottom: 1em;
   }
@@ -261,7 +257,7 @@ body#riverranger-app {
   right: 0;
   z-index: 1100;
   h1 {
-    color: $beige;
+    color: $white;
     font-size: 1.50em;
   }
   &.scroll {
@@ -640,5 +636,71 @@ img.more-link{
 
       }
     }
+  }
+}
+
+#tweets{
+  margin: 50px auto;
+  max-width: 600px;
+  ul{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    li{
+      margin-bottom: 20px;
+      padding: 10px 20px 20px;
+      @extend %clearfix;
+      border-bottom: 1px dashed $primary-color;
+      p{
+        font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+      }
+      a{
+        color: $primary-color;
+      }
+      img{
+        float: left;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.user-tasks{
+  position: absolute;
+  top: 46px;
+  right: 0px;
+  list-style: none;
+  display: block;
+  li{
+    a{
+      background-image: image-url("main-texture.png");
+      background-color: $primary-color;
+      font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+      color: $white;
+      padding: 15px 30px;
+      display: inline-block;
+      width: 200px;
+      font-weight: normal;
+      font-size: 0.9em;
+      border-bottom: 1px solid darken($primary-color, 5%);
+      &:hover{
+        background-color: darken($primary-color, 5%);
+      }
+    }
+  }
+}
+
+a.settings{
+  height: 36px;
+  width: 29px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: image-url("settings.png") no-repeat 0 0;
+  background-size: 28px 29px;
+  text-indent: -99999999px;
+  display: block;
+  &:hover{
+    opacity: 0.8;
   }
 }

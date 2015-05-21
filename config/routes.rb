@@ -47,6 +47,9 @@ Rails.application.routes.draw do
   get 'nitri', to: 'help#nitri'
   get 'nitrate', to: 'help#nitrate'
   get 'ecoli', to: 'help#ecoli'
+
+  #register
+  get 'register', to: 'users#new'
  
   
   post "oauth/callback" => "oauths#callback"
