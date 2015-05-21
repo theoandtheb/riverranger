@@ -9,8 +9,6 @@
 
 <div id="map"></div>
 
-<%= render "app_intro" unless current_user %>
-
 <script>
   // Set up some default options
   var options = {
@@ -83,8 +81,8 @@
     <% @observations.each do |observation| %>
       [   
         <% if observation.coordinates.respond_to? :x %>
-           <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
-         <% end %>
+          <%= observation.coordinates.x.to_s + ", " + observation.coordinates.y.to_s %>,
+        <% end %>
         '<%= observation.loc_nic %>',
         '<%= link_to "View observation", observation %>'
       ],
