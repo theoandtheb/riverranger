@@ -41,9 +41,9 @@ cite{
 
 .caption{
   text-align: center;
-  opacity: 0.7;
   font-size: 0.9em;
   border-bottom: 1px dashed $beige;
+  margin-bottom: 20px;
 }
 
 p{
@@ -60,19 +60,29 @@ a {
   }
 }
 
+hr{
+  border: 1px dashed $beige;
+}
+
 // Forms and buttons
+
+.big-label{
+  font-size: 1.3em;
+}
+
 
 input, textarea {
   background-color: #f6f6f6;
   border: 0;
   color: $brown;
   display: block;
-  font: 400 100%/1.4 "Courier New", Courier, monospace; 
+  font: 400 110%/1.4 "Courier New", Courier, monospace; 
   padding: 1em;
   width: 100%;
   margin-bottom: 30px;
   &.short{
-    width: 50%;
+    width: 350px;
+    display: inline;
   }
   @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.2), inset);
   &[type="checkbox"], 
@@ -112,6 +122,16 @@ form {
     margin-top: 60px;
   }
 }
+
+.test-data, .comment{
+  margin-top: 40px;
+}
+
+.observation-container{
+  padding: 10px 20px;
+}
+
+
 
 .set_current_location{
   display: none;
@@ -167,6 +187,10 @@ input.button{
   display: inline-block;
   width: auto;
   margin: 0 auto;
+}
+
+.actions input.button{
+  display: block;
 }
 
 .research-reports{
@@ -712,6 +736,8 @@ a.settings{
       height: 100%;
       position: fixed;
       background-size: 100% 100%;
+      top: 0;
+      left: 0;
     }
 }
 
@@ -736,6 +762,9 @@ a.settings{
       width: 40%;
       float: left;
       margin-right: 10%;
+    }
+    .caption{
+      margin-bottom: 20px;
     }
     ul{
       margin: 20px 0;
