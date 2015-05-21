@@ -15,6 +15,7 @@ class ObservationsController < ApplicationController
     @observations = Observation.all
     @bools = Bool.find_by(observation_id: params[:id])
     @tests = Test.find_by(observation_id: params[:id])
+    @photo = Photo.find_by(observation_id: params[:id])
   end
 
  
@@ -36,10 +37,18 @@ class ObservationsController < ApplicationController
   # POST /observations.json
   def create
     @observation = Observation.new(observation_params)
+    @photo = Photo.new(photo_params)
+
     respond_to do |format|
       if @observation.save
-        format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
-        format.json { render :show, status: :created, location: @observation }
+        @photo.observation_id = @observation.id
+        if @photo.save
+          format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
+          format.json { render :show, status: :created, location: @observation }
+        else
+          format.html { render :new }
+          format.json { render json: @observation.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @observation.errors, status: :unprocessable_entity }
@@ -84,6 +93,10 @@ class ObservationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
       params.require(:observation).permit(:description, :loc_nic, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :_destroy])
+    end
+  
+    def photo_params
+      params.require(:observation).permit(:image)
     end
 end
 

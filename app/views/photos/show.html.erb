@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image file name:</strong>
-  <%= @photo.image_file_name %>
+  <strong>Observation:</strong>
+  <%= @observation.description %>
 </p>
 
 <p>
-  <strong>Image content type:</strong>
-  <%= @photo.image_content_type %>
-</p>
-
-<p>
-  <strong>Image file size:</strong>
-  <%= @photo.image_file_size %>
+  <strong>Image:</strong>
+  <%= image_tag @photo.image.url %>
 </p>
 
 <p>
@@ -20,10 +15,6 @@
   <%= @photo.image_updated_at %>
 </p>
 
-<p>
-  <strong>Observation:</strong>
-  <%= @photo.observation %>
-</p>
-
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', photos_path %>

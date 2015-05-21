@@ -1,6 +1,6 @@
 <div class="observation">
   <section class="gallery">
-    <%= link_to(image_tag('img.jpg', alt: "Just a dummy"), "/") %>
+    <%= image_tag @photo.image.url %>
     <div class="photographer">
       <cite>
         May 4, 2014 by Kat Kavanagh
@@ -16,7 +16,7 @@
           <a href=<%= mammal_path %>>
               <!--links to details page
                 On details page for tags, will need to output all observations... 
-                date, recorded by, in a list.  Mark will be committing the logic to create this new page (and link) as he did it last night
+                date, recorded by, in a list.  see helpers>mammals for an example of what needs to be recorded in
 
             -->
             <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
@@ -88,7 +88,7 @@
       <% end %>
       <% if @bools.species_at_risk %>
         <li class="species-at-risk warning">
-          <a href="#">
+          <a href=<%= species_at_risk_path %>>
             <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
             <h3><%= @bools.species_at_risk ? "1" : "0" %></h3>
             <h2>species at risk</h2>
@@ -98,7 +98,7 @@
       <% end %>
       <% if @bools.wildlife_death %>
         <li class="wildlife-death warning">
-          <a href="#">
+          <a href=<%= wildlife_death_path %>>
             <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
             <h3><%= @bools.wildlife_death ? "1" : "0" %></h3>
             <h2>wildlife death</h2>
@@ -108,7 +108,7 @@
       <% end %>
       <% if @bools.shoreline_alterations %>
         <li class="shoreline-alterations warning">
-          <a href="#">
+          <a href=<%= shoreline_alterations_path %>>
             <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
             <h3><%= @bools.shoreline_alterations ? "1" : "0" %></h3>
             <h2>shoreline alterations</h2>
@@ -118,7 +118,7 @@
       <% end %>
       <% if @bools.water_quality %>
         <li class="water-quality warning">
-          <a href="#">
+          <a href=<%= water_quality_path %>>
             <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
             <h3><%= @bools.water_quality ? "1" : "0" %></h3>
             <h2>water quality</h2>
@@ -128,7 +128,7 @@
       <% end %>
       <% if @bools.trash %>
         <li class="trash danger">
-          <a href="#">
+          <a href=<%= trash_path %>>
             <%= image_tag('badge-icons/trash.png', alt: "trash") %>
             <h3><%= @bools.trash ? "1" : "0" %></h3>
             <h2>Trash</h2>
@@ -138,7 +138,7 @@
       <% end %>
       <% if @bools.foam %>
       <li class="foam warning">
-        <a href="#">
+        <a href=<%= foam_path %>>
           <%= image_tag('badge-icons/foam.png', alt: "foam") %>
           <h3><%= @bools.foam ? "1" : "0" %></h3>
           <h2>Foam</h2>
@@ -148,7 +148,7 @@
       <% end %>
       <% if @bools.red_blooms %>
         <li class="red-blooms danger">
-          <a href="#">
+          <a href=<%= red_blooms_path %>>
             <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
             <h3><%= @bools.red_blooms ? "1" : "0" %></h3>
             <h2>Red Blooms</h2>
@@ -158,7 +158,7 @@
       <% end %>
       <% if @bools.phragmites %>
         <li class="phragmites danger">
-          <a href="#">
+          <a href=<%= phragmites_path %>>
             <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
             <h3><%= @bools.phragmites ? "1" : "0" %></h3>
             <h2>phragmites</h2>
@@ -168,7 +168,7 @@
       <% end %>
       <% if @bools.loosestrife %>
         <li class="loosestrife danger">
-          <a href="#">
+          <a href=<%= loosestrife_path %>>
             <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
             <h3><%= @bools.loosestrife ? "1" : "0" %></h3>
             <h2>loosestrife</h2>
@@ -178,7 +178,7 @@
       <% end %>
       <% if @bools.dog_strangling_vine %>
         <li class="dog-strangling-vine danger">
-          <a href="#">
+          <a href=<%= dog_strangling_vine_path %>>
             <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
             <h3><%= @bools.dog_strangling_vine ? "1" : "0" %></h3>
             <h2>dog-strangling vine</h2>
@@ -188,7 +188,7 @@
       <% end %>
       <% if @bools.introduced_honeysuckle %>
         <li class="introduced-honeysuckle danger">
-          <a href="#">
+          <a href=<%= introduced_honeysuckle_path %>>
             <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
             <h3><%= @bools.introduced_honeysuckle ? "1" : "0" %></h3>
             <h2>introduced honeysuckle</h2>
@@ -198,7 +198,7 @@
       <% end %>
       <% if @bools.zebra_mussels %>
         <li class="zebra-mussels danger">
-          <a href="#">
+          <a href=<%= zebra_mussels_path %>>
             <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
             <h3><%= @bools.zebra_mussels ? "1" : "0" %></h3>
             <h2>zebra mussels</h2>
@@ -208,7 +208,7 @@
       <% end %>
       <% if @bools.giant_hogweed %>
         <li class="giant-hogweed danger">
-          <a href="#">
+          <a href=<%= giant_hogweed_path %>>
             <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
             <h3><%= @bools.giant_hogweed ? "1" : "0" %></h3>
             <h2>giant hogweed</h2>
@@ -239,7 +239,7 @@
   <% unless @tests.nil? %>
   <section class="science">
     <ul>
-      <% if @tests.ph %>
+      <% unless @tests.ph.nil? %>
         <li class="ph">
           <a href="#"> <!--links to details page: on this page we again give the table of data, same as the tags (it will just be rendered into a graph-->
             <h3>pH</h3>
@@ -259,7 +259,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.temperature %>
+      <% unless @tests.temperature.nil? %>
         <li class="temperature">
           <a href="#">
             <h3>Water Temperature &#8451;</h3>
@@ -279,7 +279,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.phosphate %>
+      <% unless @tests.phosphate.nil? %>
         <li class="phosphates good">
           <a href="#">
             <h3>Phosphates mg/L</h3>
@@ -299,7 +299,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.clarity %>
+      <% unless @tests.clarity.nil? %>
         <li class="secchi good">
           <a href="#">
             <h3>Water clarity (m)</h3>
@@ -319,7 +319,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.oxygen %>
+      <% unless @tests.oxygen.nil? %>
         <li class="dissolved-oxygen warning">
           <a href="#">
             <h3>Dissolved oxygen (mg/L)</h3>
@@ -339,7 +339,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.nitri %>
+      <% unless @tests.nitri.nil? %>
         <li class="nitrites warning">
           <a href="#">
             <h3>nitrites (mg/L)</h3>
@@ -359,7 +359,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.nitrate %>
+      <% unless @tests.nitrate.nil? %>
         <li class="nitrates warning">
           <a href="#">
             <h3>nitrates (mg/L)</h3>
@@ -379,7 +379,7 @@
           </a>
         </li>
       <% end %>
-      <% if @tests.ecoli %>
+      <% unless @tests.ecoli.nil? %>
         <li class="ecoli warning">
           <a href="#">
             <h3>E-coli Fecal coliforms/100mL</h3>

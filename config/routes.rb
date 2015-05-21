@@ -24,7 +24,30 @@ Rails.application.routes.draw do
   get 'mammal', to: 'help#mammal'
   get 'plant', to: 'help#plant'  
   get 'reptile', to: 'help#reptile'
-  
+  get 'species_at_risk', to: 'help#species-at-risk'
+  get 'wildlife_death', to: 'help#wildlife-death'
+  get 'shoreline_alterations', to: 'help#shoreline-alterations'
+  get 'water_quality', to: 'help#water-quality'
+  get 'trash', to: 'help#trash'
+  get 'foam', to: 'help#foam'
+  get 'red_blooms', to: 'help#red-blooms'
+  get 'phragmites', to: 'help#phragmites'
+  get 'loosestrife', to: 'help#loosestrife'
+  get 'dog_strangling_vine', to: 'help#dog-strangling-vine'
+  get 'introduced_honeysuckle', to: 'help#introduced-honeysuckle'
+  get 'zebra_mussels', to: 'help#zebra-mussels'
+  get 'giant_hogweed', to: 'help#giant-hogweed'
+
+  #Tests
+  get 'ph', to: 'help#ph'
+  get 'temperature', to: 'help#temperature'
+  get 'phosphate', to: 'help#phosphate'
+  get 'clarity', to: 'help#clarity'
+  get 'oxygen', to: 'help#oxygen'
+  get 'nitri', to: 'help#nitri'
+  get 'nitrate', to: 'help#nitrate'
+  get 'ecoli', to: 'help#ecoli'
+ 
   
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook

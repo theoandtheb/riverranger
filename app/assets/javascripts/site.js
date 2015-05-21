@@ -32,6 +32,6 @@ $(function() {
     }, 3000);
   }
 
-  //$('.location-input input').hide();
+  $('.location-input input').hide();
 
 });
