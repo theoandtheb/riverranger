@@ -73,8 +73,9 @@
         <%= datetime_local_field :observe_on, Time.now %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Add photo", class: "button" %>
+      <div class="field">
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
       </div>
 
       <div class="field">

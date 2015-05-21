@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  
+  skip_before_filter :require_login
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
@@ -65,10 +67,11 @@ class PhotosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
+      @observation = Observation.find(@photo.observation)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :observation_id)
+      params.require(:photo).permit(:image, :observation_id)
     end
 end
