@@ -109,20 +109,6 @@ form {
   &.new_observation, &.edit_observation{
     padding: 40px;
     margin: 0 auto;
-    @media (min-width: 700px) {
-      max-width: 100%;
-      overflow: hidden;
-      .map-container{
-        width: 50%;
-        float: left;
-        margin-right: 10%;
-      }
-      .other-form-fields-container{
-        width: 40%;
-        max-width: 500px;
-        float: left;
-      }
-    }
   }
   > div {
     margin-bottom: 1em;
@@ -387,7 +373,7 @@ body#riverranger-app {
   height: 150px;
   width: 100%;
   @media (min-width: 700px) {
-    height: 500px;
+    height: 250px;
   }
 }
 #search-bar {
@@ -714,5 +700,57 @@ a.settings{
   display: block;
   &:hover{
     opacity: 0.8;
+  }
+}
+
+.image-background{
+    @media (min-width: 700px) {
+      background: image-url("background-image.jpg") no-repeat 0 0;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background-size: 100% 100%;
+    }
+}
+
+.about{
+  max-width: 900px;
+  padding: 30px;
+  margin: 50px auto 100px;
+  background: rgba(255,255,255,0.8) image-url("main-texture.png");
+  @extend %clearfix;
+  position: relative;
+  h5{
+    font-weight: normal;
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  h2{
+    text-align: left;
+  }
+  div{
+    @media (min-width: 700px) {
+      width: 40%;
+      float: left;
+      margin-right: 10%;
+    }
+    ul{
+      margin: 20px 0;
+      padding: 0;
+      li{
+        margin-left: 20px;
+        list-style-image: image-url("star.png");
+      }
+      &.us{
+        li{
+          list-style-image: image-url("user.png");
+        }
+      }
+    }
+    p, li{
+      font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+      margin-bottom: 10px;
+    }
   }
 }
