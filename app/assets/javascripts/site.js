@@ -28,10 +28,23 @@ $(function() {
   // Hide alert notices after a short time
   if($('.notice').length) {
     setTimeout(function(){ 
-      $('.notice').fadeOut();
+      $('.notice').fadeOut().remove();
     }, 3000);
   }
 
-  //$('.location-input input').hide();
+  $('.location-input input').hide();
+
+  $('.user-tasks').hide();
+  $('.settings').on('click', function() {
+    console.log('clicked');
+    $('.user-tasks').slideToggle();
+    e.preventDefault();
+  });
+
+  $('.research-reports').hide();
+  $('.research-paper-toggle').on('click', function(e) {
+    $('.research-reports').slideToggle();
+    e.preventDefault();
+  });
 
 });

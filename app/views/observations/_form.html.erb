@@ -46,7 +46,7 @@
             function onLocationFound(e) {
               console.log('Setting via current locale')
               L.marker(e.latlng).addTo(map);
-              $('.set_current_location').val(e.latlng.lat + ',' + e.latlng.lng);
+              $('.set_current_location').val('POINT(' + e.latlng.lat + ',' + e.latlng.lng + ')');
               map.spin(false);
             }
           <% else %>
@@ -70,7 +70,7 @@
 
       <div class="field">
         <%= f.label :observe_on, "Date observed" %><br>
-        <%= datetime_local_field :observe_on, Time.now %>
+        <%= datetime_local_field :observe_on, Time.now, value: Time.now.strftime("%FT%R") %>
       </div>
 
       <div class="field">
@@ -272,7 +272,7 @@
 
       <div class="field">
         <h1>Add Research</h1><a href="#" class="info">?</a>
-        <a href="#" class="button mini">Add a research paper</a>
+        <a href="#" class="button mini research-paper-toggle">Add a research paper</a>
       </div>
       <div class="research-reports">
         <div class="field">

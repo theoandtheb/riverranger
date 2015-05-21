@@ -63,7 +63,7 @@ a {
 // Forms and buttons
 
 input, textarea {
-  background-color: $white;
+  background-color: #f6f6f6;
   border: 0;
   color: $brown;
   display: block;
@@ -98,18 +98,9 @@ textarea {
   min-height: 200px;
   @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.075), inset);
 }
-.observation-container{
-  background-color: $white;
-  background-image: image-url("main-texture.png");
-  padding: 40px 0;
-}
 form {
   margin: 50px auto;
   max-width: 600px;
-  &.new_observation, &.edit_observation{
-    padding: 40px;
-    margin: 0 auto;
-  }
   > div {
     margin-bottom: 1em;
   }
@@ -133,7 +124,14 @@ a.info{
 
 .notice {
   margin: 0;
-  padding: 0.5em 1em;
+  height: 64px;
+  line-height: 64px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 3000;
   &.success {
     background-color: #7ad14b; 
     color: $white;
@@ -235,9 +233,9 @@ input.button{
 
 body#riverranger-app {
   background-color: lighten($beige, 20%);
-  height: 100%;
-  padding-top: 54px;
+  padding: 90px 0 100px;
   &.observations-index {
+    height: 100%;
     padding: 108px 0 64px;
   }
   &.observations-show {
@@ -370,11 +368,9 @@ body#riverranger-app {
   width: 100%;
 }
 #location_map {
-  height: 150px;
+  height: 250px;
+  margin-bottom: 1em;
   width: 100%;
-  @media (min-width: 700px) {
-    height: 250px;
-  }
 }
 #search-bar {
   background-color: #fff;
@@ -384,6 +380,12 @@ body#riverranger-app {
   top: 64px;
   right: 0;
   z-index: 1000;
+  input {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+  }
 }
 .map-popup {
   text-align: center;
