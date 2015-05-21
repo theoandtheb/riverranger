@@ -12,6 +12,7 @@ html {
 body {
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
   width: 100%;
+  background: $white image-url("main-texture.png");
 }
 img {
   display: block;
@@ -601,16 +602,25 @@ img.more-link{
     border-bottom: 2px dashed $primary-color;
     padding: 5px 10px;
   }
+  cite{
+    font-size: 0.9em;
+  }
   cite.date{
     display: inline-block;
     width: 200px;
+    @media only screen and (max-width : 600px){
+      width: 50%;
+
+    }
   }
 }
 .helpers{
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 50px auto 60px;
+  overflow: hidden;
   h2{
     margin: 30px 0 10px;
+    text-align: left;
   }
   .reported-by, .description{
     width: 50%;
@@ -619,11 +629,14 @@ img.more-link{
     @media only screen and (max-width : 600px){
       width: 100%;
       float: none;
+      padding: 20px;
     }
   }
   .description{
     padding: 10px 70px 10px 20px;
-
+    @media only screen and (max-width : 600px){
+      padding-right: 20px;
+    }
     ul, p{
       font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
     }
