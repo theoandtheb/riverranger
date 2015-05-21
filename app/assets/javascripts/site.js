@@ -38,6 +38,13 @@ $(function() {
   $('.settings').on('click', function() {
     console.log('clicked');
     $('.user-tasks').slideToggle();
+    e.preventDefault();
+  });
+
+  $('.research-reports').hide();
+  $('.research-paper-toggle').on('click', function(e) {
+    $('.research-reports').slideToggle();
+    e.preventDefault();
   });
 
 });
