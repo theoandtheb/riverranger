@@ -6,10 +6,12 @@
 <br>
 <br>
 <div>
-    <% @photos.each do |photo| %>
-      <div style="display:inline">
+  <% @photos.each do |photo| %>
+    <% unless photo.image_file_name.nil? %>
+      <div>
         <div><%= Observation.find(photo.observation).description %></div> 
         <div><%= link_to (image_tag photo.image.url(:thumb)), photo %></div>
       </div>
     <% end %>
+  <% end %>
 </div>
