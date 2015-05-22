@@ -17,3 +17,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore public/system files where photos are stored
+/public/system/*

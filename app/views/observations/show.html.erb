@@ -1,10 +1,12 @@
 <div class="observation">
   <section class="gallery">
-    <%= image_tag @photo.image.url %>
+    <% if @photo.image.exists? %>
+      <%= image_tag @photo.image.url(:default_size) %>
+    <% end %>
     <div class="photographer">
       <cite>
         May 4, 2014 by Kat Kavanagh
-      </cit>
+      </cite>
     </div>
   </section>
   <% unless @bools.nil? %>

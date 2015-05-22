@@ -15,10 +15,14 @@
     <%= f.label :observation_id %><br>
     <%= f.text_field :observation_id %>
   </div>
+
   <div class="field">
-    <%= f.label :image %><br>
+    <% if @photo.image.exists? %>
+      <%= image_tag @photo.image.url(:thumb) %><br/>
+    <% end %>
     <%= f.file_field :image %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
