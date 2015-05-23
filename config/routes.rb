@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   get 'nitrate', to: 'help#nitrate'
   get 'ecoli', to: 'help#ecoli'
 
+  #other
+  get 'test_kit', to: 'help#test-kit'
+
   #register
   get 'register', to: 'users#new'
  

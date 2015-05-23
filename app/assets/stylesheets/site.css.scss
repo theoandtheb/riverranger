@@ -369,9 +369,14 @@ body#riverranger-app {
 // Intro popup
 
 .popup {
-  background-color: $beige;
+  background: image-url("background-image.jpg") no-repeat 0 0;
+  background-size: 160% 160%;
   padding: 2em;
   text-align: center;
+  h2{
+    line-height: 1em;
+    margin-bottom: 20px;
+  }
   img {
     display: block;
     margin: 0 auto 2em;
@@ -382,6 +387,13 @@ body#riverranger-app {
   }
   li {
     list-style: none;
+  }
+  a{
+    color: $white;
+    &.button{
+      margin-bottom: 20px;
+      display: inline-block;
+    }
   }
 }
 
@@ -783,5 +795,14 @@ a.settings{
       font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
       margin-bottom: 10px;
     }
+  }
+}
+
+.paypal{
+  margin: 0;
+  input{
+    width: auto;
+    background: none;
+    box-shadow: none;
   }
 }

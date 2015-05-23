@@ -1,10 +1,10 @@
 <div id="<%= current_user ? "home-popup" : "intro-popup" %>" class="popup mfp-hide">
   <%= image_tag('home-logo.png', alt: "River Ranger") %>
-  <p>We live near a beautiful river. <br>Be a part of keeping it that way.</p>
+  <h2>We live near a beautiful river. <br>Be a part of keeping it that way.</h2>
   <% unless current_user %>
     <ul>
-      <li><%= link_to("Register", new_user_path) %></li>
-      <li><%= link_to("Login", :login) %></li>
+      <li><%= link_to("Register", new_user_path, :class=>'button') %></li>
+      <li><%= link_to("Login", :login, :class=>'button mini') %></li>
       <li><%= link_to("Continue as guest", "#", class: "guest-user") %></li>
     </ul>
   <% end %>
