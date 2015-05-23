@@ -111,6 +111,7 @@ textarea {
 form {
   margin: 50px auto;
   max-width: 600px;
+  padding: 0 20px;
   > div {
     margin-bottom: 1em;
   }
@@ -129,6 +130,11 @@ form {
 
 .observation-container{
   padding: 10px 20px;
+}
+
+.login-prompt{
+  text-align: center;
+  margin: 50px 0;
 }
 
 
@@ -171,7 +177,9 @@ a.info{
   font: 400 1.8em/1 "veneerlowresregular";
   padding: 0.6em 1.4em;
   &:hover {
-    color: $beige;
+    //color: $beige;
+    @include position(relative, $top: 2px, $left: -2px);
+    box-shadow: multiple-box-shadow(8, $brown);
   }
   &.mini {
     border: 1px solid #000;
@@ -181,6 +189,10 @@ a.info{
     font-size: 1em;
     padding: 0.5em 1.2em;
     box-shadow: multiple-box-shadow(3, $primary-color);
+    &:hover{
+      @include position(relative, $top: 1px, $left: -1px);
+      box-shadow: multiple-box-shadow(2, $brown);
+    }
   }
 }
 input.button{

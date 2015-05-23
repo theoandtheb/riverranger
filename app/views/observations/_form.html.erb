@@ -139,7 +139,7 @@
         <a href=<%= foam_path %> class="info">?</a>
 
         <%= bools_form.check_box :red_blooms %>
-        <%= bools_form.label :red_blooms, "Red Blooms" %>
+        <%= bools_form.label :red_blooms, "Algae blooms" %>
         <a href=<%= red_blooms_path %> class="info">?</a>
 
         <h2>I've spotted an invasive species</h2>
@@ -169,7 +169,7 @@
         <a href=<%= giant_hogweed_path %> class="info">?</a>
 
         <%= bools_form.check_box :other_invasive %>
-        <%= bools_form.label :other_invasive, "Other Invasive" %>
+        <%= bools_form.label :other_invasive, "Other Invasive (describe in comments below)" %>
         <a href="#" class="info">?</a>
         <% end %>
       </div>
@@ -177,7 +177,9 @@
       <hr />
       <div class="field comment">
         <%= f.label :comment, "Describe what you saw", :class=>"big-label" %><br>
-        <%= f.text_area :comment %>
+
+        <%= f.text_area :comment, :class=>"Be descriptive!" %>
+        <p><em>Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?</em></p>
       </div>
       <hr/>
       <div class="field">
@@ -192,28 +194,28 @@
           <%= f.fields_for :tests do |tests_form| %>
           <%= tests_form.label :ph, "pH value (0-14)", :class=>'big-label' %>
           <a href=<%= ph_path %> class="info">?</a><br>
-          <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1' %>
+          <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1', :placeholder=>"eg. 6.2" %>
           
         </div>
 
         <div class="field">
           <%= tests_form.label :temperature, "Water Temperature  ℃", :class=>'big-label' %>
           <a href=<%= temperature_path %> class="info">?</a><br>
-          <%= tests_form.number_field :temperature, in: 0.0..100.0, :step => '.1' %>
+          <%= tests_form.number_field :temperature, in: 0.0..100.0, :step => '.1', :placeholder=>"eg. 14" %>
           
         </div>
 
         <div class="field">
-          <%= tests_form.label :oxygen, "Dissolved oxygen", :class=>'big-label' %>
+          <%= tests_form.label :oxygen, "Dissolved oxygen (mg/L)", :class=>'big-label' %>
           <a href=<%= oxygen_path %> class="info">?</a><br>
-          <%= tests_form.number_field :oxygen, in: 0.0..1000000.0, :step => '.01' %>
+          <%= tests_form.number_field :oxygen, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 5.2" %>
           
         </div>
 
         <div class="field">
           <%= tests_form.label :ecoli, "Ecoli Fecal coliforms/100mL", :class=>'big-label' %>
           <a href=<%= ecoli_path %> class="info">?</a><br>
-          <%= tests_form.number_field :ecoli, in: 0.0..1000000.0, :step => '1' %>
+          <%= tests_form.number_field :ecoli, in: 0.0..1000000.0, :step => '1', :placeholder=>"eg. 120" %>
           
         </div>
 
@@ -226,7 +228,7 @@
           <!--%= label_tag(:phosphates_threshold, "<0.2") %-->
           <!--%= radio_button_tag(:phosphates_other, "other") %-->
           <!--%= label_tag(:phosphates_other, "") %-->
-          <%= tests_form.number_field :phosphate, in: 0.0..1000000.0, :step => '.01' %>
+          <%= tests_form.number_field :phosphate, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 0.2" %>
           
         </div>
 
@@ -237,7 +239,7 @@
           <!--%= radio_button_tag(:secchi_bottom_visible, "bottom visible") %-->
           <!--%= label_tag(:secchi_bottom_visible, "bottom visible") %-->
           <!--%= radio_button_tag(:secchi_value, "other") %-->
-          <%= tests_form.number_field :clarity, in: 0.0..1000000.0, :step => '.1' %>
+          <%= tests_form.number_field :clarity, in: 0.0..1000000.0, :step => '.1', :placeholder=>"eg. 2.5" %>
           
         </div>
 
@@ -249,7 +251,7 @@
           <!--%= radio_button_tag(:nitrites_threshold, "Less than 0.5") %-->
           <!--%= label_tag(:nitrites_threshold, "< 0.5") %-->
           <!--%= radio_button_tag(:nitrites_other, "other") %-->
-          <%= tests_form.number_field :nitri, in: 0.0..1000000.0, :step => '.01' %>
+          <%= tests_form.number_field :nitri, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 0.5" %>
           
         </div>
 
@@ -261,7 +263,7 @@
           <!--%= radio_button_tag(:nitrates_threshold, "Less than 0.5") %-->
           <!--%= label_tag(:nitrates_threshold, "< 0.5") %-->
           <!--%= radio_button_tag(:nitrates_other, "other") %-->
-          <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01', :class=>'short' %>
+          <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 5" %>
           
         </div>
 

@@ -64,6 +64,14 @@ $secondary-color: $orange;
   transition: $transform;
 }
 
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
 // Gradients
 @mixin gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
   background-color: $endColor;
