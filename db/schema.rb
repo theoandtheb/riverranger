@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519024807) do
+ActiveRecord::Schema.define(version: 20150523142220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,11 @@ ActiveRecord::Schema.define(version: 20150519024807) do
   end
 
   add_index "observations", ["user_id"], name: "index_observations_on_user_id", using: :btree
+
+  create_table "ogrgeojsons", force: :cascade do |t|
+    t.string   "name"
+    t.geometry "wkb_geometry", limit: {:srid=>4326, :type=>"polygon"}
+  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_file_name"

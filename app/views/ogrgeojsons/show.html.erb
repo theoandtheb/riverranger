@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ogrgeojson.name %>
+</p>
+
+<p>
+  <strong>Wkb geometry:</strong>
+  <%= @ogrgeojson.wkb_geometry %>
+</p>
+
+<%= link_to 'Edit', edit_ogrgeojson_path(@ogrgeojson) %> |
+<%= link_to 'Back', ogrgeojsons_path %>

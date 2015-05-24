@@ -1,0 +1,205 @@
+description,comment,coordinates,user_id,loc_nic,observe_on,,LATITUDE,LONGITUDE,coordinates
+,"Calm, winds < 8km, lots of rain preceding week.No rain past 24 hoursBusy day on the Riviera!Location: mid-channel, east of Aylmer Marina, north of old BNR building (tower)GPS: Latitude 45.373, Longitude 75.845","RGeo::Geographic.spherical_factory(srid: 4326).point(45.375768, -75.841747)",1,Ottawa River,2013-06-30T04:00:00Z,,45.375768,-75.841747,45.375768-75.841747
+,Heat Wave!!!,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.375868, -75.841847)",1,Ottawa River,2013-07-19T04:00:00Z,,45.375868,-75.841847,45.375868-75.841847
+,"Bright sunny day, flat calm water","RGeo::Geographic.spherical_factory(srid: 4326).point(45.375668, -75.841947)",1,Ottawa River,2013-08-24T04:00:00Z,,45.375668,-75.841947,45.375668-75.841947
+,"Sunny, west wind, lots of chop, whitecaps","RGeo::Geographic.spherical_factory(srid: 4326).point(45.375868, -75.842047)",1,Ottawa River,2013-09-14T04:00:00Z,,45.375868,-75.842047,45.375868-75.842047
+,"Sunny day, south wind, no rain in a few days","RGeo::Geographic.spherical_factory(srid: 4326).point(45.375568, -75.842147)",1,Ottawa River,2014-06-22T04:00:00Z,,45.375568,-75.842147,45.375568-75.842147
+,"A few severe thunderstorms earlier during the week, water is more brown, not as clear. �","RGeo::Geographic.spherical_factory(srid: 4326).point(45.514196, -76.556613)",1,Bonnechere River,2013-06-28T04:00:00Z,,45.514196,-76.556613,45.514196-76.556613
+,"Storms were recorded in last 24 hours (option not available on menu). �Muddy water, water very turbid. �Bad storms during the past week. �As a side note, we did water quality testing from near the headwaters down to the mouth of the Bonnechere, and water clarity seemed to be bad at both Renfrew sites in particular.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.514096, -76.556713)",1,Bonnechere River,2013-07-19T04:00:00Z,,45.514096,-76.556713,45.514096-76.556713
+,Water is not as muddy looking as previous sampling period.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.513996, -76.556813)",1,Bonnechere River,2013-08-26T04:00:00Z,,45.513996,-76.556813,45.513996-76.556813
+,"fast-flowing, very murky water, high levels due to rain, DO and pH measured with a sonde","RGeo::Geographic.spherical_factory(srid: 4326).point(45.513896, -76.556913)",1,Bonnechere River,2014-06-25T04:00:00Z,,45.513896,-76.556913,45.513896-76.556913
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.513796, -76.557013)",1,Bonnechere River,2014-06-25T04:00:00Z,,45.513796,-76.557013,45.513796-76.557013
+,"60%cloud, warm, humid","RGeo::Geographic.spherical_factory(srid: 4326).point(45.513696, -76.557113)",1,Bonnechere River,2014-07-22T04:00:00Z,,45.513696,-76.557113,45.513696-76.557113
+,"80% cloud cover, humid","RGeo::Geographic.spherical_factory(srid: 4326).point(45.513596, -76.557213)",1,Bonnechere River,2014-08-22T04:00:00Z,,45.513596,-76.557213,45.513596-76.557213
+,"high water but not as noticable as Bonnechere, possible malfunction of DO probe (3.4 is uncharacterisically low), will try a re-calibrate.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.439875, -76.348457)",1,Madawaska River,2014-06-25T04:00:00Z,,45.439875,-76.348457,45.439875-76.348457
+,"60% cloud, humid. Dry","RGeo::Geographic.spherical_factory(srid: 4326).point(45.439775, -76.348557)",1,Madawaska River,2014-07-22T04:00:00Z,,45.439775,-76.348557,45.439775-76.348557
+,"80% cloud cover, humid","RGeo::Geographic.spherical_factory(srid: 4326).point(45.439675, -76.348657)",1,Madawaska River,2014-08-22T04:00:00Z,,45.439675,-76.348657,45.439675-76.348657
+,"Measurement taken from beach, no secchi. �Rain more heavy now. �","RGeo::Geographic.spherical_factory(srid: 4326).point(45.524487, -76.555036)",1,Ottawa River,2013-06-28T04:00:00Z,,45.524487,-76.555036,45.524487-76.555036
+,"Good water flow.Lots of fish (minnows,bass).","RGeo::Geographic.spherical_factory(srid: 4326).point(45.473926, -76.210804)",1,Carp River,2013-08-11T04:00:00Z,,45.473926,-76.210804,45.473926-76.210804
+,Investigators: Hadleigh Thompson + Alex McArdleSmall amount of log debris in river. River level droping (local gauge reading 12.75).,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.661882, -76.711624)",1,Ottawa River,2013-06-30T04:00:00Z,,45.661882,-76.711624,45.661882-76.711624
+,"Massive thunderstorms 48hrs previously, causing substantial run off.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.661782, -76.711724)",1,Ottawa River,2013-07-21T04:00:00Z,,45.661782,-76.711724,45.661782-76.711724
+,windy day - moderate amounts of debris,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.661682, -76.711824)",1,Ottawa River,2013-08-23T04:00:00Z,,45.661682,-76.711824,45.661682-76.711824
+,"River Gauge above rapids = 21.5; Lots of spring high flow debris: logs, branches, pieces of dock etc.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.661582, -76.711924)",1,Ottawa River,2014-05-25T04:00:00Z,,45.661582,-76.711924,45.661582-76.711924
+,River gauge 10.5,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.661482, -76.712024)",1,Ottawa River,2014-06-21T04:00:00Z,,45.661482,-76.712024,45.661482-76.712024
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.661382, -76.712124)",1,Ottawa River,2014-08-23T04:00:00Z,,45.661382,-76.712124,45.661382-76.712124
+,"Water was calm and not much current.� this sample was taken in front of davis island, lac des allumettes, Fort William latitude 77 18 longitude 45 58","RGeo::Geographic.spherical_factory(srid: 4326).point(45.987572, -77.287857)",1,Ottawa River,2013-07-01T04:00:00Z,,45.987572,-77.287857,45.987572-77.287857
+,"100 meters east of Kaulbach Boathouse on Davis island. Test done by Catherine Galligan, Fort William riverwatcher.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.987472, -77.287957)",1,Ottawa River,2013-07-26T04:00:00Z,,45.987472,-77.287957,45.987472-77.287957
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.987372, -77.288057)",1,Ottawa River,2014-07-21T04:00:00Z,,45.987372,-77.288057,45.987372-77.288057
+,small wind,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.987272, -77.288157)",1,Ottawa River,2014-08-23T04:00:00Z,,45.987272,-77.288157,45.987272-77.288157
+,its been quite cold lately and the water has come up lots,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.987172, -77.288257)",1,Ottawa River,2014-09-20T04:00:00Z,,45.987172,-77.288257,45.987172-77.288257
+,Hawkesbury creek 5 meters south form Bon Paster bridge. Water murky and brown due to heavy rain. ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.606657, -74.617843)",1,Other Tributary,2013-06-30T04:00:00Z,,45.606657,-74.617843,45.606657-74.617843
+,Water brown very high due to heavy rain fall. A lot of air bubbles on top of water . A lot lot of over hanging branches. ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.606557, -74.617943)",1,Other Tributary,2013-07-21T04:00:00Z,,45.606557,-74.617943,45.606557-74.617943
+,Not enough water depth for Secchi. Still visible at 1.36m. Nice water flow clear water.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.606457, -74.618043)",1,Other Tributary,2013-08-25T04:00:00Z,,45.606457,-74.618043,45.606457-74.618043
+,"Light wind, clear water, cool weather�� ","RGeo::Geographic.spherical_factory(srid: 4326).point(45.606357, -74.618143)",1,Other Tributary,2013-09-14T04:00:00Z,,45.606357,-74.618143,45.606357-74.618143
+,"water brown, very fast due to rain in last 24 hrs. Water level high for this time of yeard","RGeo::Geographic.spherical_factory(srid: 4326).point(45.606257, -74.618243)",1,Ottawa River,2014-05-25T04:00:00Z,,45.606257,-74.618243,45.606257-74.618243
+,"Clear water much lower than last May test, Good water flow","RGeo::Geographic.spherical_factory(srid: 4326).point(45.606157, -74.618343)",1,Ottawa River,2014-06-23T04:00:00Z,,45.606157,-74.618343,45.606157-74.618343
+,Very hot nice to be in the shade. We saw 2 duckling and a hen. * No temperature broken thermometer. We had the pleasure of having Meagan with us during the sampling. � ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.606057, -74.618443)",1,Ottawa River,2014-07-21T04:00:00Z,,45.606057,-74.618443,45.606057-74.618443
+,Water to shallow for Secchi depth but nice and clean. Nice shade less humid.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.605957, -74.618543)",1,Ottawa River,2014-08-23T04:00:00Z,,45.605957,-74.618543,45.605957-74.618543
+,"shallow water depth 20 cm, nice and clear.  Nice shade","RGeo::Geographic.spherical_factory(srid: 4326).point(45.605857, -74.618643)",1,Other Tributary,2014-09-21T04:00:00Z,,45.605857,-74.618643,45.605857-74.618643
+,It was very difficult to do the test due to heave big boats traffic in our area. Water very murky and brown due to steady week of heavy rain. Louis,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.613141, -74.584103)",1,Ottawa River,2013-06-30T04:00:00Z,,45.613141,-74.584103,45.613141-74.584103
+,extremely windy white caps.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.613041, -74.584203)",1,Ottawa River,2013-07-21T04:00:00Z,,45.613041,-74.584203,45.613041-74.584203
+,Nice breeze ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.612941, -74.584303)",1,Ottawa River,2013-08-23T04:00:00Z,,45.612941,-74.584303,45.612941-74.584303
+,"Clear water, light breeze, no boat traffic� ","RGeo::Geographic.spherical_factory(srid: 4326).point(45.612841, -74.584403)",1,Ottawa River,2013-09-14T04:00:00Z,,45.612841,-74.584403,45.612841-74.584403
+,River is at a lower level due to Carillon dam water gates being open. Fast current ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.612741, -74.584503)",1,Ottawa River,2014-05-24T04:00:00Z,,45.612741,-74.584503,45.612741-74.584503
+,Lot of current. Big boat making big wave. no wind,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.612641, -74.584603)",1,Ottawa River,2014-06-24T04:00:00Z,,45.612641,-74.584603,45.612641-74.584603
+,Calm water but getting hotter. * Broken thermometer no temperature reading� ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.612541, -74.584703)",1,Ottawa River,2014-07-21T04:00:00Z,,45.612541,-74.584703,45.612541-74.584703
+,wind from the east river choppy white caps. No boats� ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.612441, -74.584803)",1,Ottawa River,2014-08-23T04:00:00Z,,45.612441,-74.584803,45.612441-74.584803
+,"cloudy, no wind, no boats. Fishermen close to north shore","RGeo::Geographic.spherical_factory(srid: 4326).point(45.612341, -74.584903)",1,Ottawa River,2014-09-20T04:00:00Z,,45.612341,-74.584903,45.612341-74.584903
+,East of Laurin island out flow of water treatment plant and surface water drain pipe. Water murky and brown . Louis,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.608848, -74.58261)",1,Ottawa River,2013-06-30T04:00:00Z,,45.608848,-74.58261,45.608848-74.58261
+,very little wind mainly sunny,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.608748, -74.58271)",1,Ottawa River,2013-07-21T04:00:00Z,,45.608748,-74.58271,45.608748-74.58271
+,nice cool breeze,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.608648, -74.58281)",1,Ottawa River,2013-08-23T04:00:00Z,,45.608648,-74.58281,45.608648-74.58281
+,"Cool weather, light wind, clear water","RGeo::Geographic.spherical_factory(srid: 4326).point(45.608548, -74.58291)",1,Ottawa River,2013-09-14T04:00:00Z,,45.608548,-74.58291,45.608548-74.58291
+,Water is� at lower level because Carrion Dam is open . Fast current. We had hail after water testing.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.608448, -74.58301)",1,Ottawa River,2014-05-24T04:00:00Z,,45.608448,-74.58301,45.608448-74.58301
+,Calm water. Test done down river from water treatment plant.� ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.608348, -74.58311)",1,Ottawa River,2014-06-23T04:00:00Z,,45.608348,-74.58311,45.608348-74.58311
+,Calm water but very hot and humid. ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.608248, -74.58321)",1,Ottawa River,2014-07-21T04:00:00Z,,45.608248,-74.58321,45.608248-74.58321
+,"wind from the east not as strong, water a bit calmer. Heavy boat traffic ","RGeo::Geographic.spherical_factory(srid: 4326).point(45.608148, -74.58331)",1,Ottawa River,2014-08-23T04:00:00Z,,45.608148,-74.58331,45.608148-74.58331
+,"no wind, calm water.  Fishermen near south side of river","RGeo::Geographic.spherical_factory(srid: 4326).point(45.608048, -74.58341)",1,Ottawa River,2014-09-20T04:00:00Z,,45.608048,-74.58341,45.608048-74.58341
+,"Ruisseau des Atocas above Bay Rd. Bridge.Storm Tuesday; Windy Wednesday; Clear, calm Thur/Fri. �Sides of creek covered by algae. �Cows on shore downstream of bridge. �Heron. Pair of eagles calling each other. �Current flowing upstream??? �pH test very green (9?). �Oxygen 12 ???","RGeo::Geographic.spherical_factory(srid: 4326).point(45.619384, -74.693708)",1,Other Tributary,2013-07-26T04:00:00Z,,45.619384,-74.693708,45.619384-74.693708
+,Parts of creek completely covered with algae.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.619284, -74.693808)",1,Other Tributary,2013-09-22T04:00:00Z,,45.619284,-74.693808,45.619284-74.693808
+,All day rain Fri (Jun 28); waited til Monday. Wind NE < 10 km/h. Lots of boats and wakes (Canada Day),"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627398, -74.70536)",1,Ottawa River,2013-07-01T04:00:00Z,,45.627398,-74.70536,45.627398-74.70536
+,Heavy thunderstorm Tuesday; strong W. wind Wed. 20 km/h. �Slight breeze today.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627298, -74.70546)",1,Ottawa River,2013-07-25T04:00:00Z,,45.627298,-74.70546,45.627298-74.70546
+,Increasing overcast. �1 foot chop + wakes. �Wind WSW ~10 kph.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627198, -74.70556)",1,Ottawa River,2013-08-25T04:00:00Z,,45.627198,-74.70556,45.627198-74.70556
+,Breeze NW shifting to W. �Increasing Overcast.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627098, -74.70566)",1,Ottawa River,2013-09-14T04:00:00Z,,45.627098,-74.70566,45.627098-74.70566
+,"Clear and calm. �Drifting because new anchor line only 12`. Only launched leaky boat this week because of high water (missed sampling on May 24th). �Water is now only about 6"" above summer normals. �Still some geese, although it is hot. �Lots of boats this weekend.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.626998, -74.70576)",1,Ottawa River,2014-06-08T04:00:00Z,,45.626998,-74.70576,45.626998-74.70576
+,Water very murky. �Big rain on Tuesday. �Whole bay is murky. �Must be coming from farther upstream than R.des Atocas.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.626898, -74.70586)",1,Ottawa River,2014-06-27T04:00:00Z,,45.626898,-74.70586,45.626898-74.70586
+,Water much clearer this time. �Weather clearing; �was cloudy in morning and much of yesterday. �Light breeze from North. �Quite a few boats.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.626798, -74.70596)",1,Ottawa River,2014-07-20T04:00:00Z,,45.626798,-74.70596,45.626798-74.70596
+,"Wind E. `10 kph; �0.2m chop. �Clear overhead, cumulus all around horizon. �Several days of E. wind (no clay stirred up in bay) and no rain.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.626698, -74.70606)",1,Ottawa River,2014-08-23T04:00:00Z,,45.626698,-74.70606,45.626698-74.70606
+,"test coordinates: Latitude 45*26 12""� � � � � � � � � � � � Longitude W76*21`55""midstream sample on Ottawa River between Gillies Mill site (Ontario) and Pointe Ross (Quebec)","RGeo::Geographic.spherical_factory(srid: 4326).point(45.467602, -76.391899)",1,Ottawa River,2013-06-30T04:00:00Z,,45.467602,-76.391899,45.467602-76.391899
+,"Latitude 45*26`12""Longitude W76*21`55""A lot of traffic on the river today - more than we have seen all year. �We did Gail and Lorne`s (near the shore) and assisted Nancy and Dave (near Morris Island Conservation Area) today and the secchi reading was much lower at our site (mid river) than either of the other 2 sites","RGeo::Geographic.spherical_factory(srid: 4326).point(45.467502, -76.391999)",1,Ottawa River,2013-07-21T04:00:00Z,,45.467502,-76.391999,45.467502-76.391999
+,Very Windy and Wavy,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.467402, -76.392099)",1,Ottawa River,2013-08-23T04:00:00Z,,45.467402,-76.392099,45.467402-76.392099
+,"It was very windy and the waves were a foot high. �There were streams of white bubbles on the water for several kilometres leading up to the site, could be from the motion in the water due to the wind and waves that day.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.462285, -76.378884)",1,Ottawa River,2013-09-14T04:00:00Z,,45.462285,-76.378884,45.462285-76.378884
+,"
+
+
+
+
+
+
+
+
+
+
+
+light breeze, warm and sunny","RGeo::Geographic.spherical_factory(srid: 4326).point(45.453119, -76.281552)",1,Ottawa River,2013-07-21T04:00:00Z,,45.453119,-76.281552,45.453119-76.281552
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.453019, -76.281552)",1,Ottawa River,2013-08-25T04:00:00Z,,45.453019,-76.281552,45.453019-76.281552
+,Secchi angle 20 degrees.� fast flow.� brown streaked foam on surface.�,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.439875, -76.348457)",1,Madawaska River,2014-05-24T04:00:00Z,,45.439875,-76.348457,45.439875-76.348457
+,secchi at 20 degrees. �good flow. �,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.444343, -76.348586)",1,Madawaska River,2014-06-22T04:00:00Z,,45.444343,-76.348586,45.444343-76.348586
+,water murky with�very little�flow.� ,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.441031, -76.287903)",1,Mississippi River,2014-05-24T04:00:00Z,,45.441031,-76.287903,45.441031-76.287903
+,very little flow. �lots of weeds,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.440931, -76.287903)",1,Mississippi River,2014-06-22T04:00:00Z,,45.440931,-76.287903,45.440931-76.287903
+,"gusty winds and choppy water.  Lots of sailboats, motor boats and jet skies, baby catfish, minnows, and frogs by the shore","RGeo::Geographic.spherical_factory(srid: 4326).point(45.484316, -76.005378)",1,Ottawa River,2014-07-19T04:00:00Z,,45.484316,-76.005378,45.484316-76.005378
+,"comerant, small black flies floating on water","RGeo::Geographic.spherical_factory(srid: 4326).point(45.484216, -76.005378)",1,Ottawa River,2014-09-21T04:00:00Z,,45.484216,-76.005378,45.484216-76.005378
+,"Water was clear below the dam. Good ,strong water flow.No zebra mussels seen.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.427212, -76.253735)",1,Mississippi River,2013-08-09T04:00:00Z,,45.427212,-76.253735,45.427212-76.253735
+,"No zebra mussels.Strong current,clear water.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.335969, -76.286955)",1,Mississippi River,2013-08-09T04:00:00Z,,45.335969,-76.286955,45.335969-76.286955
+,Light wind.Awkward using secchi from kayak.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.514038, -76.223009)",1,Ottawa River,2013-06-27T04:00:00Z,,45.514038,-76.223009,45.514038-76.223009
+,light SE wind . Water cloudy due to boat traffic and storm runoff.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.513938, -76.223009)",1,Ottawa River,2013-07-21T04:00:00Z,,45.513938,-76.223009,45.513938-76.223009
+,"Very windy, lots of boat traffic. Unable to take secchi reading un-anchored.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.513838, -76.223009)",1,Ottawa River,2013-08-25T04:00:00Z,,45.513838,-76.223009,45.513838-76.223009
+,Wind nw 20k/h. Not much boat traffic,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.513738, -76.223009)",1,Ottawa River,2013-09-14T04:00:00Z,,45.513738,-76.223009,45.513738-76.223009
+,Foamy bubbles in strips on water. � �Windy Brisk day and sunny,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.453119, -76.281552)",1,Ottawa River,2013-09-14T04:00:00Z,,45.453119,-76.281552,45.453119-76.281552
+,"River is usually low here at this time as they open the dam to help the water escape from above ( it's very narrow where the train bridge crosses below Arnprior) Now, the river level is higher than normal and the water is flowing fast.�Cormorants and seagulls are common sights as are Canada Geese (with babies). A beaver was on the shore a few weeks ago.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.453019, -76.281552)",1,Ottawa River,2014-05-14T04:00:00Z,,45.453019,-76.281552,45.453019-76.281552
+,"river calm, but still not up to regular summer levels.  Beautiful day to be on the river!","RGeo::Geographic.spherical_factory(srid: 4326).point(45.452919, -76.281552)",1,Ottawa River,2014-06-23T04:00:00Z,,45.452919,-76.281552,45.452919-76.281552
+,"river was calm and we did get a little sprinkle while we were testing.  Children enjoyed ""doing science""","RGeo::Geographic.spherical_factory(srid: 4326).point(45.452819, -76.281552)",1,Ottawa River,2014-07-20T04:00:00Z,,45.452819,-76.281552,45.452819-76.281552
+,river was calm after a beautiful sunny day. We had a lot of rain last week (Thurs/Fri) 6 pm,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452719, -76.281552)",1,Ottawa River,2014-08-24T04:00:00Z,,45.452719,-76.281552,45.452719-76.281552
+,Off the most northerly point of Vydon Acres peninsula; �Up stream from the train bridge,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452619, -76.289663)",1,Ottawa River,2013-06-30T04:00:00Z,,45.452619,-76.289663,45.452619-76.289663
+,testing done at same spot as Gail and Lorne did last time - but I don`t have those coordinates (my GPS needed batteries). �Anchor was totally snarled in fishing line when we brought it up. �Fishing Line broke before we could bring it all up.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452519, -76.289663)",1,Ottawa River,2013-07-21T04:00:00Z,,45.452519,-76.289663,45.452519-76.289663
+,Very little current�,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452419, -76.289663)",1,Ottawa River,2013-08-24T04:00:00Z,,45.452419,-76.289663,45.452419-76.289663
+,Strong wind for the past 24 hours,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452319, -76.289663)",1,Ottawa River,2013-09-14T04:00:00Z,,45.452319,-76.289663,45.452319-76.289663
+,The river is moving very fast and the water level is very high for this time of year.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452219, -76.289663)",1,Ottawa River,2014-05-24T04:00:00Z,,45.452219,-76.289663,45.452219-76.289663
+,Moderate current above the Chat Falls Dam.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452119, -76.289663)",1,Ottawa River,2014-06-22T04:00:00Z,,45.452119,-76.289663,45.452119-76.289663
+,Minimal current as the head pond of the Chat Falls is full. �It rained over night.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.452019, -76.289663)",1,Ottawa River,2014-07-20T04:00:00Z,,45.452019,-76.289663,45.452019-76.289663
+,"The site is about 100 meters down stream of the dam at the junction of the Snye and Mississippi River.The water flow on the Snye is greater this year as a result of OPG lowering the inlet in the dam. �The Snye is a small tributary, with significant plant growth along both shores.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.432531, -76.266768)",1,Mississippi River,2013-08-25T04:00:00Z,,45.432531,-76.266768,45.432531-76.266768
+,"Sorry forgot to record the water and air temperature. �This body of water is very protected and is not affected by the strong wind this day.The site is about 100 meters down stream of the dam at the junction of the Snye and Mississippi River.The water flow on the Snye continuous to be greater this year as a result of OPG lowering the inlet in the dam, and a new neighbour works for ON Hydro and ensures the flow of the dam is always good. �The Snye is a small tributary, with significant plant growth along both shores.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.432431, -76.266768)",1,Mississippi River,2013-09-14T04:00:00Z,,45.432431,-76.266768,45.432431-76.266768
+,"The Snye is quite calm, there is no noticeable current. �The water level is up but not very high. �The flow from the small dam is limited. �The water is quite clear.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.432331, -76.266768)",1,Mississippi River,2014-05-24T04:00:00Z,,45.432331,-76.266768,45.432331-76.266768
+,"No current, pollen on the surface, there was lots of water plant growth. Average water level.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.432231, -76.266768)",1,Mississippi River,2014-06-22T04:00:00Z,,45.432231,-76.266768,45.432231-76.266768
+,"It rained 1 inch overnight. �Water level slightly above average, no current. �Floating blobs of dark green algae, about the size of a fist, they broke up very easily. �Lots of water plant growth.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.432131, -76.266768)",1,Mississippi River,2014-07-20T04:00:00Z,,45.432131,-76.266768,45.432131-76.266768
+,Water level is normal.  There was heavy rain in the past 48 hours.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.432031, -76.266768)",1,Mississippi River,2014-08-23T04:00:00Z,,45.432031,-76.266768,45.432031-76.266768
+,"Dissolved oxygen taken from YSI. �Nitrate/Nitrite may be mixed up. �Check with Meredith for values. �Water color brown, rain came and we didn`t do phosphorus.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.577774, -75.102172)",1,Ottawa River,2013-08-04T04:00:00Z,,45.577774,-75.102172,45.577774-75.102172
+,Weather data not recorded. �Taken from www.friendlyforecast.com for Rockland Ontario.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.557749, -75.299604)",1,Ottawa River,2013-07-13T04:00:00Z,,45.557749,-75.299604,45.557749-75.299604
+,"Measurement taken at the ferry dock/launch in Thurso, QC by Peter Levick.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.587261, -75.242138)",1,Ottawa River,2013-07-26T04:00:00Z,,45.587261,-75.242138,45.587261-75.242138
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.587161, -75.242138)",1,Ottawa River,2013-08-24T04:00:00Z,,45.587161,-75.242138,45.587161-75.242138
+,"Treadwell, ON boat launch. �Sampled by Peter Levick. �","RGeo::Geographic.spherical_factory(srid: 4326).point(45.598061, -75.011964)",1,Ottawa River,2013-07-20T04:00:00Z,,45.598061,-75.011964,45.598061-75.011964
+,"Water sample taken during training by Meaghan, Peter and John at the dock in Wendover, ON.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.574706, -75.12794)",1,Ottawa River,2013-07-10T04:00:00Z,,45.574706,-75.12794,45.574706-75.12794
+,"Sampling by Peter Levick at Wendover, ON boat launch.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.574606, -75.12794)",1,Ottawa River,2013-07-20T04:00:00Z,,45.574606,-75.12794,45.574606-75.12794
+,Very turbid water near shoreline- water was brown in appearance. �,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.506923, -75.496542)",1,Ottawa River,2013-06-29T04:00:00Z,,45.506923,-75.496542,45.506923-75.496542
+,Very turbid water near shoreline- water was brown in appearance. �Very windy day and huge waves with white caps.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.506823, -75.496542)",1,Ottawa River,2013-07-19T04:00:00Z,,45.506823,-75.496542,45.506823-75.496542
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.506723, -75.496542)",1,Ottawa River,2013-09-14T04:00:00Z,,45.506723,-75.496542,45.506723-75.496542
+,strong current,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.506623, -75.496542)",1,Ottawa River,2014-05-26T04:00:00Z,,45.506623,-75.496542,45.506623-75.496542
+,light winds,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.506523, -75.496542)",1,Ottawa River,2014-06-22T04:00:00Z,,45.506523,-75.496542,45.506523-75.496542
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.506423, -75.496542)",1,Ottawa River,2014-08-26T04:00:00Z,,45.506423,-75.496542,45.506423-75.496542
+,"
+
+
+
+
+
+
+
+
+
+
+
+
+
+: Muskrat Bay O2 is lower than main river channel","RGeo::Geographic.spherical_factory(srid: 4326).point(45.499286, -75.499387)",1,Ottawa River,2013-08-25T04:00:00Z,,45.499286,-75.499387,45.499286-75.499387
+,"very windy, wind from west. Water very wavy so took sample from canal that flows into river","RGeo::Geographic.spherical_factory(srid: 4326).point(45.516053, -76.453488)",1,Other Tributary,2013-09-06T04:00:00Z,,45.516053,-76.453488,45.516053-76.453488
+,"Upstream of Lighthouse island (with large colony of gulls).� Light wind <10 kmh WNW.� Lots of rain in the last week.(Latitude:� 45.507249, Longitude:� -76.480122)","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2013-06-30T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,"heavy rain Friday afternoon, possible microburst.Weather at testing time very windy and white caps on main channel where tested.Investigators: Deb Powell, Jennifer Haughton, Peter HaughtonSite - upstream of Lighthouse Island","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2013-07-20T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2013-08-25T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,Actual water sample taken at 10:45 due to filming.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2013-09-14T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2014-06-21T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,"water looked more turbid than usual, gentle breeze, very few boats out despite beautiful weather","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2014-06-21T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,"gentle breeze, saw only one other boat","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2014-07-20T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,"seagulls seem to have disappeared from Lighthouse ""Seagull"" Island. (our testing location is just upstream from this island). Very quiet on the water- saw only one other boat.","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2014-08-23T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,"lots of foamy bubbles on surface of river, result of wind action?  There were whitecaps","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507248, -76.480125)",1,Ottawa River,2014-09-19T04:00:00Z,,45.507248,-76.480125,45.507248-76.480125
+,"secchi angle 0, warm southern breeze, light wind cloudy, water was 8 feet deep","RGeo::Geographic.spherical_factory(srid: 4326).point(45.502902, -76.415592)",1,Ottawa River,2014-08-29T04:00:00Z,,45.502902,-76.415592,45.502902-76.415592
+,"Very calm, little if any wind, took measurements off the pier.  Two motor boats out, no smells, water level very high still (slightly lower than highest peak for spring)","RGeo::Geographic.spherical_factory(srid: 4326).point(45.516015, -76.429325)",1,Ottawa River,2014-05-25T04:00:00Z,,45.516015,-76.429325,45.516015-76.429325
+,observation site- water about 1 foot deep at mouth of creek. Did not do temperature nor secchi depth.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.516602, -76.449997)",1,Other Tributary,2013-08-12T04:00:00Z,,45.516602,-76.449997,45.516602-76.449997
+,thick tall weeds in large area at mouth of creek - not able to actually get to mouth.  Creek runs through a lot of agricultural lands,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.516602, -76.449997)",1,Other Tributary,2014-09-03T04:00:00Z,,45.516602,-76.449997,45.516602-76.449997
+,Sample taken from creek using a bucket. No Secchi depth could be taken. Hasn`t rained for nearly a week. Silver Creek has a large watershed through agricultural land and flows into the Ottawa River upstream from Norway Bay.�,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.523523, -76.446126)",1,Other Tributary,2013-09-28T04:00:00Z,,45.523523,-76.446126,45.523523-76.446126
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.638599, -76.687477)",1,Ottawa River,2013-09-14T04:00:00Z,,45.638599,-76.687477,45.638599-76.687477
+,water warmer due to shallow area,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.638599, -76.687477)",1,Ottawa River,2014-06-22T04:00:00Z,,45.638599,-76.687477,45.638599-76.687477
+,angle secchi 30,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.638599, -76.687477)",1,Ottawa River,2014-07-19T04:00:00Z,,45.638599,-76.687477,45.638599-76.687477
+,Just upstream of hydro buoy,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.570618, -76.665802)",1,Ottawa River,2013-09-14T04:00:00Z,,45.570618,-76.665802,45.570618-76.665802
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627102, -76.670784)",1,Ottawa River,2013-09-14T04:00:00Z,,45.627102,-76.670784,45.627102-76.670784
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627102, -76.670784)",1,Ottawa River,2014-06-22T04:00:00Z,,45.627102,-76.670784,45.627102-76.670784
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627102, -76.670784)",1,Ottawa River,2014-07-19T04:00:00Z,,45.627102,-76.670784,45.627102-76.670784
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.627102, -76.670784)",1,Ottawa River,2014-08-23T04:00:00Z,,45.627102,-76.670784,45.627102-76.670784
+,Water very murky.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.514038, -76.223009)",1,Quyon River,2013-09-14T04:00:00Z,,45.514038,-76.223009,45.514038-76.223009
+,"light north west winds, no debris, 40 min. row, 2 PWC seen","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2013-06-30T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,"moderate east wind, excess of white mucus materialin water, weeds higher than normal, no algae clumps but my son saw the algae at Norway Bay wharf on July 20th","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2013-07-21T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,moderate north west wind. Water clear and boat traffic nil. The weeds near shore are higher than previous years.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2013-08-23T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2013-10-01T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,"south east wind, water clear, no wildlife","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2013-11-05T05:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,"No wind. Cloudy.
+
+water - murky
+
+seagulls heard from island
+
+one motorboat heard.
+
+No debris in water","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2014-05-25T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,weather -�� no wind & clear. No boat traffic. Water clear with no debris or dead fish,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2014-06-21T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,"cloudy, showers, east wind. Water murky nitrate 0 - 5","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2014-07-20T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,"south east wind, water clear, no toxic organisms","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503442, -76.465446)",1,Ottawa River,2014-08-23T04:00:00Z,,45.503442,-76.465446,45.503442-76.465446
+,"Despite being downstream of island of seagulls, readings ok?","RGeo::Geographic.spherical_factory(srid: 4326).point(45.507008, -76.477219)",1,Ottawa River,2013-07-12T04:00:00Z,,45.507008,-76.477219,45.507008-76.477219
+,Water was 4-5 feet low. �Slight rain for 3 days. �Nights cool 12-16 c,"RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2013-06-29T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,"This was the end of an extreme hot, humid week with little wind. �The last 3 days saw extreme storms, winds and showers. �No sign of algae blooms or strings since was has been brought back to normal. �Had forgotten the date and when coming up to the dam remembered. �Took sample with 4 liter water jug- No Frills- figured temperature would hold until we got back home.","RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2013-07-19T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,"Water almost at max elevation (down 6""). �Another light algae bloom (seems to occur after a day of heavy winds/rain or both). �Nights cool +10 C.","RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2013-08-24T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,Light algae bloom after 1.5 inches of rain the day/night previous,"RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2013-09-11T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,"very murky, excessive runofférain and spring flows from clay plains, 2:45 pm","RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2014-06-15T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2014-07-29T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(46.553665, -78.993126)",1,Ottawa River,2014-08-27T04:00:00Z,,46.553665,-78.993126,46.553665-78.993126
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.395258, -75.772018)",1,Ottawa River,2013-09-14T04:00:00Z,,45.395258,-75.772018,45.395258-75.772018
+,"Secchi 0 degrees, Water level a bit higher than usual; quite a bit of floating debris","RGeo::Geographic.spherical_factory(srid: 4326).point(45.395258, -75.772018)",1,Ottawa River,2014-05-24T04:00:00Z,,45.395258,-75.772018,45.395258-75.772018
+,"water clear and bird feathers, 3:15 pm","RGeo::Geographic.spherical_factory(srid: 4326).point(45.395258, -75.772018)",1,Ottawa River,2014-06-22T04:00:00Z,,45.395258,-75.772018,45.395258-75.772018
+,It was a beautiful day on the water. Two Wilderness Tour rafts went by as we headed back to shore.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.395258, -75.772018)",1,Ottawa River,2014-07-21T04:00:00Z,,45.395258,-75.772018,45.395258-75.772018
+,"high waves, no way to get secchi reading","RGeo::Geographic.spherical_factory(srid: 4326).point(45.395258, -75.772018)",1,Ottawa River,2014-09-22T04:00:00Z,,45.395258,-75.772018,45.395258-75.772018
+,,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2013-06-30T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,Calm. Depth 26.6 feet mid channel.,"RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2013-07-21T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"Calm water,low wind.Depth 25-30 ft (guess) �mid channel","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2013-08-24T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"Windy,sunny. Depth 36.5 ft mid channel","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2013-09-14T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"light wind, depth 30 ft","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-06-21T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"wind 20 KPH, depth 28 ft","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-07-19T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"Light wind ~ 10 KPH, depth 26 ft","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-08-23T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"depth 22.4 ft, wind 12 km/h","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-09-24T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
+,"depth 22.4 ft, wind 12 km/h",,1,Ottawa River,2014-09-24T04:00:00Z,,45.4245700854,-75.6588506699,
