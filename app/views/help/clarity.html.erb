@@ -1,34 +1,17 @@
 <div class="helpers">
+    <a href=<%= url_for(:back) %> class="back">Back</a>
   <h1>clarity</h1>
-  <h1>Graph goes here</h1>
 
   <div class="description">
 
-    <%= image_tag('helpers/beaver.jpg', alt: "Just a dummy") %>
-    <p class="caption">Beaver</p>
-    <h2>Species living near the shores</h2>
-    <ul>
-      <li>Beavers</li>
-      <li>Mink</li>
-      <li>Muskrat</li>
-      <li>Otter</li>
-    </ul>
 
+    <h2>How depth is measured</h2>
 
-    <h2>More species live in nearby woodlands</h2>
-
-    <ul>
-      <li>Squirrels</li>
-      <li>Red Foxes</li>
-      <li>Striped Skunk</li>
-      <li>Porcupine</li>
-      <li>White‐tailed Deer</li>
-      <li>Little Brown and Big Brown Bats</li>
-    </ul>
-
-    <p>Wolf, Lynx, Moose, Marten, and Wolverine are more restricted to the boreal forest of the upper reaches of the Ottawa River. The Black Bear inhabits the entire watershed, often living near lakes and rivers. This omnivore mostly feeds on vegetation but also consumes fish.</p>
+    <p>The depth at which a standardized Secchi Disk becomes impossible to see when immersed in a body of water provides a general measurement of water clarity for that area. Water clarity can reflect water quality characteristics such as the amount of photosynthesis taking place due to algae, and the degree of suspended sediment present in the water.</p>
   </div>
   <div class="reported-by">
+    <%= image_tag('helpers/beaver.jpg', alt: "Just a dummy") %>
+    <p class="caption">Beaver</p>
     <h2>Reported at this location by</h2>
     <ul class="table-observers">
       <li><cite class="date">April 27, 2015</cite><cite>kathryn Kavanagh</cite></li>
