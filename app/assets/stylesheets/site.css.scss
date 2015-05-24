@@ -177,9 +177,9 @@ a.info{
   font: 400 1.8em/1 "veneerlowresregular";
   padding: 0.6em 1.4em;
   &:hover {
-    //color: $beige;
-    @include position(relative, $top: 2px, $left: -2px);
-    box-shadow: multiple-box-shadow(8, $brown);
+    color: $white;
+    @include position(relative, $top: 4px, $left: -4px);
+    box-shadow: multiple-box-shadow(6, $brown);
   }
   &.mini {
     border: 1px solid #000;
@@ -381,13 +381,14 @@ body#riverranger-app {
 // Intro popup
 
 .popup {
-  background: image-url("background-image.jpg") no-repeat 0 0;
-  background-size: 160% 160%;
+  background: image-url("intro-image.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
   padding: 2em;
   text-align: center;
   h2{
     line-height: 1em;
     margin-bottom: 20px;
+    color: $white;
   }
   img {
     display: block;
@@ -401,7 +402,6 @@ body#riverranger-app {
     list-style: none;
   }
   a{
-    color: $white;
     &.button{
       margin-bottom: 20px;
       display: inline-block;

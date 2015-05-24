@@ -23,7 +23,7 @@
           <!--%= f.label :coordinates, "Your current location" %-->
           <%= f.text_field :coordinates, class: "set_current_location" %>
         <% else %>
-          <%= f.label :coordinates, "Found location" %>
+          <!--%= f.label :coordinates, "Found location" %-->
           <%= f.text_field :coordinates, value: "POINT(#{params["currentlat"]} #{params["currentlng"]})" %>
         <% end %>
         <div id="location_map"></div>
@@ -178,8 +178,8 @@
       <div class="field comment">
         <%= f.label :comment, "Describe what you saw", :class=>"big-label" %><br>
 
-        <%= f.text_area :comment, :class=>"Be descriptive!" %>
-        <p><em>Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?</em></p>
+        <%= f.text_area :comment, :placeholder=>"Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?" %>
+        <p><em></em></p>
       </div>
       <hr/>
       <div class="field">
