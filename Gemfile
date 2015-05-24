@@ -5,6 +5,7 @@ ruby '2.1.5'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'rgeo'
+gem 'rgeo-geojson'
 gem 'activerecord-postgis-adapter', '3.0.0.beta5'
 gem 'sorcery'
 # Use paperclip for uploading images/documents to be stored
