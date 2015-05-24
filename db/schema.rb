@@ -112,17 +112,17 @@ ActiveRecord::Schema.define(version: 20150523142220) do
   add_index "studies", ["observation_id"], name: "index_studies_on_observation_id", using: :btree
 
   create_table "tests", force: :cascade do |t|
-    t.integer  "ph"
-    t.integer  "temperature"
-    t.integer  "phosphate"
-    t.integer  "clarity"
-    t.integer  "oxygen"
-    t.integer  "nitri"
+    t.decimal  "ph",             precision: 3, scale: 1
+    t.decimal  "temperature",    precision: 3, scale: 1
+    t.decimal  "phosphate",      precision: 3, scale: 1
+    t.decimal  "clarity",        precision: 5, scale: 2
+    t.decimal  "oxygen",         precision: 4, scale: 1
+    t.decimal  "nitri",          precision: 3, scale: 1
     t.integer  "nitrate"
     t.integer  "ecoli"
     t.integer  "observation_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "tests", ["observation_id"], name: "index_tests_on_observation_id", using: :btree
