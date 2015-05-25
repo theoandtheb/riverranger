@@ -10,14 +10,21 @@ class ObservationsController < ApplicationController
   end
 
 # GET /observations/1
- # GET /observations/1.json
+# GET /observations/1.json
   def show
-    @observations = Observation.all
+    @observations = Observation.find_by(id: params[:id])
     @bools = Bool.find_by(observation_id: params[:id])
     @tests = Test.find_by(observation_id: params[:id])
     @photo = Photo.find_by(observation_id: params[:id])
+    @comments = Comment.where(observation_id: params[:id])
+    
+    @user = User.find_by(id: @observation.user_id)
+    
+    #Check to see if objects are valid for the specified observation
+    if @photo.nil?
+      @photo = Photo.new
+    end
   end
-
  
   # GET /observations/new
   def new

@@ -14,8 +14,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require leaflet
 //= require leaflet.spin
 //= require leaflet-search.min
+//= require leaflet.markercluster
+//= require leaflet.awesome-markers.min
 //= require spin.min
 //= require magnific.min
 //= require turbolinks

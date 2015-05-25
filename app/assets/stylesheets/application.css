@@ -13,7 +13,12 @@
  *= require_self
  *= require "normalize"
  *= require "magnific"
+ *= require "ionicons.min"
+ *= require "leaflet.awesome-markers"
+ *= require "leaflet"
  *= require "leaflet-search"
+ *= require "MarkerCluster"
+ *= require "MarkerCluster.Default"
  *= require "site"
  *= depend_on "_common"
  */

@@ -2,15 +2,13 @@
   <%= image_tag('home-logo.png', alt: "River Ranger") %>
   <h2>We live near a beautiful river. <br>Be a part of keeping it that way.</h2>
   <ul>
-  <% if current_user %>
-    <li><%= active_link_to("Get exploring", root_path, :class=>'button') %></li>
-    <li><%= active_link_to("About us", more_path) %></li>
-  <% else %>
-    
+    <% if current_user %>
+      <li><%= active_link_to("Get exploring", root_path, :class=>'button') %></li>
+      <li><%= active_link_to("About us", more_path) %></li>
+    <% else %>
       <li><%= link_to("Register", new_user_path, :class=>'button') %></li>
       <li><%= link_to("Login", :login, :class=>'button mini') %></li>
       <li><%= link_to("Continue as guest", "#", class: "guest-user") %></li>
-    
-  <% end %>
+    <% end %>
   </ul>
 </div>
