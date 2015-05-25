@@ -423,23 +423,14 @@
   </section>
 
   <section class="add-more">
-    <a class="button" href="#">Add to this observation</a>
-    <!--this should bring you back to the form but with changing location attributes unavailable.  You will be adding to this observation point-->
+    <%= link_to "Add to Observation", {:controller => "observations", :action => "new_data", :observation_id => @observation.id}, :class=>"button", :method => :get%>
     <cite>This will add data to this location</cite>
   </section>
 
+  <br />
+  <br />
+  
 <p><%= @observation.description %></p>
-
-
   <%= link_to 'Edit', edit_observation_path(@observation) %> |
   <%= link_to 'Back', observations_path %>
-
 </div>
-
-<p>
-  <strong>Description:</strong>
-  <%= @observation.description %>
-</p>
-
-<%= link_to 'Edit', edit_observation_path(@observation) %> |
-

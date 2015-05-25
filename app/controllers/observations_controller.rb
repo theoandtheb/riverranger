@@ -77,6 +77,20 @@ class ObservationsController < ApplicationController
     end
   end
 
+  # GET /observations/1/new_data
+  def new_data
+    @observation = Observation.find_by(id: params[:observation_id])
+    @bools = Bool.new
+    @photo = Photo.new
+    @tests = Test.new
+  end
+  
+  def create_data
+    @bools = Bool.new(bool_params)
+    @photo = Photo.new(photo_params)
+    @tests = Test.new(test_params)
+  end
+  
   # DELETE /observations/1
   # DELETE /observations/1.json
   def destroy
