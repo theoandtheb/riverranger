@@ -10,6 +10,7 @@ class ObservationsController < ApplicationController
   end
 
 # GET /observations/1
+<<<<<<< HEAD
  # GET /observations/1.json
   def show
     @observations = Observation.find_by(id: params[:id])
@@ -25,7 +26,6 @@ class ObservationsController < ApplicationController
       @photo = Photo.new
     end
   end
-
  
   # GET /observations/new
   def new

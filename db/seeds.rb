@@ -18,7 +18,18 @@ observation = Observation.create([{
   }])
 end
 
-
+CSV.foreach(File.join(Rails.root, "seedTests.csv"), :headers => true, :encoding => 'UTF-8') do |row|
+observation = Test.create([{
+    ph: row[0],
+    temperature: row[1],
+    phosphate: row[2],
+    clarity: row[3],
+    oxygen: row[4],
+    nitri: row[5],
+    nitrate: row[6],
+    observation_id: row[8]
+  }])
+end
 
 
 

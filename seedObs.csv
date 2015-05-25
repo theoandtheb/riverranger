@@ -202,4 +202,3 @@ No debris in water","RGeo::Geographic.spherical_factory(srid: 4326).point(45.503
 ,"wind 20 KPH, depth 28 ft","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-07-19T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
 ,"Light wind ~ 10 KPH, depth 26 ft","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-08-23T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
 ,"depth 22.4 ft, wind 12 km/h","RGeo::Geographic.spherical_factory(srid: 4326).point(45.824444, -76.911667)",1,Ottawa River,2014-09-24T04:00:00Z,,45.824444,-76.911667,45.824444-76.911667
-,"depth 22.4 ft, wind 12 km/h",,1,Ottawa River,2014-09-24T04:00:00Z,,45.4245700854,-75.6588506699,

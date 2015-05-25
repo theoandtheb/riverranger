@@ -1,12 +1,12 @@
 class CreateTests < ActiveRecord::Migration
   def change
     create_table :tests do |t|
-		t.integer :ph
-		t.integer :temperature
-		t.integer :phosphate
-		t.integer :clarity
-		t.integer :oxygen
-		t.integer :nitri
+		t.decimal :ph, precision: 3, scale: 1
+		t.decimal :temperature, precision: 3, scale: 1
+		t.decimal :phosphate, precision: 3, scale: 1
+		t.decimal :clarity, precision: 5, scale: 2
+		t.decimal :oxygen, precision: 4, scale: 1
+		t.decimal :nitri, precision: 3, scale: 1
 		t.integer :nitrate
 		t.integer :ecoli
       t.references :observation, index: true

@@ -24,7 +24,7 @@
             <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
             <h3><%= @bools.mammal ? "1" : "0" %></h3><!--this is displaying one or zero, it should be a count of all observation lines for mammals for this spot-->
             <h2>Mammals</h2>
-            <cite>May 4, 2014</cite><!--this should be the LAST recorded date-->
+            <cite><%= @observation.observe_on %></cite><!--this should be the LAST recorded date-->
           </a>
         </li>
       <% end %>
@@ -34,7 +34,7 @@
             <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
             <h3><%= @bools.reptile ? "1" : "0" %></h3>
             <h2>Reptiles</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -44,7 +44,7 @@
             <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
             <h3><%= @bools.amphibian ? "1" : "0" %></h3>
             <h2>amphibians</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -54,7 +54,7 @@
             <%= image_tag('badge-icons/fish.png', alt: "fish") %>
             <h3><%= @bools.fish ? "1" : "0" %></h3>
             <h2>Fish</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -64,7 +64,7 @@
             <%= image_tag('badge-icons/plants.png', alt: "plants") %>
             <h3><%= @bools.plant ? "1" : "0" %></h3>
             <h2>plants</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -74,7 +74,7 @@
             <%= image_tag('badge-icons/birds.png', alt: "birds") %>
             <h3><%= @bools.bird ? "1" : "0" %></h3>
             <h2>Birds</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -84,7 +84,7 @@
             <%= image_tag('badge-icons/insects.png', alt: "insects") %>
             <h3><%= @bools.insect ? "1" : "0" %></h3>
             <h2>insects</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -94,7 +94,7 @@
             <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
             <h3><%= @bools.species_at_risk ? "1" : "0" %></h3>
             <h2>species at risk</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -104,7 +104,7 @@
             <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
             <h3><%= @bools.wildlife_death ? "1" : "0" %></h3>
             <h2>wildlife death</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -114,7 +114,7 @@
             <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
             <h3><%= @bools.shoreline_alterations ? "1" : "0" %></h3>
             <h2>shoreline alterations</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -124,7 +124,7 @@
             <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
             <h3><%= @bools.water_quality ? "1" : "0" %></h3>
             <h2>water quality</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -134,7 +134,7 @@
             <%= image_tag('badge-icons/trash.png', alt: "trash") %>
             <h3><%= @bools.trash ? "1" : "0" %></h3>
             <h2>Trash</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -144,7 +144,7 @@
           <%= image_tag('badge-icons/foam.png', alt: "foam") %>
           <h3><%= @bools.foam ? "1" : "0" %></h3>
           <h2>Foam</h2>
-          <cite>May 4, 2014</cite>
+          <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
         </a>
       </li>
       <% end %>
@@ -154,7 +154,7 @@
             <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
             <h3><%= @bools.red_blooms ? "1" : "0" %></h3>
             <h2>Algae Blooms</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -174,7 +174,7 @@
             <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
             <h3><%= @bools.loosestrife ? "1" : "0" %></h3>
             <h2>loosestrife</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -184,7 +184,7 @@
             <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
             <h3><%= @bools.dog_strangling_vine ? "1" : "0" %></h3>
             <h2>dog-strangling vine</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -194,7 +194,7 @@
             <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
             <h3><%= @bools.introduced_honeysuckle ? "1" : "0" %></h3>
             <h2>introduced honeysuckle</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -204,7 +204,7 @@
             <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
             <h3><%= @bools.zebra_mussels ? "1" : "0" %></h3>
             <h2>zebra mussels</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
@@ -214,7 +214,7 @@
             <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
             <h3><%= @bools.giant_hogweed ? "1" : "0" %></h3>
             <h2>giant hogweed</h2>
-            <cite>May 4, 2014</cite>
+            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
