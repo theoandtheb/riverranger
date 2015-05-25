@@ -9,92 +9,90 @@
       </cite>
     </div>
   </section>
-  <% unless @bools.nil? %>
+  <% if @bool2.nil? %>
   <section class="tags">
     <h1>Observations</h1>
     <ul class="badges">
-      <% if true %>
+      <% unless @bools2["mammal"].nil? %>
         <li class="mammals">
           <a href=<%= mammal_path %>>
               <!--links to details page
                 On details page for tags, will need to output all observations... 
-                date, recorded by, in a list.  see helpers>mammals for an example of what needs to be recorded in
-
-            -->
+                date, recorded by, in a list.  see helpers>mammals for an example of what needs to be recorded in-->
             <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :mammal) %></h3>
+            <h3><%= @bools2["mammal"][:total] %></h3>
             <h2>Mammals</h2>
-            <cite></cite><!--this should be the LAST recorded date-->
+            <cite><%= @bools2["mammal"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["reptile"].nil? %>
         <li class="reptiles">
          <a href=<%= reptile_path %>>
             <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
-           <h3><%= boolsCountNumberOf(@observation.id, :reptile) %></h3>
+           <h3><%= @bools2["reptile"][:total] %><h3>
             <h2>Reptiles</h2>
-            <cite></cite>
+             <cite><%= @bools2["reptile"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["amphibian"].nil? %>
         <li class="amphibians">
           <a href=<%= amphibian_path %>>
             <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :amphibian) %></h3>
+            <h3><%= @bools2["amphibian"][:total] %></h3>
             <h2>amphibians</h2>
-            <cite></cite>
+            <cite><%= @bools2["amphibian"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["fish"].nil? %>
         <li class="fish">
           <a href=<%= fish_path %>>
             <%= image_tag('badge-icons/fish.png', alt: "fish") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :fish) %></h3>
+            <h3><%= @bools2["fish"][:total] %></h3>
             <h2>Fish</h2>
-            <cite></cite>
+            <cite><%= @bools2["fish"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["plant"].nil? %>
         <li class="plants">
           <a href=<%= plant_path %>>
             <%= image_tag('badge-icons/plants.png', alt: "plants") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :plant) %></h3>
-            <h2>plants</h2>
-            <cite></cite>
+            <h3><%= @bools2["plant"][:total] %></h3>
+            <h2>Plants</h2>
+            <cite><%= @bools2["plant"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["bird"].nil? %>
         <li class="birds">
           <a href= <%= bird_path %>>
             <%= image_tag('badge-icons/birds.png', alt: "birds") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :bird) %></h3>
+            <h3><%= @bools2["bird"][:total] %></h3>
             <h2>Birds</h2>
-            <cite></cite>
+            <cite><%= @bools2["bird"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["insect"].nil? %>
         <li class="insects">
           <a href=<%= insect_path %>>
             <%= image_tag('badge-icons/insects.png', alt: "insects") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :insect) %></h3>
-            <h2>insects</h2>
-            <cite></cite>
+            <h3><%= @bools2["insect"][:total] %><h3>
+            <h2>Insects</h2>
+              <cite><%= @bools2["insect"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
-      <% if true %>
+      <% unless @bools2["species_at_risk"].nil? %>
         <li class="species-at-risk warning">
           <a href=<%= species_at_risk_path %>>
             <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
-            <h3><%= boolsCountNumberOf(@observation.id, :species_at_risk) %></h3>
+            <h3><%= @bools2["species_at_risk"][:total] %></h3>
             <h2>species at risk</h2>
-            <cite></cite>
+            <cite><%= @bools2["species_at_risk"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
       <% end %>
