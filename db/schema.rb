@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523142220) do
+ActiveRecord::Schema.define(version: 20150524031754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20150523142220) do
   end
 
   add_index "bools", ["observation_id"], name: "index_bools_on_observation_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "observation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "comments", ["observation_id"], name: "index_comments_on_observation_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "document_file_name"
@@ -161,6 +172,8 @@ ActiveRecord::Schema.define(version: 20150523142220) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
   add_foreign_key "bools", "observations"
+  add_foreign_key "comments", "observations"
+  add_foreign_key "comments", "users"
   add_foreign_key "documents", "observations"
   add_foreign_key "observations", "users"
   add_foreign_key "photos", "observations"
