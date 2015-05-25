@@ -11,7 +11,7 @@ require 'csv'
 CSV.foreach(File.join(Rails.root, "seedObs.csv"), :headers => true, :encoding => 'UTF-8') do |row|
 observation = Observation.create([{
     comment: row[1],
-    coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(row[7], row[8]),
+    coordinates: RGeo::Geographic.spherical_factory(srid: 4326).point(row[8], row[7]),
     user_id: row[3],
     loc_nic: row[4],
     observe_on: row[5]
