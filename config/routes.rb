@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :comments
+
   get 'home/index'
 
   get 'more', to: 'more#index'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   resources :documents
 
   resources :observations
-  
+    
   #Tags
   get 'amphibian', to: 'help#amphibian'
   get 'bird', to: 'help#bird'
