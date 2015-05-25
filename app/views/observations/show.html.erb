@@ -13,7 +13,7 @@
   <section class="tags">
     <h1>Observations</h1>
     <ul class="badges">
-      <% if @bools.mammal %>
+      <% if true %>
         <li class="mammals">
           <a href=<%= mammal_path %>>
               <!--links to details page
@@ -22,199 +22,199 @@
 
             -->
             <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
-            <h3><%= @bools.mammal ? "1" : "0" %></h3><!--this is displaying one or zero, it should be a count of all observation lines for mammals for this spot-->
+            <h3><%= boolsCountNumberOf(@observation.id, :mammal) %></h3>
             <h2>Mammals</h2>
-            <cite><%= @observation.observe_on %></cite><!--this should be the LAST recorded date-->
+            <cite></cite><!--this should be the LAST recorded date-->
           </a>
         </li>
       <% end %>
-      <% if @bools.reptile %>
+      <% if true %>
         <li class="reptiles">
          <a href=<%= reptile_path %>>
             <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
-            <h3><%= @bools.reptile ? "1" : "0" %></h3>
+           <h3><%= boolsCountNumberOf(@observation.id, :reptile) %></h3>
             <h2>Reptiles</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.amphibian %>
+      <% if true %>
         <li class="amphibians">
           <a href=<%= amphibian_path %>>
             <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
-            <h3><%= @bools.amphibian ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :amphibian) %></h3>
             <h2>amphibians</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.fish %>
+      <% if true %>
         <li class="fish">
           <a href=<%= fish_path %>>
             <%= image_tag('badge-icons/fish.png', alt: "fish") %>
-            <h3><%= @bools.fish ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :fish) %></h3>
             <h2>Fish</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.plant %>
+      <% if true %>
         <li class="plants">
           <a href=<%= plant_path %>>
             <%= image_tag('badge-icons/plants.png', alt: "plants") %>
-            <h3><%= @bools.plant ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :plant) %></h3>
             <h2>plants</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.bird %>
+      <% if true %>
         <li class="birds">
           <a href= <%= bird_path %>>
             <%= image_tag('badge-icons/birds.png', alt: "birds") %>
-            <h3><%= @bools.bird ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :bird) %></h3>
             <h2>Birds</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.insect %>
+      <% if true %>
         <li class="insects">
           <a href=<%= insect_path %>>
             <%= image_tag('badge-icons/insects.png', alt: "insects") %>
-            <h3><%= @bools.insect ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :insect) %></h3>
             <h2>insects</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.species_at_risk %>
+      <% if true %>
         <li class="species-at-risk warning">
           <a href=<%= species_at_risk_path %>>
             <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
-            <h3><%= @bools.species_at_risk ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :species_at_risk) %></h3>
             <h2>species at risk</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.wildlife_death %>
+      <% if true %>
         <li class="wildlife-death warning">
           <a href=<%= wildlife_death_path %>>
             <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
-            <h3><%= @bools.wildlife_death ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :wildlife_death) %></h3>
             <h2>wildlife death</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.shoreline_alterations %>
+      <% if true %>
         <li class="shoreline-alterations warning">
           <a href=<%= shoreline_alterations_path %>>
             <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
-            <h3><%= @bools.shoreline_alterations ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :shoreline_alterations) %></h3>
             <h2>shoreline alterations</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.water_quality %>
+      <% if true %>
         <li class="water-quality warning">
           <a href=<%= water_quality_path %>>
             <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
-            <h3><%= @bools.water_quality ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :water_quality) %></h3>
             <h2>water quality</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.trash %>
-        <li class="trash danger">
-          <a href=<%= trash_path %>>
-            <%= image_tag('badge-icons/trash.png', alt: "trash") %>
-            <h3><%= @bools.trash ? "1" : "0" %></h3>
-            <h2>Trash</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% if @bools.foam %>
+      <% if true %>
       <li class="foam warning">
         <a href=<%= foam_path %>>
           <%= image_tag('badge-icons/foam.png', alt: "foam") %>
-          <h3><%= @bools.foam ? "1" : "0" %></h3>
+          <h3><%= boolsCountNumberOf(@observation.id, :foam) %></h3>
           <h2>Foam</h2>
-          <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+          <cite></cite>
         </a>
       </li>
       <% end %>
-      <% if @bools.red_blooms %>
+      <% if true %>
+        <li class="trash danger">
+          <a href=<%= trash_path %>>
+            <%= image_tag('badge-icons/trash.png', alt: "trash") %>
+            <h3><%= boolsCountNumberOf(@observation.id, :trash) %></h3>
+            <h2>Trash</h2>
+            <cite></cite>
+          </a>
+        </li>
+      <% end %>
+      <% if true %>
         <li class="red-blooms danger">
           <a href=<%= red_blooms_path %>>
             <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
-            <h3><%= @bools.red_blooms ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :red_blooms) %></h3>
             <h2>Algae Blooms</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.phragmites %>
+      <% if true %>
         <li class="phragmites danger">
           <a href=<%= phragmites_path %>>
             <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
-            <h3><%= @bools.phragmites ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :phragmites) %></h3>
             <h2>phragmites</h2>
-            <cite>May 4, 2014</cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.loosestrife %>
+      <% if true %>
         <li class="loosestrife danger">
           <a href=<%= loosestrife_path %>>
             <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
-            <h3><%= @bools.loosestrife ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :loosestrife) %></h3>
             <h2>loosestrife</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.dog_strangling_vine %>
+      <% if true %>
         <li class="dog-strangling-vine danger">
           <a href=<%= dog_strangling_vine_path %>>
             <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
-            <h3><%= @bools.dog_strangling_vine ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :dog_strangling_vine_path) %></h3>
             <h2>dog-strangling vine</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.introduced_honeysuckle %>
+      <% if true %>
         <li class="introduced-honeysuckle danger">
           <a href=<%= introduced_honeysuckle_path %>>
             <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
-            <h3><%= @bools.introduced_honeysuckle ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :introduced_honeysuckle) %></h3>
             <h2>introduced honeysuckle</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.zebra_mussels %>
+      <% if true %>
         <li class="zebra-mussels danger">
           <a href=<%= zebra_mussels_path %>>
             <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
-            <h3><%= @bools.zebra_mussels ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :zebra_mussels) %></h3>
             <h2>zebra mussels</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
-      <% if @bools.giant_hogweed %>
+      <% if true %>
         <li class="giant-hogweed danger">
           <a href=<%= giant_hogweed_path %>>
             <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
-            <h3><%= @bools.giant_hogweed ? "1" : "0" %></h3>
+            <h3><%= boolsCountNumberOf(@observation.id, :giant_hogweed) %></h3>
             <h2>giant hogweed</h2>
-            <cite><%= @bools.updated_at.strftime("%B %d,%Y") %></cite>
+            <cite></cite>
           </a>
         </li>
       <% end %>
@@ -423,7 +423,7 @@
   </section>
 
   <section class="add-more">
-    <%= link_to "Add to Observation", {:controller => "observations", :action => "new_data", :observation_id => @observation.id}, :class=>"button", :method => :get%>
+    <%= link_to "Add to Observation", {:controller => "observations", :action => "add_data", :observation_id => @observation.id}, :class=>"button", :method => :get%>
     <cite>This will add data to this location</cite>
   </section>
 

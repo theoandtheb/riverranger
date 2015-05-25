@@ -1,30 +1,28 @@
 <div class="observation-container">
-  <h1>Adding to an Observation</h1>
+  <h1>Additional Observation Data</h1>
 
-  <%= form_for(@observation) do |f| %>
-    <% if @observation.errors.any? %>
+  <%= form_for(@observation_add, url: "/observations/create_data") do |f| %>
+    <% if @observation_add.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
+        <h2><%= pluralize(@observation_add.errors.count, "error") %> prohibited this observation from being saved:</h2>
         <ul>
-        <% @observation.errors.full_messages.each do |message| %>
+        <% @observation_add.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
       </div>
     <% end %>
+    <div class="field">
+      <%= f.hidden_field :id %>
+    </div>
     <div class="map-container">
       <p>Enter in any additional observations you've made for this location. All fields are optional!</p>
     </div>
     <div class="other-form-fields-container">
 
       <div class="field">
-        <%= f.label :image %><br>
-        <%= f.file_field :image %>
-      </div>
-
-      <div class="field">
         <h2>I've spotted Wildlife</h2>
-        <%= f.fields_for :bools do |bools_form| %>
+        <%= f.fields_for @bools_attributes do |bools_form| %>
         <%= bools_form.check_box :mammal %>
         <%= bools_form.label :mammal, "Mammal" %>
         
@@ -117,20 +115,7 @@
       </div>
 
       <hr />
-      <div class="field comment">
-        <%= f.label :comment, "Describe what you saw", :class=>"big-label" %><br>
 
-        <%= f.text_area :comment, :placeholder=>"Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?" %>
-        <p><em></em></p>
-      </div>
-      <hr/>
-      <div class="field">
-        <h1>Test data</h1>
-
-        <p>If you have equipment to record scientific data, do so here.  Want to get involved? 
-          <a href=<%= test_kit_path %> class="info">Buy a testkit!</a></p>
-      </div>
-      <hr />
       <div class="test-data">
         <div class="field">
           <%= f.fields_for :tests do |tests_form| %>
@@ -208,25 +193,15 @@
           <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 5" %>
           
         </div>
-
-
         
         <% end %>
 
-        <div class="field">
-          <%= f.label "", "Something you tested missing?" %> <a href="mailto:riverrangersca@gmail.com" class="info">Let us know</a><br>
-        </div>
       </div>
       <hr />
-      <div class="field">
-        <h2>Are you a researcher?</h2>
-        <p>If you have a link to a report that has to do with the Ottawa River and its watershed,
-        <a href="#" class="info research-paper-toggle">Click here to add it</a>
-      </div>
-      <br /><br />
+      <br />
 
       <div class="actions">
-        <%= f.submit "Submit observation", class: "button" %>
+        <%= f.submit "Submit Additional Data", class: "button" %>
       </div>
       <br /><br />
     </div>

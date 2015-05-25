@@ -14,9 +14,11 @@ Rails.application.routes.draw do
 
   resources :documents
 
-  resources :observations
-  get 'observations/:id/new_data', to: 'observations#new_data'
+  get 'observations/:id/add_data', to: 'observations#add_data'
+  patch 'observations/create_data', to: 'observations#create_data'
   
+  resources :observations
+
   resources :comments
   
   #Tags
