@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'more', to: 'more#index'
 
+  get 'thanks', to: 'more#thanks'
+
   get 'map', to: 'map#index'
 
   get 'news', to: 'news#index'

@@ -38,6 +38,8 @@ gem 'twitter'
 gem 'twitter-text'
 gem 'dalli'
 
+gem 'font-awesome-sass'
+
 gem 'active_link_to'
 
 # Use Capistrano for deployment

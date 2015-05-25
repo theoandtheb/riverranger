@@ -1,5 +1,7 @@
 <%= render layout: 'layouts/container', locals: { :body_id => "app" } do %>
   <%= render "app_header" %>
-    <%= yield %>
+    <main id="main" role="main">
+      <%= yield %>
+    </main>
   <%= render "app_footer" %>
 <% end %>

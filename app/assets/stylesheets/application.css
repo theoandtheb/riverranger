@@ -13,7 +13,8 @@
  *= require_self
  *= require "normalize"
  *= require "magnific"
- *= require "ionicons.min"
+ *= require "animate"
+ *= require "addtohomescreen"
  *= require "leaflet.awesome-markers"
  *= require "leaflet"
  *= require "leaflet-search"

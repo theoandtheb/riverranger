@@ -2,12 +2,21 @@
 <html>
 <head>
   <title><%= "#{yield(:title)} - " if content_for?(:title) %> River Ranger</title>
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="River Ranger">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= content_for :maps %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+    addToHomescreen({
+      skipFirstVisit: true,
+      maxDisplayCount: 1
+    });
+  </script>
 </head>
   <body id="riverranger-<%= body_id %>" class="<%= body_class %>">
     <%= content_tag :p, flash[:notice], class: "notice success" if flash[:notice] %>

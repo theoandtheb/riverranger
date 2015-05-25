@@ -32,6 +32,10 @@ $(function() {
     type: 'inline'
   });
 
+  $('.ajax-popup').magnificPopup({
+    type: 'ajax'
+  });
+
   // Hide alert notices after a short time
   if($('.notice').length) {
     setTimeout(function(){ 
@@ -54,4 +58,13 @@ $(function() {
     e.preventDefault();
   });
 
+});
+
+// Animate your turbolinks
+
+document.addEventListener('page:change', function() {
+  document.getElementById('main').className += 'animated fadeIn';
+});
+document.addEventListener('page:fetch', function() {
+  document.getElementById('main').className += 'animated fadeOut';
 });

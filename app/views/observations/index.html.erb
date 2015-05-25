@@ -1,27 +1,18 @@
 <% provide(:title, "Map") %>
 
-<% content_for :maps do %>
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
-<% end %>
-
 <div id="search-bar"></div>
 
 <div id="map"></div>
 
 <script>
   $(function() {
-    // Set up some default options
-    var options = {
-      zoom: 13
-    }
     // Set the map
     var map = L.map('map', {
-      options
+      zoom: 13
     });
-    L.AwesomeMarkers.Icon.prototype.options.prefix = 'ion';
     // Add the tile layers
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+      attribution: '© OpenStreetMap'
     }).addTo(map);
     map.spin(true,{
       lines: 9, 
@@ -33,9 +24,12 @@
     map.locate({setView: true, maxZoom: 16});
     // Once the location is found add a marker and hide the pre-loader
     map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
     function onLocationFound(e) {
+      console.log('Got your location')
       var currentLocationMarker = L.AwesomeMarkers.icon({
-        icon: 'location',
+        prefix: 'fa',
+        icon: 'map-marker',
         markerColor: 'green',
         iconColor: 'white'
       }),
@@ -49,9 +43,13 @@
       ).addTo(map).openPopup();
       map.spin(false);
     }
+    function onLocationError(e) {
+      alert(e.message);
+    }
     // Lets add a map search
     var searchLocationMarker = L.AwesomeMarkers.icon({
-      icon: 'plus-round',
+      prefix: 'fa',
+      icon: 'plus',
       markerColor: 'red',
       iconColor: 'white'
     });
@@ -116,13 +114,14 @@
     var markers = L.markerClusterGroup();
     for (var i = 0; i < places.length; i++) {
       var observationMarkers = L.AwesomeMarkers.icon({
+        prefix: 'fa',
         icon: 'eye',
         markerColor: 'blue',
         iconColor: 'white'
       })
       marker = new L.marker([places[i][0],places[i][1]], {icon: observationMarkers})
         .bindPopup(
-          '<div class="map-popup">' + places[i][2] + '<p>' + places[i][3] + '</p></div>'
+          '<div class="map-popup"><h2>' + places[i][2] + '</h2><p>' + places[i][3] + '</p></div>'
         );
       markers.addLayer(marker);
     }

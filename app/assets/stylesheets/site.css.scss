@@ -1,4 +1,6 @@
 @import "common";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // Core site styles
 
@@ -8,6 +10,7 @@
 html {
   height: 100%;
   width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 body {
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
@@ -135,6 +138,10 @@ form {
 .login-prompt{
   text-align: center;
   margin: 50px 0;
+}
+.forgot-password-link {
+  padding: 0 1em;
+  text-align: center;
 }
 
 
@@ -269,13 +276,20 @@ input.button{
 
 body#riverranger-app {
   background-color: lighten($beige, 20%);
-  padding: 90px 0 100px;
+  #main {
+    padding: 90px 0 100px;
+  }
   &.observations-index {
     height: 100%;
-    padding: 108px 0 64px;
+    #main {
+      height: 100%;
+      padding: 108px 0 64px;
+    }
   }
   &.observations-show {
-    padding: 64px 0 0;
+    #main {
+      padding: 64px 0 0;
+    }
   }
 }
 
@@ -312,7 +326,7 @@ body#riverranger-app {
   height: 64px;
   position: fixed;
   right: 0;
-  z-index: 100;
+  z-index: 1100;
   ul {
     margin: 0 auto;
     padding: 0;
@@ -421,14 +435,14 @@ body#riverranger-app {
   width: 100%;
 }
 #search-bar {
-  background-color: #fff;
-  background-color: rgba(255,255,255,1);
+  background-color: #f6f6f6;
   left: 0;
   position: fixed !important;
   top: 64px;
   right: 0;
   z-index: 1000;
   input {
+    background: none;
     border: 0;
     border-radius: 0;
     margin: 0;
