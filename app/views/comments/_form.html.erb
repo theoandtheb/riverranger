@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <!--%= f.label :body %-->
+    <%= f.text_area :body, :placeholder=>"Respond to this observation. It can be to offer clarification, or to add new observations at this location." %>
   </div>
   <div class="field">
     <%= f.hidden_field :observation_id %>
@@ -22,6 +22,6 @@
     <%= f.hidden_field :user_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add", class: "button" %>
   </div>
 <% end %>
