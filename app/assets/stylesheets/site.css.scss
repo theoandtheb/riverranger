@@ -351,8 +351,10 @@ body#riverranger-app {
           top: -20px;
           width: 300px;
           @include transition(all, 0.2s, ease-in-out);
-          &:hover{
-            top: -40px;
+          @media only screen and (max-width : 600px){
+            &:hover{
+              top: -40px;
+            }
           }
         }
       }
