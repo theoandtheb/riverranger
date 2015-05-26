@@ -1,4 +1,6 @@
 @import "common";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // Core site styles
 
@@ -8,6 +10,7 @@
 html {
   height: 100%;
   width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 body {
   font: 400 100%/1.4 "Courier New", Courier, monospace; 
@@ -49,6 +52,10 @@ cite{
 p{
   margin: 0 0 15px;
 }
+
+.center{
+  text-align: center;
+}
 // Links
 
 a {
@@ -57,6 +64,7 @@ a {
   text-decoration: none;
   &:hover {
     color: $secondary-color;
+    opacity: 0.9;
   }
 }
 
@@ -136,6 +144,10 @@ form {
   text-align: center;
   margin: 50px 0;
 }
+.forgot-password-link {
+  padding: 0 1em;
+  text-align: center;
+}
 
 
 
@@ -191,7 +203,7 @@ a.info{
     box-shadow: multiple-box-shadow(3, $primary-color);
     &:hover{
       @include position(relative, $top: 1px, $left: -1px);
-      box-shadow: multiple-box-shadow(2, $brown);
+      box-shadow: multiple-box-shadow(2, $primary-color);
     }
   }
 }
@@ -210,10 +222,6 @@ input.button{
 }
 
 // Marketing site ------------------------------------------------------------
-
-#riverranger-home {
-  
-}
 
 // Home site
 
@@ -269,13 +277,20 @@ input.button{
 
 body#riverranger-app {
   background-color: lighten($beige, 20%);
-  padding: 90px 0 100px;
+  #main {
+    padding: 90px 0 100px;
+  }
   &.observations-index {
     height: 100%;
-    padding: 108px 0 64px;
+    #main {
+      height: 100%;
+      padding: 108px 0 64px;
+    }
   }
   &.observations-show {
-    padding: 64px 0 0;
+    #main {
+      padding: 64px 0 0;
+    }
   }
 }
 
@@ -312,7 +327,7 @@ body#riverranger-app {
   height: 64px;
   position: fixed;
   right: 0;
-  z-index: 100;
+  z-index: 1100;
   ul {
     margin: 0 auto;
     padding: 0;
@@ -332,8 +347,10 @@ body#riverranger-app {
           top: -20px;
           width: 300px;
           @include transition(all, 0.2s, ease-in-out);
-          &:hover{
-            top: -40px;
+          @media only screen and (min-width : 600px){
+            &:hover{
+              top: -40px;
+            }
           }
         }
       }
@@ -409,6 +426,19 @@ body#riverranger-app {
   }
 }
 
+.mfp-content{
+  background: $white image-url("main-texture.png");
+  h1{
+    margin-top: 30px;
+  }
+  .submit{
+    text-align: center;
+    input.button{
+
+    }
+  }
+}
+
 // Maps
 
 #map {
@@ -421,14 +451,14 @@ body#riverranger-app {
   width: 100%;
 }
 #search-bar {
-  background-color: #fff;
-  background-color: rgba(255,255,255,1);
+  background-color: #f6f6f6;
   left: 0;
   position: fixed !important;
   top: 64px;
   right: 0;
   z-index: 1000;
   input {
+    background: none;
     border: 0;
     border-radius: 0;
     margin: 0;
@@ -473,8 +503,8 @@ body#riverranger-app {
       li{
         list-style: none;
         width: 130px;
-        height: 170px;
-        display: inline-block;
+        height: 180px;
+        display: inline-table;
         text-align: center;
         margin: 0 auto;
         a{
@@ -507,7 +537,7 @@ body#riverranger-app {
         &.shoreline-alterations a, &.dog-strangling-vine a, &.introduced-honeysuckle a{
           h2{
             font-size: 1.2em;
-            margin: 0;
+            margin: 2px 0;
           }
         }
         h3{
@@ -529,14 +559,15 @@ body#riverranger-app {
 
 .comments{
   list-style: none;
-  margin: 50px 0;
+  margin: 50px 0 20px;
   padding: 0 20px;
   li{
-
+    margin-bottom: 30px;
   }
   p{
     max-width: 350px;
     margin: 0 auto 20px;
+    text-align: center;
   }
   cite{
     opacity: 0.5;
@@ -652,27 +683,17 @@ img.more-link{
 }
 .helpers{
   max-width: 1000px;
-  margin: 50px auto 60px;
+  margin: 20px auto 30px;
   overflow: hidden;
   h2{
     margin: 30px 0 10px;
     text-align: left;
   }
-  .reported-by, .description{
-    width: 50%;
-    float: left;
-    padding: 10px 0px;
-    @media only screen and (max-width : 600px){
-      width: 100%;
-      float: none;
-      padding: 20px;
-    }
+  img{
+    width: 100%;
   }
   .description{
-    padding: 10px 70px 10px 20px;
-    @media only screen and (max-width : 600px){
-      padding-right: 20px;
-    }
+    padding: 20px;
     ul, p{
       font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
     }
@@ -769,9 +790,15 @@ a.settings{
   max-width: 900px;
   padding: 30px;
   margin: 50px auto 100px;
-  background: rgba(255,255,255,0.8) image-url("main-texture.png");
+  background: rgba(255,255,255,0.85) image-url("main-texture.png");
   @extend %clearfix;
   position: relative;
+  &.dialogue{
+    max-width: 700px;
+    p{
+      text-align: center;
+    }
+  }
   h5{
     font-weight: normal;
     font-size: 1.4em;
@@ -807,6 +834,20 @@ a.settings{
       font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
       margin-bottom: 10px;
     }
+  }
+}
+
+.add-more{
+  margin: 0 auto 50px;
+  text-align: center;
+  @extend %clearfix;
+  .button{
+    text-align: center;
+    margin: 20px 0;
+  }
+  cite{
+    display: block;
+    margin-top: 30px;
   }
 }
 

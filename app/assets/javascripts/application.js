@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require addtohomescreen.min
 //= require leaflet
 //= require leaflet.spin
 //= require leaflet-search.min

@@ -1,9 +1,6 @@
 <div class="observation-container">
+  
   <h1>New Observation</h1>
-  <% content_for :maps do %>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <% end %>
 
   <%= form_for(@observation) do |f| %>
     <% if @observation.errors.any? %>
@@ -34,7 +31,13 @@
             dragging: false,
             touchZoom: false,
             scrollWheelZoom: false
-          });
+          }),
+            currentLocationMarker = L.AwesomeMarkers.icon({
+              prefix: 'fa',
+              icon: 'map-marker',
+              markerColor: 'green',
+              iconColor: 'white'
+            })
           <% if params["currentlat"].blank? || params["currentlng"].blank? %>
             map.spin(true,{
               lines: 9, 
@@ -46,14 +49,14 @@
             map.on('locationfound', onLocationFound);
             function onLocationFound(e) {
               console.log('Setting via current locale')
-              L.marker(e.latlng).addTo(map);
+              L.marker(e.latlng, {icon: currentLocationMarker}).addTo(map);
               $('.set_current_location').val('POINT(' + e.latlng.lat + ',' + e.latlng.lng + ')');
               map.spin(false);
             }
           <% else %>
             console.log('Setting via params')
             map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
-            var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>]).addTo(map);
+            var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>], {icon: currentLocationMarker}).addTo(map);
           <% end %>
           // Add the tile layers
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -85,88 +88,87 @@
         <%= f.fields_for :bools do |bools_form| %>
         <%= bools_form.check_box :mammal %>
         <%= bools_form.label :mammal, "Mammal" %>
-        
-        <a href=<%= mammal_path %> class="info">?</a>
+        <%= info_link(mammal_path) %>
 
         <%= bools_form.check_box :reptile %>
         <%= bools_form.label :reptile, "Reptile" %>
-        <a href=<%= reptile_path %> class="info">?</a>
+        <%= info_link(reptile_path) %>
 
         <%= bools_form.check_box :amphibian %>
         <%= bools_form.label :amphibian, "Amphibian" %>
-        <a href=<%= amphibian_path %> class="info">?</a>
+        <%= info_link(amphibian_path) %>
 
         <%= bools_form.check_box :fish %>
         <%= bools_form.label :fish, "Fish" %>
-        <a href=<%= fish_path %> class="info">?</a>
+        <%= info_link(fish_path) %>
 
         <%= bools_form.check_box :plant %>
         <%= bools_form.label :plant, "Plant" %>
-        <a href=<%= plant_path %> class="info">?</a>
+        <%= info_link(plant_path) %>
 
         <%= bools_form.check_box :insect %>
         <%= bools_form.label :insect, "Insect" %>
-        <a href=<%= insect_path %> class="info">?</a>
+        <%= info_link(insect_path) %>
 
         <%= bools_form.check_box :bird %>
         <%= bools_form.label :bird, "Bird" %>
-        <a href=<%= bird_path %> class="info">?</a>
+        <%= info_link(bird_path) %>
 
         <%= bools_form.check_box :species_at_risk %>
         <%= bools_form.label :species_at_risk, "Species at Risk" %>
-        <a href=<%= species_at_risk_path %> class="info">?</a>
+        <%= info_link(species_at_risk_path) %>
 
         <h2>I've noticed changes in conditions</h2>
 
         <%= bools_form.check_box :wildlife_death %>
         <%= bools_form.label :wildlife_death, "Wildlife Death" %>
-        <a href=<%= wildlife_death_path %> class="info">?</a>
+        <%= info_link(wildlife_death_path) %>
 
         <%= bools_form.check_box :shoreline_alterations %>
         <%= bools_form.label :shoreline_alterations, "Shoreline Alterations" %>
-        <a href=<%= shoreline_alterations_path %> class="info">?</a>
+        <%= info_link(shoreline_alterations_path) %>
 
         <%= bools_form.check_box :water_quality %>
         <%= bools_form.label :water_quality, "Water Quality" %>
-        <a href=<%= water_quality_path %> class="info">?</a>
+        <%= info_link(water_quality_path) %>
 
         <%= bools_form.check_box :trash %>
         <%= bools_form.label :trash, "Trash" %>
-        <a href=<%= trash_path %> class="info">?</a>
+        <%= info_link(trash_path) %>
 
         <%= bools_form.check_box :foam %>
         <%= bools_form.label :foam, "Foam" %>
-        <a href=<%= foam_path %> class="info">?</a>
+        <%= info_link(foam_path) %>
 
         <%= bools_form.check_box :red_blooms %>
         <%= bools_form.label :red_blooms, "Algae blooms" %>
-        <a href=<%= red_blooms_path %> class="info">?</a>
+        <%= info_link(red_blooms_path) %>
 
         <h2>I've spotted an invasive species</h2>
 
         <%= bools_form.check_box :phragmites %>
         <%= bools_form.label :phragmites, "Phragmites" %>
-        <a href=<%= phragmites_path %> class="info">?</a>
+        <%= info_link(phragmites_path) %>
 
         <%= bools_form.check_box :loosestrife %>
         <%= bools_form.label :loosestrife, "Loosestrife" %>
-        <a href=<%= loosestrife_path %> class="info">?</a>
+        <%= info_link(loosestrife_path) %>
 
         <%= bools_form.check_box :dog_strangling_vine %>
         <%= bools_form.label :dog_strangling_vine, "Dog-Strangling Vine" %>
-        <a href=<%= dog_strangling_vine_path %> class="info">?</a>
+        <%= info_link(dog_strangling_vine_path) %>
 
         <%= bools_form.check_box :introduced_honeysuckle %>
         <%= bools_form.label :introduced_honeysuckle, "Introduced Honeysuckle" %>
-        <a href=<%= introduced_honeysuckle_path %> class="info">?</a>
+        <%= info_link(introduced_honeysuckle_path) %>
 
         <%= bools_form.check_box :zebra_mussels %>
         <%= bools_form.label :zebra_mussels, "Zebra Mussels" %>
-        <a href=<%= zebra_mussels_path %> class="info">?</a>
+        <%= info_link(zebra_mussels_path) %>
 
         <%= bools_form.check_box :giant_hogweed %>
         <%= bools_form.label :giant_hogweed, "Giant Hogweed" %>
-        <a href=<%= giant_hogweed_path %> class="info">?</a>
+        <%= info_link(giant_hogweed_path) %>
 
         <%= bools_form.check_box :other_invasive %>
         <%= bools_form.label :other_invasive, "Other Invasive (describe in comments below)" %>
@@ -177,16 +179,14 @@
       <hr />
       <div class="field comment">
         <%= f.label :comment, "Describe what you saw", :class=>"big-label" %><br>
-
         <%= f.text_area :comment, :placeholder=>"Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?" %>
-        <p><em></em></p>
       </div>
       <hr/>
       <div class="field">
         <h1>Test data</h1>
 
         <p>If you have equipment to record scientific data, do so here.  Want to get involved? 
-          <a href=<%= test_kit_path %> class="info">Buy a testkit!</a></p>
+          <a href=<%= test_kit_path %> class="info ajax-popup">Buy a testkit!</a></p>
       </div>
       <hr />
       <div class="test-data">
@@ -313,7 +313,6 @@
       <div class="actions">
         <%= f.submit "Submit observation", class: "button" %>
       </div>
-      <br /><br />
     </div>
   <% end %>
 </div>

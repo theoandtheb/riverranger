@@ -223,23 +223,24 @@
   <% end %>
   
   <ul class="comments">
+    <li><h1>Comments</h1></li>
     <li>
       <!-- Initial comment when Observation was created -->
-      <cite><%= @observation.created_at.strftime("%v ") %><span class="name"><%= @user.username %></span></cite>
+      <cite><%= @observation.created_at.strftime("%v ") %> by <span class="name"><%= @user.username %></span></cite>
       <p><%= @observation.comment %></p>
     </li>
     <% @comments.each do |comment| %>
       <li>
-        <cite><%= comment.created_at.strftime("%v ") %><span class="name"><%= comment.user.username %></span></cite>
+        <cite><%= comment.created_at.strftime("%v ") %> by <span class="name"><%= comment.user.username %></span></cite>
         <p><%= comment.body %></p>
       </li>
     <% end %>
-    
+    </ul>
     <section class="add-more">
-      <%= link_to "Add Comment", {:controller => "comments", :action => "new", :observation_id => @observation.id}, :class=>"button", :method => :get%>
-      <cite>This will add a new comment to this observation.</cite>
+      <%= link_to "Add Comment", {:controller => "comments", :action => "new", :observation_id => @observation.id}, :class=>"button mini", :method => :get%>
+      <!--cite>This will add a new comment to this observation.</cite-->
     </section>
-  </ul>
+  
 
   <% unless @tests.nil? %>
   <section class="science">
@@ -325,7 +326,7 @@
         </li>
       <% end %>
       <% unless @tests.oxygen.nil? %>
-        <li class="dissolved-oxygen warning">
+        <li class="dissolved-oxygen good">
           <a href="#">
             <h3>Dissolved oxygen (mg/L)</h3>
             <div class="current">
@@ -345,7 +346,7 @@
         </li>
       <% end %>
       <% unless @tests.nitri.nil? %>
-        <li class="nitrites warning">
+        <li class="nitrites good">
           <a href="#">
             <h3>nitrites (mg/L)</h3>
             <div class="current">
@@ -365,7 +366,7 @@
         </li>
       <% end %>
       <% unless @tests.nitrate.nil? %>
-        <li class="nitrates warning">
+        <li class="nitrates good">
           <a href="#">
             <h3>nitrates (mg/L)</h3>
             <div class="current">
@@ -409,23 +410,24 @@
   <% end %>
   
   <!--if statement should wrap this whole section to not display if there are no reports-->
-  <section class="research">
+  <!--section class="research">
     <h1>Research</h1>
 
     <ul>
       <li>
-          <a href="#"> <!--links to details page-->
+          <a href="#">
             <h3>Report title</h3>
             <cite>May 4 by Kat Kavanagh</cite>
           </a>
       </li>
     </ul>
-  </section>
+  </section-->
 
   <section class="add-more">
+    <cite>Do you have more to report for this location?</cite>
     <a class="button" href="#">Add to this observation</a>
     <!--this should bring you back to the form but with changing location attributes unavailable.  You will be adding to this observation point-->
-    <cite>This will add data to this location</cite>
+    
   </section>
 
 <p><%= @observation.description %></p>

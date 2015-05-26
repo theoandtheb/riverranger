@@ -1,7 +1,12 @@
 <% provide(:title, "Login") %>
 
 <%= render 'form' %>
-<h1>Forgot Password?</h1>
-<%= render 'forgot_password_form' %>
 
-<%= link_to 'Back', user_sessions_path %>
+<p class="forgot-password-link">Forgotten your password? <%= link_to("Click here to reset it", "#forgot-password", class: "inline-popup") %>.</p>
+
+<div id="forgot-password" class="mfp-hide">
+  <h1>Reset your password</h1>  
+  <%= render 'forgot_password_form' %>
+</div>
+
+<%#= link_to 'Back', user_sessions_path %>
