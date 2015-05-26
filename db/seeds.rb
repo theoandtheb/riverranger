@@ -33,15 +33,15 @@ observation = Test.create([{
   }])
 end
 
-if Rails.env.development?
-    (1..22).each do |j|
-        l = "#{j.to_s}.json"
-        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
-    end
-elsif Rails.env.production?
+if Rails.env.production?
     (1..22).each do |j|
         l = "#{j.to_s}.json"
         system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_production user=deploy\" #{l} -nln ogrgeojsons -append")
+    end
+else
+    (1..22).each do |j|
+        l = "#{j.to_s}.json"
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
     end
 end
 
