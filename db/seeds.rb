@@ -16,7 +16,7 @@ if Rails.env.production?
 else
     (1..22).each do |j|
         l = "#{j.to_s}.json"
-        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverrangers_dev user=olliekav\" #{l} -nln ogrgeojsons -append")
     end
 end
 

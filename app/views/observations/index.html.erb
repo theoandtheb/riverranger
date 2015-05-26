@@ -126,5 +126,13 @@
       markers.addLayer(marker);
     }
     map.addLayer(markers);
+    // geoJSON
+    //var geoJsonShapes = <%= raw json_escape(Ogrgeojson.first.geojson) %>
+    var geoJsonShapes = [
+      <% Ogrgeojson.all.each do |shape| %>
+        <%= raw json_escape(shape.geojson) %>,
+      <% end %>
+    ]
+    L.geoJson(geoJsonShapes).addTo(map);
   });
 </script>
