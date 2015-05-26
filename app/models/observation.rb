@@ -33,7 +33,6 @@ class Observation < ActiveRecord::Base
       @matches.each do |t|
         self.ogrgeojsons << Ogrgeojson.find(t)
       end
-      puts self.ogrgeojsons.count
     end
   end
 end

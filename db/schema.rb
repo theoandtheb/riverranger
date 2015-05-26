@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526070949) do
+ActiveRecord::Schema.define(version: 20150526181940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,12 +93,11 @@ ActiveRecord::Schema.define(version: 20150526070949) do
   add_index "observations", ["user_id"], name: "index_observations_on_user_id", using: :btree
 
   create_table "observations_ogrgeojsons", id: false, force: :cascade do |t|
-    t.integer "observations_id"
-    t.integer "ogrgeojsons_id"
+    t.integer "ogrgeojson_id",  null: false
+    t.integer "observation_id", null: false
   end
 
-  add_index "observations_ogrgeojsons", ["observations_id"], name: "index_observations_ogrgeojsons_on_observations_id", using: :btree
-  add_index "observations_ogrgeojsons", ["ogrgeojsons_id"], name: "index_observations_ogrgeojsons_on_ogrgeojsons_id", using: :btree
+  add_index "observations_ogrgeojsons", ["observation_id", "ogrgeojson_id"], name: "observations_ogrgeojson_join_index", unique: true, using: :btree
 
   create_table "ogrgeojsons", force: :cascade do |t|
     t.string   "name"

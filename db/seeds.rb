@@ -8,7 +8,17 @@ require 'csv'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# User.create(email: 'riverrangersca@gmail.com', username: 'River Keepers', crypted_password: '#$taawktljasktlw4aaglj')
+if Rails.env.production?
+    (1..22).each do |j|
+        l = "#{j.to_s}.json"
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_production user=deploy\" #{l} -nln ogrgeojsons -append")
+    end
+else
+    (1..22).each do |j|
+        l = "#{j.to_s}.json"
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
+    end
+end
 
 CSV.foreach(File.join(Rails.root, "seedObs.csv"), :headers => true, :encoding => 'UTF-8') do |row|
 observation = Observation.create([{
@@ -33,17 +43,11 @@ observation = Test.create([{
   }])
 end
 
-if Rails.env.production?
-    (1..22).each do |j|
-        l = "#{j.to_s}.json"
-        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_production user=deploy\" #{l} -nln ogrgeojsons -append")
-    end
-else
-    (1..22).each do |j|
-        l = "#{j.to_s}.json"
-        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
-    end
+@observations = Observation.all
+@observations.each do |o|
+    o.region_matches
 end
+
 
 # CSV.foreach(File.join(Rails.root, "regions.csv"), :headers => true, :encoding => 'UTF-8') do |row|
 # ogrgeojson = Ogrgeojson.create([{
