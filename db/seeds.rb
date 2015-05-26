@@ -8,6 +8,8 @@ require 'csv'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# User.create(email: 'riverrangersca@gmail.com', username: 'River Keepers', crypted_password: '#$taawktljasktlw4aaglj')
+
 CSV.foreach(File.join(Rails.root, "seedObs.csv"), :headers => true, :encoding => 'UTF-8') do |row|
 observation = Observation.create([{
     comment: row[1],
@@ -31,7 +33,17 @@ observation = Test.create([{
   }])
 end
 
+(1..22).each do |j|
+    l = "#{j.to_s}.json"
+    system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
+end
 
+# CSV.foreach(File.join(Rails.root, "regions.csv"), :headers => true, :encoding => 'UTF-8') do |row|
+# ogrgeojson = Ogrgeojson.create([{
+#     name: row[0],
+#     wkb_geometry: RGeo::Geographic.spherical_factory(srid: 4326).parse_wkt(row[1])
+#   }])
+# end
 
 
 # observation = Observation.create([{
