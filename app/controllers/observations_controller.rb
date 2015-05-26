@@ -1,7 +1,9 @@
 class ObservationsController < ApplicationController
+
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
   skip_before_filter :require_login, only: [:index, :show]
   before_filter :modify_coordinates_params, :only => [:create, :update]
+  after_filter :update_twitter, :only => [:create], if: "Rails.env.production?"
 
   # GET /observations
   # GET /observations.json
@@ -100,6 +102,18 @@ class ObservationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
       params.require(:observation).permit(:description, :loc_nic, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :_destroy])
+    end
+
+    def update_twitter
+      puts "Im ouputting some shit here: #{url_for(@observation)}"
+      #puts "Im ouputting some shit here: #{@observation.coordinates.y.to_s}"
+      if @photo.image.exists?
+        photo_url = @photo.image.path(:medium).to_s
+        observation_url = url_for(@observation)
+        $client.update_with_media("A new observation has just been posted. #{Bitly.client.shorten(observation_url)}", File.open(photo_url))
+      else
+        $client.update("A new observation has just been posted #{Bitly.client.shorten(observation_url)}.")
+      end
     end
   
     def photo_params
