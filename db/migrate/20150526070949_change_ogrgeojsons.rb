@@ -1,5 +1,5 @@
 class ChangeOgrgeojsons < ActiveRecord::Migration
-	self.up do
+	def change
 		change_table :ogrgeojsons do |t|
           t.references :observations, index: true
   		end

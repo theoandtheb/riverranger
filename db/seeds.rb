@@ -33,9 +33,16 @@ observation = Test.create([{
   }])
 end
 
-(1..22).each do |j|
-    l = "#{j.to_s}.json"
-    system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
+if Rails.env.development?
+    (1..22).each do |j|
+        l = "#{j.to_s}.json"
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_gis user=postgres\" #{l} -nln ogrgeojsons -append")
+    end
+elsif Rails.env.production?
+    (1..22).each do |j|
+        l = "#{j.to_s}.json"
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverranger_production user=deploy\" #{l} -nln ogrgeojsons -append")
+    end
 end
 
 # CSV.foreach(File.join(Rails.root, "regions.csv"), :headers => true, :encoding => 'UTF-8') do |row|
