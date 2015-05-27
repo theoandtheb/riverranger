@@ -15,7 +15,7 @@ class ObservationsController < ApplicationController
 # GET /observations/1.json
   def show
     @observations = Observation.find_by(id: params[:id])
-    @bools = Bool.find_by(observation_id: params[:id])
+    @bools = Bool.find_all_by_observation_id(params[:id])
     @tests = Test.find_by(observation_id: params[:id])
     @photo = Photo.find_by(observation_id: params[:id])
     @comments = Comment.where(observation_id: params[:id])
@@ -79,6 +79,29 @@ class ObservationsController < ApplicationController
     end
   end
 
+  # GET /observations/1/add_data
+  def add_data
+    @observation_add = Observation.find_by(id: params[:observation_id])
+    @bools_attributes = Bool.new
+    @photo = Photo.new
+    @tests = Test.new
+  end
+  
+  def create_data
+    @observation = Observation.find_by(params.require(:observation).permit(:id))
+    @bools = newBool(params)
+    
+    respond_to do |format|
+      if @bools.save
+        format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
+        format.json { render :show, status: :created, location: @observation }
+      else
+        format.html { render :new }
+        format.json { render json: @observation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   # DELETE /observations/1
   # DELETE /observations/1.json
   def destroy
@@ -116,9 +139,40 @@ class ObservationsController < ApplicationController
       end
     end
   
-    def photo_params
-      params.require(:observation).permit(:image)
-    end
+  def photo_params
+    params.require(:observation).permit(:image)
+  end
+  
+  def test_params
+  end
+  
+  def newBool(params)
+    b = Bool.new
+    b.mammal = params[:observation][:bool][:mammal]
+    b.reptile = params[:observation][:bool][:reptile]
+    b.amphibian = params[:observation][:bool][:amphibian]
+    b.fish = params[:observation][:bool][:fish]
+    b.plant = params[:observation][:bool][:plant]
+    b.insect = params[:observation][:bool][:insect]
+    b.bird = params[:observation][:bool][:bird]
+    b.species_at_risk = params[:observation][:bool][:species_at_risk]
+    b.wildlife_death = params[:observation][:bool][:wildlife_death]
+    b.shoreline_alterations = params[:observation][:bool][:shoreline_alterations]
+    b.water_quality = params[:observation][:bool][:water_quality]
+    b.trash = params[:observation][:bool][:trash]
+    b.foam = params[:observation][:bool][:foam]
+    b.red_blooms = params[:observation][:bool][:red_blooms]
+    b.phragmites = params[:observation][:bool][:phragmites]
+    b.loosestrife = params[:observation][:bool][:loosestrife]
+    b.dog_strangling_vine = params[:observation][:bool][:dog_strangling_vine]
+    b.introduced_honeysuckle = params[:observation][:bool][:introduced_honeysuckle]
+    b.zebra_mussels = params[:observation][:bool][:zebra_mussels]
+    b.giant_hogweed = params[:observation][:bool][:giant_hogweed]
+    b.other_invasive = params[:observation][:bool][:other_invasive]
+    
+    b.observation_id = params[:observation][:id]
+    return b
+  end
 end
 
 

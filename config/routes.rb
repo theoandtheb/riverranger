@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-  resources :comments
 
   get 'home/index'
 
@@ -18,8 +16,13 @@ Rails.application.routes.draw do
 
   resources :documents
 
+  get 'observations/:id/add_data', to: 'observations#add_data'
+  patch 'observations/create_data', to: 'observations#create_data'
+  
   resources :observations
-    
+
+  resources :comments
+  
   #Tags
   get 'amphibian', to: 'help#amphibian'
   get 'bird', to: 'help#bird'
