@@ -26,15 +26,15 @@
     // Once the location is found add a marker and hide the pre-loader
     map.on('locationfound', onLocationFound);
     map.on('locationerror', onLocationError);
+    var currentLocationMarker = L.AwesomeMarkers.icon({
+      prefix: 'fa',
+      icon: 'map-marker',
+      markerColor: 'green',
+      iconColor: 'white'
+    })
     function onLocationFound(e) {
       console.log('Got your location')
-      var currentLocationMarker = L.AwesomeMarkers.icon({
-        prefix: 'fa',
-        icon: 'map-marker',
-        markerColor: 'green',
-        iconColor: 'white'
-      }),
-          lat = (e.latlng.lat),
+      var lat = (e.latlng.lat),
           lng = (e.latlng.lng);
       L.marker([lat,lng], {icon: currentLocationMarker}).bindPopup(
         '<div class="map-popup">' +
@@ -45,7 +45,15 @@
       map.spin(false);
     }
     function onLocationError(e) {
-      alert(e.message);
+      alert("We can't find your current location at the moment. Please use the search or click on the map to find your current position.");
+      map.setView(new L.LatLng(45.421530, -75.697193), 10);
+      L.marker([45.421530,-75.697193], {icon: currentLocationMarker}).bindPopup(
+        '<div class="map-popup">' +
+        '<h2>Ottawa</h2>' + 
+        // '<a href="/observations/new?currentlat=' + e.latlng.lat + '&currentlng=' + e.latlng.lng + '" class="button mini">Add new observation</a>' +
+        '</div>'
+      ).addTo(map).openPopup();
+      map.spin(false);
     }
     // Lets add a map search
     var searchLocationMarker = L.AwesomeMarkers.icon({

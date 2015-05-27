@@ -33,7 +33,7 @@
               if('geolocation' in navigator){
                 var options = {  
                    enableHighAccuracy: false, 
-                   timeout: 8000,  
+                   timeout: 5000,  
                    maximumAge: 0 
                 };
                 var spinner = new Spinner().spin();
@@ -47,10 +47,14 @@
                   $('<img src="http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/pin-l+7eb926('+lon+','+lat +')/'+lon+','+lat +', 16/500x300.png?access_token=pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g" alt="">').insertBefore($('.caption'));
                 }
                 function error(err){
-                   console.log('Error: ' + err + ' :('); // alert the error message
+                  $('.loading').fadeOut();
+                  // $('<img class="non-geo-location-map" src="http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/pin-l+7eb926(-75.697193,45.421530)/-75.697193,45.421530,15/500x300.png?access_token=pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g" alt=""><div class="error-location">We couldn\'t find your current location,<br> please <a href="/"">Search on the map</a>.</div>').insertBefore($('.caption'));
+                  $('<div class="error-location">We couldn\'t find your current location,<br> please <a href="/"">Search on the map</a>.</div>').insertBefore($('.caption'));
+                  $('.caption').hide();
+                  console.log('Error: ' + err + ' :('); // alert the error message
                 }
               } else {
-                alert('Geoocation not defined')
+                alert('This browser does not support geolocation')
               }
             });
           </script>

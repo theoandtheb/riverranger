@@ -134,9 +134,9 @@ class ObservationsController < ApplicationController
       if @photo.image.exists?
         photo_url = @photo.image.path(:medium).to_s
         observation_url = url_for(@observation)
-        $client.update_with_media("A new observation has just been posted. #{Bitly.client.shorten(observation_url)}", File.open(photo_url))
+        $client.update_with_media("A new observation has just been posted. #{Bitly.client.shorten(observation_url).short_url}", File.open(photo_url))
       else
-        $client.update("A new observation has just been posted #{Bitly.client.shorten(observation_url)}.")
+        $client.update("A new observation has just been posted #{Bitly.client.shorten(observation_url).short_url}.")
       end
     end
   

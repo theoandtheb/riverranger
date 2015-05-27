@@ -164,6 +164,14 @@ form {
   text-align: center;
 }
 
+.error-location {
+  border: 1px solid $secondary-color;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+}
+
 a.info{
   color: $secondary-color;
   font-weight: bold;
