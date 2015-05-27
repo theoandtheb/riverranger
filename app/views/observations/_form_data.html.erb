@@ -1,170 +1,112 @@
 <div class="observation-container">
-  
-  <h1>New Observation</h1>
+  <h1>Additional Observation Data</h1>
 
-  <%= form_for(@observation) do |f| %>
-    <% if @observation.errors.any? %>
+  <%= form_for(@observation_add, url: "/observations/create_data") do |f| %>
+    <% if @observation_add.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
+        <h2><%= pluralize(@observation_add.errors.count, "error") %> prohibited this observation from being saved:</h2>
         <ul>
-        <% @observation.errors.full_messages.each do |message| %>
+        <% @observation_add.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
       </div>
     <% end %>
+    <div class="field">
+      <%= f.hidden_field :id %>
+    </div>
     <div class="map-container">
-      <p>Enter in any observations you've made for this location. All fields are optional!</p>
-      <div class="field location-input">
-        <% if params["currentlat"].blank? || params["currentlng"].blank? %>
-          <!--%= f.label :coordinates, "Your current location" %-->
-          <%= f.text_field :coordinates, class: "set_current_location" %>
-          <script>
-            $(function() {
-              $('<div id="map-loader" class="loading">Finding your current location</div>').insertBefore($('.caption'));
-              var spinOpts = {
-                lines: 9, 
-                length: 8,
-                color: '#0f2a47',
-                top: '25%'
-              };
-              var target = document.getElementById('map-loader'),
-                  spinner = new Spinner(spinOpts).spin(target);
-              if('geolocation' in navigator){
-                var options = {  
-                   enableHighAccuracy: false, 
-                   timeout: 8000,  
-                   maximumAge: 0 
-                };
-                var spinner = new Spinner().spin();
-                navigator.geolocation.getCurrentPosition(success, error, options); 
-                function success(pos){
-                  console.log('I got your location')
-                  var lat = pos.coords.latitude,
-                      lon = pos.coords.longitude;
-                  $('.set_current_location').val('POINT(' + lat + ',' + lon + ')');
-                  $('.loading').fadeOut();
-                  $('<img src="http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/pin-l+7eb926('+lon+','+lat +')/'+lon+','+lat +', 16/500x300.png?access_token=pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g" alt="">').insertBefore($('.caption'));
-                }
-                function error(err){
-                   console.log('Error: ' + err + ' :('); // alert the error message
-                }
-              } else {
-                alert('Geoocation not defined')
-              }
-            });
-          </script>
-        <% else %>
-          <!--%= f.label :coordinates, "Found location" %-->
-          <%= f.text_field :coordinates, value: "POINT(#{params["currentlng"]} #{params["currentlat"]})" %>
-          <img src="http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/pin-l+7eb926(<%= params["currentlng"] %>,<%= params["currentlat"] %>)/<%= params["currentlng"] %>,<%= params["currentlat"] %>,16/500x300.png?access_token=pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g" alt="">
-        <% end %>
-        <p class="caption">Pin not quite in the right spot? <%= link_to("Choose new location", root_path, :class=>"info") %></p>
-      </div>
+      <p>Enter in any additional observations you've made for this location. All fields are optional!</p>
     </div>
     <div class="other-form-fields-container">
-        
-      <div class="field">
-        <%= f.label :loc_nic, "Location nickname" %><br>
-        <%= f.text_field :loc_nic, :placeholder => "eg. Riverain Park" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :observe_on, "Date observed" %><br>
-        <%= datetime_local_field :observe_on, Time.now, value: Time.now.strftime("%FT%R") %>
-      </div>
-
-      <div class="field">
-        <%= f.label :image %><br>
-        <%= f.file_field :image %>
-      </div>
 
       <div class="field">
         <h2>I've spotted Wildlife</h2>
-        <%= f.fields_for :bools do |bools_form| %>
+        <%= f.fields_for @bools_attributes do |bools_form| %>
         <%= bools_form.check_box :mammal %>
         <%= bools_form.label :mammal, "Mammal" %>
-        <%= info_link(mammal_path) %>
+        
+        <a href=<%= mammal_path %> class="info">?</a>
 
         <%= bools_form.check_box :reptile %>
         <%= bools_form.label :reptile, "Reptile" %>
-        <%= info_link(reptile_path) %>
+        <a href=<%= reptile_path %> class="info">?</a>
 
         <%= bools_form.check_box :amphibian %>
         <%= bools_form.label :amphibian, "Amphibian" %>
-        <%= info_link(amphibian_path) %>
+        <a href=<%= amphibian_path %> class="info">?</a>
 
         <%= bools_form.check_box :fish %>
         <%= bools_form.label :fish, "Fish" %>
-        <%= info_link(fish_path) %>
+        <a href=<%= fish_path %> class="info">?</a>
 
         <%= bools_form.check_box :plant %>
         <%= bools_form.label :plant, "Plant" %>
-        <%= info_link(plant_path) %>
+        <a href=<%= plant_path %> class="info">?</a>
 
         <%= bools_form.check_box :insect %>
         <%= bools_form.label :insect, "Insect" %>
-        <%= info_link(insect_path) %>
+        <a href=<%= insect_path %> class="info">?</a>
 
         <%= bools_form.check_box :bird %>
         <%= bools_form.label :bird, "Bird" %>
-        <%= info_link(bird_path) %>
+        <a href=<%= bird_path %> class="info">?</a>
 
         <%= bools_form.check_box :species_at_risk %>
         <%= bools_form.label :species_at_risk, "Species at Risk" %>
-        <%= info_link(species_at_risk_path) %>
+        <a href=<%= species_at_risk_path %> class="info">?</a>
 
         <h2>I've noticed changes in conditions</h2>
 
         <%= bools_form.check_box :wildlife_death %>
         <%= bools_form.label :wildlife_death, "Wildlife Death" %>
-        <%= info_link(wildlife_death_path) %>
+        <a href=<%= wildlife_death_path %> class="info">?</a>
 
         <%= bools_form.check_box :shoreline_alterations %>
         <%= bools_form.label :shoreline_alterations, "Shoreline Alterations" %>
-        <%= info_link(shoreline_alterations_path) %>
+        <a href=<%= shoreline_alterations_path %> class="info">?</a>
 
         <%= bools_form.check_box :water_quality %>
         <%= bools_form.label :water_quality, "Water Quality" %>
-        <%= info_link(water_quality_path) %>
+        <a href=<%= water_quality_path %> class="info">?</a>
 
         <%= bools_form.check_box :trash %>
         <%= bools_form.label :trash, "Trash" %>
-        <%= info_link(trash_path) %>
+        <a href=<%= trash_path %> class="info">?</a>
 
         <%= bools_form.check_box :foam %>
         <%= bools_form.label :foam, "Foam" %>
-        <%= info_link(foam_path) %>
+        <a href=<%= foam_path %> class="info">?</a>
 
         <%= bools_form.check_box :red_blooms %>
         <%= bools_form.label :red_blooms, "Algae blooms" %>
-        <%= info_link(red_blooms_path) %>
+        <a href=<%= red_blooms_path %> class="info">?</a>
 
         <h2>I've spotted an invasive species</h2>
 
         <%= bools_form.check_box :phragmites %>
         <%= bools_form.label :phragmites, "Phragmites" %>
-        <%= info_link(phragmites_path) %>
+        <a href=<%= phragmites_path %> class="info">?</a>
 
         <%= bools_form.check_box :loosestrife %>
         <%= bools_form.label :loosestrife, "Loosestrife" %>
-        <%= info_link(loosestrife_path) %>
+        <a href=<%= loosestrife_path %> class="info">?</a>
 
         <%= bools_form.check_box :dog_strangling_vine %>
         <%= bools_form.label :dog_strangling_vine, "Dog-Strangling Vine" %>
-        <%= info_link(dog_strangling_vine_path) %>
+        <a href=<%= dog_strangling_vine_path %> class="info">?</a>
 
         <%= bools_form.check_box :introduced_honeysuckle %>
         <%= bools_form.label :introduced_honeysuckle, "Introduced Honeysuckle" %>
-        <%= info_link(introduced_honeysuckle_path) %>
+        <a href=<%= introduced_honeysuckle_path %> class="info">?</a>
 
         <%= bools_form.check_box :zebra_mussels %>
         <%= bools_form.label :zebra_mussels, "Zebra Mussels" %>
-        <%= info_link(zebra_mussels_path) %>
+        <a href=<%= zebra_mussels_path %> class="info">?</a>
 
         <%= bools_form.check_box :giant_hogweed %>
         <%= bools_form.label :giant_hogweed, "Giant Hogweed" %>
-        <%= info_link(giant_hogweed_path) %>
+        <a href=<%= giant_hogweed_path %> class="info">?</a>
 
         <%= bools_form.check_box :other_invasive %>
         <%= bools_form.label :other_invasive, "Other Invasive (describe in comments below)" %>
@@ -173,18 +115,7 @@
       </div>
 
       <hr />
-      <div class="field comment">
-        <%= f.label :comment, "Describe what you saw", :class=>"big-label" %><br>
-        <%= f.text_area :comment, :placeholder=>"Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?" %>
-      </div>
-      <hr/>
-      <div class="field">
-        <h1>Test data</h1>
 
-        <p>If you have equipment to record scientific data, do so here.  Want to get involved? 
-          <a href=<%= test_kit_path %> class="info ajax-popup">Buy a testkit!</a></p>
-      </div>
-      <hr />
       <div class="test-data">
         <div class="field">
           <%= f.fields_for :tests do |tests_form| %>
@@ -262,53 +193,17 @@
           <%= tests_form.number_field :nitrate, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 5" %>
           
         </div>
-
-
         
         <% end %>
 
-        <div class="field">
-          <%= f.label "", "Something you tested missing?" %> <a href="mailto:riverrangersca@gmail.com" class="info">Let us know</a><br>
-        </div>
       </div>
       <hr />
-      <div class="field">
-        <h2>Are you a researcher?</h2>
-        <p>If you have a link to a report that has to do with the Ottawa River and its watershed,
-        <a href="#" class="info research-paper-toggle">Click here to add it</a>
+      <br />
+
+      <div class="actions">
+        <%= f.submit "Submit Additional Data", class: "button" %>
       </div>
       <br /><br />
-      <div class="research-reports">
-        <div class="field">
-          <%= f.fields_for :studies do |studies_form| %>
-          <%= studies_form.label :title, "Report Title" %><br>
-          <%= studies_form.text_area :title %>
-        </div>
-
-        <div class="field">
-          <%= studies_form.label :published, "Published On" %><br>
-          <%= datetime_local_field :published, Time.now %>
-        </div>
-
-        <div class="field">
-          <%= studies_form.label :author, "Credited Authors" %><br>
-          <%= studies_form.text_area :author %>
-        </div>
-
-        <div class="field">
-          <%= studies_form.label :url, "Web Address" %><br>
-          <%= studies_form.url_field :url %>
-        </div>
-
-        <div class="field">
-          <%= studies_form.label :abstract, "Abstract" %><br>
-          <%= studies_form.text_area :abstract %>
-        </div>
-        <% end %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Submit observation", class: "button" %>
-      </div>
     </div>
   <% end %>
 </div>
