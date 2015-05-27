@@ -13,9 +13,7 @@ class ObservationsController < ApplicationController
 # GET /observations/1.json
   def show
     @observations = Observation.find_by(id: params[:id])
-    @bools = Bool.find_by(observation_id: params[:id])
-    @bools2 = Bool.find_all_by_observation_id(params[:id])
-
+    @bools = Bool.find_all_by_observation_id(params[:id])
     @tests = Test.find_by(observation_id: params[:id])
     @photo = Photo.find_by(observation_id: params[:id])
     @comments = Comment.where(observation_id: params[:id])
