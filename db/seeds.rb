@@ -51,8 +51,6 @@ end
     o.region_matches
 end
 
-Ogrgeojson.bounding_box
-
 # CSV.foreach(File.join(Rails.root, "regions.csv"), :headers => true, :encoding => 'UTF-8') do |row|
 # ogrgeojson = Ogrgeojson.create([{
 #     name: row[0],

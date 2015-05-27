@@ -13,8 +13,7 @@ class Ogrgeojson < ActiveRecord::Base
 		a = -180
 		b = 0
 		c = 0
-		d = 0
-		box = [a,b,c,d]
+		d = 180
 		@z.each do |t|
 			k = RGeo::Cartesian::BoundingBox.create_from_geometry(t.wkb_geometry, opts_ = {})
 			if k.max_x > a
@@ -26,7 +25,7 @@ class Ogrgeojson < ActiveRecord::Base
 			if k.max_y > c
 				c = k.max_y
 			end
-			if k.min_y > d
+			if k.min_y < d
 				d = k.min_y
 			end
 		end
