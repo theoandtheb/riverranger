@@ -51,6 +51,7 @@ class ObservationsController < ApplicationController
     respond_to do |format|
       if @observation.save
         @photo.observation_id = @observation.id
+        @observation.region_matches
         if @photo.save
           format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
           format.json { render :show, status: :created, location: @observation }

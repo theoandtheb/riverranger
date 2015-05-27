@@ -63,12 +63,12 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-   config.action_mailer.default_url_options = { :host => "45.79.134.31" }
+   config.action_mailer.default_url_options = { :host => "riverranger.ca" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               '45.79.134.31',
+  domain:               'riverranger.ca',
   user_name:            'riverrangersca@gmail.com',
   password:             Rails.application.secrets.email_pass,
   authentication:       'plain',
