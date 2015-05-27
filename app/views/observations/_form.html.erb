@@ -19,50 +19,46 @@
         <% if params["currentlat"].blank? || params["currentlng"].blank? %>
           <!--%= f.label :coordinates, "Your current location" %-->
           <%= f.text_field :coordinates, class: "set_current_location" %>
+          <script>
+            $(function() {
+              $('<div id="map-loader" class="loading">Finding your current location</div>').insertBefore($('.caption'));
+              var spinOpts = {
+                lines: 9, 
+                length: 8,
+                color: '#0f2a47',
+                top: '25%'
+              };
+              var target = document.getElementById('map-loader'),
+                  spinner = new Spinner(spinOpts).spin(target);
+              if('geolocation' in navigator){
+                var options = {  
+                   enableHighAccuracy: false, 
+                   timeout: 8000,  
+                   maximumAge: 0 
+                };
+                var spinner = new Spinner().spin();
+                navigator.geolocation.getCurrentPosition(success, error, options); 
+                function success(pos){
+                  console.log('I got your location')
+                  var lat = pos.coords.latitude,
+                      lon = pos.coords.longitude;
+                  $('.set_current_location').val('POINT(' + lat + ',' + lon + ')');
+                  $('.loading').fadeOut();
+                  $('<img src="http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/pin-l+7eb926('+lon+','+lat +')/'+lon+','+lat +', 16/500x300.png?access_token=pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g" alt="">').insertBefore($('.caption'));
+                }
+                function error(err){
+                   console.log('Error: ' + err + ' :('); // alert the error message
+                }
+              } else {
+                alert('Geoocation not defined')
+              }
+            });
+          </script>
         <% else %>
           <!--%= f.label :coordinates, "Found location" %-->
           <%= f.text_field :coordinates, value: "POINT(#{params["currentlng"]} #{params["currentlat"]})" %>
+          <img src="http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/pin-l+7eb926(<%= params["currentlng"] %>,<%= params["currentlat"] %>)/<%= params["currentlng"] %>,<%= params["currentlat"] %>,16/500x300.png?access_token=pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g" alt="">
         <% end %>
-        <div id="location_map"></div>
-        <script>
-          var map = L.map('location_map', {
-            zoomControl: false,
-            zoom: 16,
-            dragging: false,
-            touchZoom: false,
-            scrollWheelZoom: false
-          }),
-            currentLocationMarker = L.AwesomeMarkers.icon({
-              prefix: 'fa',
-              icon: 'map-marker',
-              markerColor: 'green',
-              iconColor: 'white'
-            })
-          <% if params["currentlat"].blank? || params["currentlng"].blank? %>
-            map.spin(true,{
-              lines: 9, 
-              length: 10,
-              color: '#0f2a47',
-              zIndex: 1000
-            });
-            map.locate({setView: true, maxZoom: 16});
-            map.on('locationfound', onLocationFound);
-            function onLocationFound(e) {
-              console.log('Setting via current locale')
-              L.marker(e.latlng, {icon: currentLocationMarker}).addTo(map);
-              $('.set_current_location').val('POINT(' + e.latlng.lat + ',' + e.latlng.lng + ')');
-              map.spin(false);
-            }
-          <% else %>
-            console.log('Setting via params')
-            map.setView([<%= params["currentlat"] %>, <%= params["currentlng"] %>], 16);
-            var marker = L.marker([<%= params["currentlat"] %>, <%= params["currentlng"] %>], {icon: currentLocationMarker}).addTo(map);
-          <% end %>
-          // Add the tile layers
-          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: ''
-          }).addTo(map);
-        </script>
         <p class="caption">Pin not quite in the right spot? <%= link_to("Choose new location", root_path, :class=>"info") %></p>
       </div>
     </div>

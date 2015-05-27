@@ -149,10 +149,19 @@ form {
   text-align: center;
 }
 
+.location-input {
+  img {
+    display: block;
+    margin-bottom: 0.5em;
+    width: 100%;
+  }
+}
 
-
-.set_current_location{
-  display: none;
+.loading {
+  font-size: 1.2em;
+  padding: 4em 1em 2em;
+  position: relative;
+  text-align: center;
 }
 
 a.info{

@@ -8,7 +8,7 @@
   $(function() {
     // Add the tile layers
     var accessToken = 'pk.eyJ1Ijoicml2ZXJyYW5nZXJzIiwiYSI6ImZlMzBjZDI0Zjk0MjRhMTY4NzE3MWUwNmEwZDk4MDExIn0.yHAJvvSNFBh73DQp_78y0g';
-    var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/examples.map-qfyrx5r8/{z}/{x}/{y}.png?access_token=' + accessToken, {
+    var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=' + accessToken, {
       attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
     });
     // Set the map
@@ -78,6 +78,7 @@
     // Add ability to click on a location and add an observation
     var marker;
     function onMapClick(e) {
+      console.log('function called')
       map.removeLayer(marker);
       marker = L.marker(e.latlng, {icon: searchLocationMarker, draggable: 'true'})
       marker.addTo(map).bindPopup(
@@ -128,7 +129,6 @@
     }
     map.addLayer(markers);
     // geoJSON
-    //var geoJsonShapes = <%= raw json_escape(Ogrgeojson.first.geojson) %>
     var geoJsonShapes = [
       <% Ogrgeojson.all.each do |shape| %>
         <%= raw json_escape(shape.geojson) %>,
@@ -141,9 +141,12 @@
       color: 'red',
       fillOpacity: 0
     }
+    function onEachFeature(feature, layer) {
+      layer.on('click', onMapClick);
+    }
     L.geoJson(geoJsonShapes,{
       style: style,
-      // onEachFeature: onEachFeature
+      onEachFeature: onEachFeature
     }).addTo(map);
   });
 </script>
