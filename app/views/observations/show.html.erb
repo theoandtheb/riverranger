@@ -230,8 +230,8 @@
     <li><h1>Comments</h1></li>
     <li>
       <!-- Initial comment when Observation was created -->
-      <cite><%= @observation.created_at.strftime("%v ") %> by <span class="name"><%= @user.username %></span></cite>
-      <% if @observation.comment.empty? %>
+      <cite><%= @observation.observe_on.strftime("%v ") %> by <span class="name"><%= @user.username %></span></cite>
+      <% if @observation.comment.blank? %>
         <p>Observation Created</p>
       <% else %>
         <p><%= @observation.comment %></p>
