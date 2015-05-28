@@ -203,7 +203,13 @@
 
       </div>
       <hr />
-      <br />
+      <div class="field comment">
+        <%= f.fields_for @comment_add do |contact_form| %>
+        <%= contact_form.label :body, "Describe what you saw", :class=>"big-label" %><br>
+        <%= contact_form.text_area :body, :placeholder=>"Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?" %>
+        <% end %>
+      </div>
+      <hr/>
 
       <div class="actions">
         <%= f.submit "Submit Additional Data", class: "button" %>
