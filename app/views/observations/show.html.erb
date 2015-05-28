@@ -252,175 +252,41 @@
     </section>
   
 
- <% unless @tests.nil? %>
+<% unless @tests.nil? %>
+  <script>
+    // Set up some D3 defaults
+    var w = 300;
+    var h = 75;
+  </script>
   <section class="science">
     <ul>
       <% unless @tests["ph"].nil? %>
-        <li class="ph">
-          <a href="#"> <!--links to details page: on this page we again give the table of data, same as the tags (it will just be rendered into a graph-->
-            <h3>pH</h3>
-            <div class="current">
-              <h1><%= @tests["ph"][:values].last %></h1><!--this is always the last observation-->
-              <cite><%= @tests["ph"][:date].strftime("%B %d,%Y") %></cite><!--last observation date-->
-            </div>
-            <div class="average">
-              <h2><%= @tests["ph"][:values].sum / @tests["ph"][:values].size %></h2><!--this is the average of all observations-->
-              <cite>average</cite>
-            </div>
-            <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
-              <% @tests["ph"][:values].all.each do |value| %>
-                <%= value %>,
-              <% end %>
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite><!--this is the date range in months/years of the shown observations (nice to have feature)-->
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["ph"], title: "pH", css_class: "ph", max_value: 20, url: ph_path %>
       <% end %>
       <% unless @tests["temperature"].nil? %>
-        <li class="temperature">
-          <a href="#">
-            <h3>Water Temperature &#8451;</h3>
-            <div class="current">
-              <h1><%= @tests["temperature"][:values].last %></h1>
-              <cite><%= @tests["temperature"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["temperature"][:values].sum / @tests["temperature"][:values].size %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["temperature"], title: "Water Temperature &#8451;", css_class: "temperature", max_value: 20, url: temperature_path %>
       <% end %>
       <% unless @tests["phosphate"].nil? %>
-        <li class="phosphates good">
-          <a href="#">
-            <h3>Phosphates mg/L</h3>
-            <div class="current">
-              <h1><%= @tests["phosphate"][:values].last %></h1>
-              <cite><%= @tests["phosphate"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["phosphate"][:values].sum / @tests["phosphate"][:values].size %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["phosphate"], title: "Phosphate", css_class: "phosphates", max_value: 20, url: phosphate_path %>
       <% end %>
       <% unless @tests["clarity"].nil? %>
-        <li class="secchi good">
-          <a href="#">
-            <h3>Water clarity (m)</h3>
-            <div class="current">
-              <h1><%= @tests["clarity"][:values].last %></h1>
-              <cite><%= @tests["clarity"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["clarity"][:values].sum / @tests["clarity"][:values].size %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["clarity"], title: "Water clarity (m)", css_class: "secchi", max_value: 20, url: clarity_path %>
       <% end %>
       <% unless @tests["oxygen"].nil? %>
-        <li class="dissolved-oxygen good">
-          <a href="#">
-            <h3>Dissolved oxygen (mg/L)</h3>
-            <div class="current">
-              <h1><%= @tests["oxygen"][:values].last %></h1>
-              <cite><%= @tests["oxygen"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["oxygen"][:values].sum / @tests["oxygen"][:values].size  %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["oxygen"], title: "Dissolved oxygen (mg/L)", css_class: "dissolved-oxygen", max_value: 20, url: oxygen_path %>
       <% end %>
       <% unless @tests["nitri"].nil? %>
-        <li class="nitrites good">
-          <a href="#">
-            <h3>nitrites (mg/L)</h3>
-            <div class="current">
-              <h1><%= @tests["nitri"][:values].last %></h1>
-              <cite><%= @tests["nitri"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["nitri"][:values].sum / @tests["nitri"][:values].size %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["nitri"], title: "nitrites (mg/L)", css_class: "nitrites", max_value: 20, url: nitri_path %>
       <% end %>
       <% unless @tests["nitrate"].nil? %>
-        <li class="nitrates good">
-          <a href="#">
-            <h3>nitrates (mg/L)</h3>
-            <div class="current">
-              <h1><%= @tests["nitrate"][:values].last %></h1>
-              <cite><%= @tests["nitrate"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["nitrate"][:values].sum / @tests["nitrate"][:values].size %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["nitrate"], title: "nitrates (mg/L)", css_class: "nitrates", max_value: 20, url: nitrate_path %>
       <% end %>
       <% unless @tests["ecoli"].nil? %>
-        <li class="ecoli warning">
-          <a href="#">
-            <h3>E-coli Fecal coliforms/100mL</h3>
-            <div class="current">
-              <h1><%= @tests["ecoli"][:values].last %></h1>
-              <cite><%= @tests["ecoli"][:date].strftime("%B %d,%Y") %></cite>
-            </div>
-            <div class="average">
-              <h2><%= @tests["ecoli"][:values].sum / @tests["ecoli"][:values].size %></h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+        <%= render "test", test: @tests["ecoli"], title: "E-coli Fecal coliforms/100mL", css_class: "ecoli", max_value: 20, url: ecoli_path %>
       <% end %>
     </ul>
   </section>
-  <% end %>
+<% end %>
   
   <!--if statement should wrap this whole section to not display if there are no reports-->
   <!--section class="research">
