@@ -8,8 +8,8 @@ require 'csv'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create(first_name: "River", last_name: "Ranger", username: "River Ranger", email: "riverrangersca@gmail.com", password: "que", password_confirmation: "que")
-user.activate!
+#user = User.create(first_name: "River", last_name: "Ranger", username: "River Ranger", email: "riverrangersca@gmail.com", password: "que", password_confirmation: "que")
+#user.activate!
 
 if Rails.env.production?
     (1..22).each do |j|
@@ -19,7 +19,7 @@ if Rails.env.production?
 else
     (1..22).each do |j|
         l = "#{j.to_s}.json"
-        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverrangers_dev user=kat\" #{l} -nln ogrgeojsons -append")
+        system("ogr2ogr -f \"PostgreSQL\" PG:\"dbname=riverrangers_dev user=olliekav\" #{l} -nln ogrgeojsons -append")
     end
 end
 
