@@ -21,6 +21,7 @@
           <%= f.text_field :coordinates, class: "set_current_location" %>
           <script>
             $(function() {
+              $('#observation_image').val('');
               $('<div id="map-loader" class="loading">Finding your current location</div>').insertBefore($('.caption'));
               var spinOpts = {
                 lines: 9, 
@@ -80,7 +81,7 @@
 
       <div class="field">
         <%= f.label :image %><br>
-        <%= f.file_field :image %>
+        <%= f.file_field :image, capture: "camera", accept: "image/*" %>
       </div>
 
       <div class="field">
