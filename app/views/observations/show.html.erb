@@ -242,19 +242,19 @@
     </section>
   
 
-  <% unless @tests.nil? %>
+ <% unless @tests.nil? %>
   <section class="science">
     <ul>
-      <% unless @tests.ph.nil? %>
+      <% unless @tests["ph"].nil? %>
         <li class="ph">
           <a href="#"> <!--links to details page: on this page we again give the table of data, same as the tags (it will just be rendered into a graph-->
             <h3>pH</h3>
             <div class="current">
-              <h1><%= @tests.ph %></h1><!--this is always the last observation-->
-              <cite>4.12.2015</cite><!--last observation date-->
+              <h1><%= @tests["ph"][:values].last %></h1><!--this is always the last observation-->
+              <cite><%= @tests["ph"][:date].strftime("%B %d,%Y") %></cite><!--last observation date-->
             </div>
             <div class="average">
-              <h2>5.5</h2><!--this is the average of all observations-->
+              <h2><%= @tests["ph"][:values].inject(0, :+) %></h2><!--this is the average of all observations-->
               <cite>average</cite>
             </div>
             <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
@@ -265,16 +265,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.temperature.nil? %>
+      <% unless @tests["temperature"].nil? %>
         <li class="temperature">
           <a href="#">
             <h3>Water Temperature &#8451;</h3>
             <div class="current">
-              <h1><%= @tests.temperature %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["temperature"][:values].last %></h1>
+              <cite><%= @tests["temperature"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>12</h2>
+              <h2><%= @tests["temperature"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -285,16 +285,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.phosphate.nil? %>
+      <% unless @tests["phosphate"].nil? %>
         <li class="phosphates good">
           <a href="#">
             <h3>Phosphates mg/L</h3>
             <div class="current">
-              <h1><%= @tests.phosphate %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["phosphate"][:values].last %></h1>
+              <cite><%= @tests["phosphate"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>0</h2>
+              <h2><%= @tests["phosphate"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -305,16 +305,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.clarity.nil? %>
+      <% unless @tests["clarity"].nil? %>
         <li class="secchi good">
           <a href="#">
             <h3>Water clarity (m)</h3>
             <div class="current">
-              <h1><%= @tests.clarity %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["clarity"][:values].last %></h1>
+              <cite><%= @tests["clarity"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>10</h2>
+              <h2><%= @tests["clarity"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -325,16 +325,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.oxygen.nil? %>
+      <% unless @tests["oxygen"].nil? %>
         <li class="dissolved-oxygen good">
           <a href="#">
             <h3>Dissolved oxygen (mg/L)</h3>
             <div class="current">
-              <h1><%= @tests.oxygen %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["oxygen"][:values].last %></h1>
+              <cite><%= @tests["oxygen"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>10</h2>
+              <h2><%= @tests["oxygen"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -345,16 +345,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.nitri.nil? %>
+      <% unless @tests["nitri"].nil? %>
         <li class="nitrites good">
           <a href="#">
             <h3>nitrites (mg/L)</h3>
             <div class="current">
-              <h1><%= @tests.nitri %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["nitri"][:values].last %></h1>
+              <cite><%= @tests["nitri"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>0.4</h2>
+              <h2><%= @tests["nitri"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -365,16 +365,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.nitrate.nil? %>
+      <% unless @tests["nitrate"].nil? %>
         <li class="nitrates good">
           <a href="#">
             <h3>nitrates (mg/L)</h3>
             <div class="current">
-              <h1><%= @tests.nitrate %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["nitrate"][:values].last %></h1>
+              <cite><%= @tests["nitrate"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>0.4</h2>
+              <h2><%= @tests["nitrate"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -385,16 +385,16 @@
           </a>
         </li>
       <% end %>
-      <% unless @tests.ecoli.nil? %>
+      <% unless @tests["ecoli"].nil? %>
         <li class="ecoli warning">
           <a href="#">
             <h3>E-coli Fecal coliforms/100mL</h3>
             <div class="current">
-              <h1><%= @tests.ecoli %></h1>
-              <cite>4.12.2015</cite>
+              <h1><%= @tests["ecoli"][:values].last %></h1>
+              <cite><%= @tests["ecoli"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2>150</h2>
+              <h2><%= @tests["ecoli"][:values].inject(0, :+) %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -410,18 +410,18 @@
   <% end %>
   
   <!--if statement should wrap this whole section to not display if there are no reports-->
-  <!--section class="research">
+  <section class="research">
     <h1>Research</h1>
 
     <ul>
       <li>
           <a href="#">
-            <h3>Report title</h3>
+            <h3><!--%= @studies.title %--></h3>
             <cite>May 4 by Kat Kavanagh</cite>
           </a>
       </li>
     </ul>
-  </section-->
+  </section>
 
   <section class="add-more">
     <%= link_to "Add to Observation", {:controller => "observations", :action => "add_data", :observation_id => @observation.id}, :class=>"button", :method => :get%>

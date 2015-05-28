@@ -16,9 +16,11 @@ class ObservationsController < ApplicationController
   def show
     @observations = Observation.find_by(id: params[:id])
     @bools = Bool.find_all_by_observation_id(params[:id])
-    @tests = Test.find_by(observation_id: params[:id])
+    @tests = Test.find_all_by_observation_id(params[:id])
+    
     @photo = Photo.find_by(observation_id: params[:id])
     @comments = Comment.where(observation_id: params[:id])
+    
     
     @user = User.find_by(id: @observation.user_id)
     
@@ -51,6 +53,7 @@ class ObservationsController < ApplicationController
     respond_to do |format|
       if @observation.save
         @photo.observation_id = @observation.id
+        @observation.region_matches
         if @photo.save
           format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
           format.json { render :show, status: :created, location: @observation }
@@ -83,16 +86,17 @@ class ObservationsController < ApplicationController
   def add_data
     @observation_add = Observation.find_by(id: params[:observation_id])
     @bools_attributes = Bool.new
+    @tests_attributes = Test.new
     @photo = Photo.new
-    @tests = Test.new
   end
   
   def create_data
     @observation = Observation.find_by(params.require(:observation).permit(:id))
     @bools = newBool(params)
+    @tests = newTest(params)
     
     respond_to do |format|
-      if @bools.save
+      if @bools.save && @tests.save
         format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
         format.json { render :show, status: :created, location: @observation }
       else
@@ -143,9 +147,6 @@ class ObservationsController < ApplicationController
     params.require(:observation).permit(:image)
   end
   
-  def test_params
-  end
-  
   def newBool(params)
     b = Bool.new
     b.mammal = params[:observation][:bool][:mammal]
@@ -172,6 +173,21 @@ class ObservationsController < ApplicationController
     
     b.observation_id = params[:observation][:id]
     return b
+  end
+
+  def newTest(params)
+    t = Test.new
+    t.ph = params[:observation][:test][:ph]
+    t.temperature = params[:observation][:test][:temperature]
+    t.phosphate = params[:observation][:test][:phosphate]
+    t.clarity = params[:observation][:test][:clarity]
+    t.oxygen = params[:observation][:test][:oxygen]
+    t.nitri = params[:observation][:test][:nitri]
+    t.nitrate = params[:observation][:test][:nitrate]
+    t.ecoli = params[:observation][:test][:ecoli]
+    
+    t.observation_id = params[:observation][:id]
+    return t
   end
 end
 

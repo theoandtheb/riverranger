@@ -1,0 +1,2 @@
+class ObservationMailer < ApplicationMailer
+end
