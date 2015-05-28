@@ -21,7 +21,6 @@ class ObservationsController < ApplicationController
     @photo = Photo.find_by(observation_id: params[:id])
     @comments = Comment.where(observation_id: params[:id])
     
-    
     @user = User.find_by(id: @observation.user_id)
     
     #Check to see if objects are valid for the specified observation
@@ -87,6 +86,7 @@ class ObservationsController < ApplicationController
     @observation_add = Observation.find_by(id: params[:observation_id])
     @bools_attributes = Bool.new
     @tests_attributes = Test.new
+    @comment_add = Comment.new
     @photo = Photo.new
   end
   
@@ -94,9 +94,10 @@ class ObservationsController < ApplicationController
     @observation = Observation.find_by(params.require(:observation).permit(:id))
     @bools = newBool(params)
     @tests = newTest(params)
+    @comment = newComment(params)
     
     respond_to do |format|
-      if @bools.save && @tests.save
+      if @bools.save && @tests.save && @comment.save
         format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
         format.json { render :show, status: :created, location: @observation }
       else
@@ -188,6 +189,14 @@ class ObservationsController < ApplicationController
     
     t.observation_id = params[:observation][:id]
     return t
+  end
+
+  def newComment(params)
+    c = Comment.new
+    c.body = params[:observation][:comment][:body]
+    c.user_id = @current_user.id
+    c.observation_id = params[:observation][:id]
+    return c
   end
 end
 

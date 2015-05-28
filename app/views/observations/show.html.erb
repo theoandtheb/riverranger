@@ -231,13 +231,19 @@
     <li>
       <!-- Initial comment when Observation was created -->
       <cite><%= @observation.created_at.strftime("%v ") %> by <span class="name"><%= @user.username %></span></cite>
-      <p><%= @observation.comment %></p>
+      <% if @observation.comment.empty? %>
+        <p>Observation Created</p>
+      <% else %>
+        <p><%= @observation.comment %></p>
+      <% end %>
     </li>
     <% @comments.each do |comment| %>
+    <% unless comment.body.empty? %>
       <li>
         <cite><%= comment.created_at.strftime("%v ") %> by <span class="name"><%= comment.user.username %></span></cite>
         <p><%= comment.body %></p>
       </li>
+      <% end %>
     <% end %>
     </ul>
     <section class="add-more">
@@ -258,7 +264,7 @@
               <cite><%= @tests["ph"][:date].strftime("%B %d,%Y") %></cite><!--last observation date-->
             </div>
             <div class="average">
-              <h2><%= @tests["ph"][:values].inject(0, :+) %></h2><!--this is the average of all observations-->
+              <h2><%= @tests["ph"][:values].sum / @tests["ph"][:values].size %></h2><!--this is the average of all observations-->
               <cite>average</cite>
             </div>
             <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
@@ -281,7 +287,7 @@
               <cite><%= @tests["temperature"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["temperature"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["temperature"][:values].sum / @tests["temperature"][:values].size %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -301,7 +307,7 @@
               <cite><%= @tests["phosphate"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["phosphate"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["phosphate"][:values].sum / @tests["phosphate"][:values].size %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -321,7 +327,7 @@
               <cite><%= @tests["clarity"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["clarity"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["clarity"][:values].sum / @tests["clarity"][:values].size %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -341,7 +347,7 @@
               <cite><%= @tests["oxygen"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["oxygen"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["oxygen"][:values].sum / @tests["oxygen"][:values].size  %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -361,7 +367,7 @@
               <cite><%= @tests["nitri"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["nitri"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["nitri"][:values].sum / @tests["nitri"][:values].size %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -381,7 +387,7 @@
               <cite><%= @tests["nitrate"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["nitrate"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["nitrate"][:values].sum / @tests["nitrate"][:values].size %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -401,7 +407,7 @@
               <cite><%= @tests["ecoli"][:date].strftime("%B %d,%Y") %></cite>
             </div>
             <div class="average">
-              <h2><%= @tests["ecoli"][:values].inject(0, :+) %></h2>
+              <h2><%= @tests["ecoli"][:values].sum / @tests["ecoli"][:values].size %></h2>
               <cite>average</cite>
             </div>
             <div class="graph">
@@ -417,18 +423,18 @@
   <% end %>
   
   <!--if statement should wrap this whole section to not display if there are no reports-->
-  <section class="research">
+  <!--section class="research">
     <h1>Research</h1>
 
     <ul>
       <li>
           <a href="#">
-            <h3><!--%= @studies.title %--></h3>
+            <h3>Report title</h3>
             <cite>May 4 by Kat Kavanagh</cite>
           </a>
       </li>
     </ul>
-  </section>
+  </section-->
 
   <section class="add-more">
     <%= link_to "Add to Observation", {:controller => "observations", :action => "add_data", :observation_id => @observation.id}, :class=>"button", :method => :get%>
