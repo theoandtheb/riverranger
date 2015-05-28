@@ -410,18 +410,18 @@
   <% end %>
   
   <!--if statement should wrap this whole section to not display if there are no reports-->
-  <!--section class="research">
+  <section class="research">
     <h1>Research</h1>
 
     <ul>
       <li>
           <a href="#">
-            <h3>Report title</h3>
+            <h3><!--%= @studies.title %--></h3>
             <cite>May 4 by Kat Kavanagh</cite>
           </a>
       </li>
     </ul>
-  </section-->
+  </section>
 
   <section class="add-more">
     <%= link_to "Add to Observation", {:controller => "observations", :action => "add_data", :observation_id => @observation.id}, :class=>"button", :method => :get%>

@@ -20,6 +20,7 @@ class ObservationsController < ApplicationController
     @photo = Photo.find_by(observation_id: params[:id])
     @comments = Comment.where(observation_id: params[:id])
     
+    
     @user = User.find_by(id: @observation.user_id)
     
     #Check to see if objects are valid for the specified observation
