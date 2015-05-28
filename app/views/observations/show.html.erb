@@ -262,6 +262,9 @@
               <cite>average</cite>
             </div>
             <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
+              <% @tests["ph"][:values].all.each do |value| %>
+                <%= value %>,
+              <% end %>
               <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
               <cite>&#126; 2.2 years</cite><!--this is the date range in months/years of the shown observations (nice to have feature)-->
             </div>
