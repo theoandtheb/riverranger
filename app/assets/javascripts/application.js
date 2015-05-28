@@ -17,6 +17,8 @@
 //= require addtohomescreen.min
 //= require leaflet
 //= require leaflet.spin
+//= require leaflet.label
+//= require L.Control.Button
 //= require leaflet-search.min
 //= require leaflet.markercluster
 //= require leaflet.awesome-markers.min

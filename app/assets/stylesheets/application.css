@@ -18,6 +18,7 @@
  *= require "leaflet.awesome-markers"
  *= require "leaflet"
  *= require "leaflet-search"
+ *= require "leaflet.label"
  *= require "MarkerCluster"
  *= require "MarkerCluster.Default"
  *= require "site"
