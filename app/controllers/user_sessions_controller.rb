@@ -17,6 +17,6 @@ skip_before_filter :require_login, except: [:destroy]
 
   def destroy
     logout
-    redirect_to(:map, notice: 'Logged out!')
+    redirect_to(root_path, notice: 'Logged out!')
   end
 end

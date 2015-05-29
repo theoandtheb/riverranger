@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>
+	<% if @user.first_name %>
+		Hey <%= @user.first_name %>!
+	<% else %>
+		Hey <%= @user.username %>!
+	<% end %>
+	</h1>
+    <p>
+      <%= @observation.user.username %> has posted a new observation in a region you are following.<br>
+    </p>
+    <p>
+      If you wish to view it in detail, follow this link:  <%= @url %>
+    </p>
+
+  </body>
+</html>

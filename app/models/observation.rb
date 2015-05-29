@@ -17,6 +17,10 @@ class Observation < ActiveRecord::Base
     self.coordinates.x
   end
 
+  def within(distance)
+    Observation.find_by_sql("SELECT * FROM observations WHERE ST_DWithin(coordinates::geography, '#{self.coordinates}', #{distance})")
+  end
+
   def coordinates_y
     self.coordinates.y
   end

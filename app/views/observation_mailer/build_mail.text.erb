@@ -1,0 +1,10 @@
+<% if @user.first_name %>
+Hey <%= @user.first_name %>!
+<% else %>
+Hey <%= @user.username %>!
+<% end %>
+===============================================
+
+<%= @observation.user.username %> has posted a new observation in a region you are following.
+
+If you wish to view it in detail, follow this link:  <%= @url %>
