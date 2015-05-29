@@ -29,7 +29,7 @@ class OgrgeojsonsController < ApplicationController
 
     respond_to do |format|
       if @ogrgeojson.save
-        format.html { redirect_to @ogrgeojson, notice: 'Ogrgeojson was successfully created.' }
+        format.html { redirect_to ogrgeojsons_path, notice: 'Ogrgeojson was successfully created.' }
         format.json { render :show, status: :created, location: @ogrgeojson }
       else
         format.html { render :new }
