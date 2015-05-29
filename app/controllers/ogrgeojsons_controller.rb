@@ -43,7 +43,7 @@ class OgrgeojsonsController < ApplicationController
   def update
     respond_to do |format|
       if @ogrgeojson.update(ogrgeojson_params)
-        format.html { redirect_to @ogrgeojson, notice: 'Ogrgeojson was successfully updated.' }
+        format.html { redirect_to ogrgeojsons_path, notice: 'Ogrgeojson was successfully updated.' }
         format.json { render :show, status: :ok, location: @ogrgeojson }
       else
         format.html { render :edit }
@@ -70,12 +70,14 @@ class OgrgeojsonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ogrgeojson_params
-      params.require(:ogrgeojson).permit(:name, :wkb_geometry)
+      params.require(:ogrgeojson).permit(:name, :wkb_geometry, :regtype)
     end
 
     def geojson_as_text
-      @k = params['ogrgeojson']['wkb_geometry'].to_s
-      puts @k
-      params['ogrgeojson']['wkb_geometry'] = RGeo::GeoJSON.decode(@k, :json_parser => :json).as_text
+      if params['ogrgeojson']['wkb_geometry']
+        @k = params['ogrgeojson']['wkb_geometry'].to_s
+        puts @k
+        params['ogrgeojson']['wkb_geometry'] = RGeo::GeoJSON.decode(@k, :json_parser => :json).as_text
+      end
     end  
 end
