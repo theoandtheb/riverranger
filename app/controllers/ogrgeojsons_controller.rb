@@ -1,5 +1,6 @@
 class OgrgeojsonsController < ApplicationController
   before_action :set_ogrgeojson, only: [:show, :edit, :update, :destroy]
+  before_filter :geojson_as_text, :only => [:create, :update]
 
   # GET /ogrgeojsons
   # GET /ogrgeojsons.json
@@ -71,4 +72,10 @@ class OgrgeojsonsController < ApplicationController
     def ogrgeojson_params
       params.require(:ogrgeojson).permit(:name, :wkb_geometry)
     end
+
+    def geojson_as_text
+      @k = params['ogrgeojson']['wkb_geometry'].to_s
+      puts @k
+      params['ogrgeojson']['wkb_geometry'] = RGeo::GeoJSON.decode(@k, :json_parser => :json).as_text
+    end  
 end

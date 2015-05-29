@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :documents
 
+  resources :ogrgeojsons
+
   get 'observations/:id/add_data', to: 'observations#add_data'
   patch 'observations/create_data', to: 'observations#create_data'
   
