@@ -136,25 +136,54 @@
       markers.addLayer(marker);
     }
     map.addLayer(markers);
-    // geoJSON
-    var geoJsonShapes = [
+    // geoJSON ----------------------------------------------
+    // Watersheds
+    var waterShedShapes = [
       <% Ogrgeojson.all.each do |shape| %>
         <%= raw json_escape(shape.geojson) %>,
       <% end %>
     ]
-    var style = {
+    var waterShedStyle = {
       fillColor: "#E3E3E3",
       weight: 3,
       opacity: 1,
       color: 'red',
       fillOpacity: 0
     }
-    function onEachFeature(feature, layer) {
-      layer.on('click', onMapClick);
+    function waterShedsEachFeature(feature, layer) {
+      layer.on('click', function(e){
+        // Make sure we can still click on a location to add a marker
+        onMapClick();
+      });
+      var waterShedIcon = L.icon({
+        iconUrl: '<%= image_url("watershed-icon.png") %>',
+        iconSize: [20, 20], // size of the icon
+      });
+      var polygonCenter = layer.getBounds().getCenter();
+      //waterShedIcons = L.marker(polygonCenter, {icon: waterShedIcon})
+      layer.bindLabel(/*feature.properties['NAME']*/'Label name', { noHide: true });
+      //map.addLayer(waterShedIcons);
     }
-    L.geoJson(geoJsonShapes,{
-      style: style,
-      onEachFeature: onEachFeature
-    }).addTo(map);
+    waterShedLayer = L.geoJson(waterShedShapes,{
+      style: waterShedStyle,
+      onEachFeature: waterShedsEachFeature
+    })
+
+    // Create some map buttons to turn layers on/off
+    $('<div class="map-menu"><ul><li><a href="#" class="show-watersheds">Watersheds</a></li><li><a href="#" class="show-regions">Regions</a></li></ul></div>').appendTo('#map');
+
+    $('.show-watersheds').on('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      map.doubleClickZoom.disable();
+      if(!$(this).hasClass('active')) {
+        $(this).addClass('active');
+        waterShedLayer.addTo(map);
+      } else {
+        $(this).removeClass('active');
+        map.removeLayer(waterShedLayer);
+      }
+    });
+
   });
 </script>

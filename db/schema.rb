@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527165457) do
+ActiveRecord::Schema.define(version: 20150528234405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20150527165457) do
     t.boolean  "giant_hogweed"
     t.boolean  "other_invasive"
     t.integer  "observation_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.datetime "observe_on",             default: '2015-05-01 00:00:00'
   end
 
   add_index "bools", ["observation_id"], name: "index_bools_on_observation_id", using: :btree
@@ -60,8 +61,9 @@ ActiveRecord::Schema.define(version: 20150527165457) do
     t.text     "body"
     t.integer  "observation_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.datetime "observe_on",     default: '2015-05-01 00:00:00'
   end
 
   add_index "comments", ["observation_id"], name: "index_comments_on_observation_id", using: :btree
@@ -146,8 +148,9 @@ ActiveRecord::Schema.define(version: 20150527165457) do
     t.integer  "nitrate"
     t.integer  "ecoli"
     t.integer  "observation_id"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                                             null: false
+    t.datetime "updated_at",                                                             null: false
+    t.datetime "observe_on",                             default: '2015-05-01 00:00:00'
   end
 
   add_index "tests", ["observation_id"], name: "index_tests_on_observation_id", using: :btree

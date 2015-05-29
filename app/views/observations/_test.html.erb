@@ -1,0 +1,52 @@
+<li class="<%= css_class %>">
+  <%= link_to(url, class: "ajax-popup") do %>
+    <h3><%= title.html_safe %></h3>
+    <div class="current">
+      <h1><%= test[:values].last %></h1><!--this is always the last observation-->
+      <cite><%= test[:date].strftime("%B %d,%Y") %></cite><!--last observation date-->
+    </div>
+    <div class="average">
+      <h2><%= test[:values].sum / test[:values].size %></h2><!--this is the average of all observations-->
+      <cite>average</cite>
+    </div>
+    <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
+      <div id="<%= css_class %>_chart"></div>
+      <script>
+        var <%= css_class.underscore %>_dataset = [
+          <% test[:values].first(5).each do |value| %>
+            <%= value %>,
+          <% end %>
+        ]
+        var svg_<%= css_class.underscore %> = d3.select("#<%= css_class %>_chart")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        svg_<%= css_class.underscore %>.selectAll("rect")
+         .data(<%= css_class.underscore %>_dataset)
+         .enter()
+         .append("rect")
+         //.attr("fill", "#ceccb3")
+         .attr("fill", function(d) {
+            if(d >= <%= max_value %>) {
+              return "red"
+            } else {
+              return "#ceccb3"
+            }
+          })
+         .attr("x", function(d, i) {
+          //return i * w / ph_dataset.length);
+          return i * 21;
+        })
+         .attr("y", function(d) {
+            return h - d * 8;  //Height minus data value
+        })
+         .attr("width", 20)
+         .attr("height", function(d) {
+            return d * 8;  //Just the data value
+        });
+      </script>
+      <cite>Last 5 tests</cite>
+    </div>
+    <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
+  <% end %>
+</li>

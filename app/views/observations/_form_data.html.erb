@@ -113,12 +113,17 @@
         <a href="#" class="info">?</a>
         <% end %>
       </div>
+      <hr/>
+      <div class="field">
+        <h1>Test data</h1>
 
+        <p>If you have equipment to record scientific data, do so here.  Want to get involved? 
+          <a href=<%= test_kit_path %> class="info ajax-popup">Buy a testkit!</a></p>
+      </div>
       <hr />
-
       <div class="test-data">
         <div class="field">
-          <%= f.fields_for :tests do |tests_form| %>
+          <%= f.fields_for @tests_attributes do |tests_form| %>
           <%= tests_form.label :ph, "pH value (0-14)", :class=>'big-label' %>
           <a href=<%= ph_path %> class="info">?</a><br>
           <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1', :placeholder=>"eg. 6.2" %>
@@ -198,8 +203,18 @@
 
       </div>
       <hr />
-      <br />
-
+      <div class="field comment">
+        <%= f.fields_for @comment_add do |contact_form| %>
+        <%= contact_form.label :body, "Describe what you saw", :class=>"big-label" %><br>
+        <%= contact_form.text_area :body, :placeholder=>"Is there a smell (mucky, earthy)? What colour is the water (brown, clear green, blue green)? Is it something on the surface or throughout the water?" %>
+        <% end %>
+      </div>
+      <hr/>
+      <div class="field">
+        <%= f.label :observe_on, "Date observed", :class=>"big-label" %><br>
+        <%= f.datetime_local_field :observe_on, value: Time.now.strftime("%FT%R") %>
+      </div>
+      <hr/>
       <div class="actions">
         <%= f.submit "Submit Additional Data", class: "button" %>
       </div>

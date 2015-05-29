@@ -3,237 +3,248 @@
     <% if @photo.image.exists? %>
       <%= image_tag @photo.image.url(:default_size) %>
     <% end %>
+    <!-- TODO: Not working at the moment as photos don't have a user linked to them.
     <div class="photographer">
       <cite>
         May 4, 2014 by Kat Kavanagh
       </cite>
     </div>
+    -->
   </section>
-  <% unless @bools.nil? %>
   <section class="tags">
     <h1>Observations</h1>
-    <ul class="badges">
-      <% unless @bools["mammal"].nil? %>
-        <li class="mammals">
-          <a href=<%= mammal_path %>>
-              <!--links to details page
-                On details page for tags, will need to output all observations... 
-                date, recorded by, in a list.  see helpers>mammals for an example of what needs to be recorded in-->
-            <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
-            <h3><%= @bools["mammal"][:total] %></h3>
-            <h2>Mammals</h2>
-            <cite><%= @bools["mammal"][:date].strftime("%B %d,%Y") %></cite>
+    <% if @bools.blank? %>
+      <p align="center">No observations have been added to this location.</p>
+    <% else %>
+      <ul class="badges">
+        <% unless @bools["mammal"].nil? %>
+          <li class="mammals">
+            <a href=<%= mammal_path %>>
+                <!--links to details page
+                  On details page for tags, will need to output all observations... 
+                  date, recorded by, in a list.  see helpers>mammals for an example of what needs to be recorded in-->
+              <%= image_tag('badge-icons/mammals.png', alt: "Mammals") %>
+              <h3><%= @bools["mammal"][:total] %></h3>
+              <h2>Mammals</h2>
+              <cite><%= @bools["mammal"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["reptile"].nil? %>
+          <li class="reptiles">
+           <a href=<%= reptile_path %>>
+              <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
+             <h3><%= @bools["reptile"][:total] %><h3>
+              <h2>Reptiles</h2>
+               <cite><%= @bools["reptile"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["amphibian"].nil? %>
+          <li class="amphibians">
+            <a href=<%= amphibian_path %>>
+              <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
+              <h3><%= @bools["amphibian"][:total] %></h3>
+              <h2>amphibians</h2>
+              <cite><%= @bools["amphibian"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["fish"].nil? %>
+          <li class="fish">
+            <a href=<%= fish_path %>>
+              <%= image_tag('badge-icons/fish.png', alt: "fish") %>
+              <h3><%= @bools["fish"][:total] %></h3>
+              <h2>Fish</h2>
+              <cite><%= @bools["fish"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["plant"].nil? %>
+          <li class="plants">
+            <a href=<%= plant_path %>>
+              <%= image_tag('badge-icons/plants.png', alt: "plants") %>
+              <h3><%= @bools["plant"][:total] %></h3>
+              <h2>Plants</h2>
+              <cite><%= @bools["plant"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["bird"].nil? %>
+          <li class="birds">
+            <a href= <%= bird_path %>>
+              <%= image_tag('badge-icons/birds.png', alt: "birds") %>
+              <h3><%= @bools["bird"][:total] %></h3>
+              <h2>Birds</h2>
+              <cite><%= @bools["bird"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["insect"].nil? %>
+          <li class="insects">
+            <a href=<%= insect_path %>>
+              <%= image_tag('badge-icons/insects.png', alt: "insects") %>
+              <h3><%= @bools["insect"][:total] %><h3>
+              <h2>Insects</h2>
+                <cite><%= @bools["insect"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+              <br />
+        <% unless @bools["species_at_risk"].nil? %>
+          <li class="species-at-risk warning">
+            <a href=<%= species_at_risk_path %>>
+              <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
+              <h3><%= @bools["species_at_risk"][:total] %></h3>
+              <h2>species at risk</h2>
+              <cite><%= @bools["species_at_risk"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["wildlife_death"].nil? %>
+          <li class="wildlife-death warning">
+            <a href=<%= wildlife_death_path %>>
+              <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
+              <h3><%= @bools["wildlife_death"][:total] %></h3>
+              <h2>wildlife death</h2>
+              <cite><%= @bools["wildlife_death"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["shoreline_alterations"].nil? %>
+          <li class="shoreline-alterations warning">
+            <a href=<%= shoreline_alterations_path %>>
+              <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
+              <h3><%= @bools["shoreline_alterations"][:total] %></h3>
+              <h2>shoreline alterations</h2>
+              <cite><%= @bools["shoreline_alterations"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["water_quality"].nil? %>
+          <li class="water-quality warning">
+            <a href=<%= water_quality_path %>>
+              <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
+              <h3><%= @bools["water_quality"][:total] %></h3>
+              <h2>water quality</h2>
+              <cite><%= @bools["water_quality"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["foam"].nil? %>
+        <li class="foam warning">
+          <a href=<%= foam_path %>>
+            <%= image_tag('badge-icons/foam.png', alt: "foam") %>
+            <h3><%= @bools["foam"][:total] %></h3>
+            <h2>Foam</h2>
+            <cite><%= @bools["foam"][:date].strftime("%B %d,%Y") %></cite>
           </a>
         </li>
-      <% end %>
-      <% unless @bools["reptile"].nil? %>
-        <li class="reptiles">
-         <a href=<%= reptile_path %>>
-            <%= image_tag('badge-icons/reptile.png', alt: "Reptiles") %>
-           <h3><%= @bools["reptile"][:total] %><h3>
-            <h2>Reptiles</h2>
-             <cite><%= @bools["reptile"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["amphibian"].nil? %>
-        <li class="amphibians">
-          <a href=<%= amphibian_path %>>
-            <%= image_tag('badge-icons/amphibians.png', alt: "amphibians") %>
-            <h3><%= @bools["amphibian"][:total] %></h3>
-            <h2>amphibians</h2>
-            <cite><%= @bools["amphibian"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["fish"].nil? %>
-        <li class="fish">
-          <a href=<%= fish_path %>>
-            <%= image_tag('badge-icons/fish.png', alt: "fish") %>
-            <h3><%= @bools["fish"][:total] %></h3>
-            <h2>Fish</h2>
-            <cite><%= @bools["fish"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["plant"].nil? %>
-        <li class="plants">
-          <a href=<%= plant_path %>>
-            <%= image_tag('badge-icons/plants.png', alt: "plants") %>
-            <h3><%= @bools["plant"][:total] %></h3>
-            <h2>Plants</h2>
-            <cite><%= @bools["plant"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["bird"].nil? %>
-        <li class="birds">
-          <a href= <%= bird_path %>>
-            <%= image_tag('badge-icons/birds.png', alt: "birds") %>
-            <h3><%= @bools["bird"][:total] %></h3>
-            <h2>Birds</h2>
-            <cite><%= @bools["bird"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["insect"].nil? %>
-        <li class="insects">
-          <a href=<%= insect_path %>>
-            <%= image_tag('badge-icons/insects.png', alt: "insects") %>
-            <h3><%= @bools["insect"][:total] %><h3>
-            <h2>Insects</h2>
-              <cite><%= @bools["insect"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-            <br />
-      <% unless @bools["species_at_risk"].nil? %>
-        <li class="species-at-risk warning">
-          <a href=<%= species_at_risk_path %>>
-            <%= image_tag('badge-icons/species-at-risk.png', alt: "species at risk") %>
-            <h3><%= @bools["species_at_risk"][:total] %></h3>
-            <h2>species at risk</h2>
-            <cite><%= @bools["species_at_risk"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["wildlife_death"].nil? %>
-        <li class="wildlife-death warning">
-          <a href=<%= wildlife_death_path %>>
-            <%= image_tag('badge-icons/wildlife-death.png', alt: "wildlife death") %>
-            <h3><%= @bools["wildlife_death"][:total] %></h3>
-            <h2>wildlife death</h2>
-            <cite><%= @bools["wildlife_death"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["shoreline_alterations"].nil? %>
-        <li class="shoreline-alterations warning">
-          <a href=<%= shoreline_alterations_path %>>
-            <%= image_tag('badge-icons/shoreline-alterations.png', alt: "shoreline alterations") %>
-            <h3><%= @bools["shoreline_alterations"][:total] %></h3>
-            <h2>shoreline alterations</h2>
-            <cite><%= @bools["shoreline_alterations"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["water_quality"].nil? %>
-        <li class="water-quality warning">
-          <a href=<%= water_quality_path %>>
-            <%= image_tag('badge-icons/water-quality.png', alt: "water quality") %>
-            <h3><%= @bools["water_quality"][:total] %></h3>
-            <h2>water quality</h2>
-            <cite><%= @bools["water_quality"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["foam"].nil? %>
-      <li class="foam warning">
-        <a href=<%= foam_path %>>
-          <%= image_tag('badge-icons/foam.png', alt: "foam") %>
-          <h3><%= @bools["foam"][:total] %></h3>
-          <h2>Foam</h2>
-          <cite><%= @bools["foam"][:date].strftime("%B %d,%Y") %></cite>
-        </a>
-      </li>
-      <% end %>
-      <% unless @bools["trash"].nil? %>
-        <li class="trash warning">
-          <a href=<%= trash_path %>>
-            <%= image_tag('badge-icons/trash.png', alt: "trash") %>
-            <h3><%= @bools["trash"][:total] %></h3>
-            <h2>Trash</h2>
-            <cite><%= @bools["trash"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-            <br />
-      <% unless @bools["red_blooms"].nil? %>
-        <li class="red-blooms danger">
-          <a href=<%= red_blooms_path %>>
-            <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
-            <h3><%= @bools["red_blooms"][:total] %></h3>
-            <h2>Algae Blooms</h2>
-            <cite><%= @bools["red_blooms"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["phragmites"].nil? %>
-        <li class="phragmites danger">
-          <a href=<%= phragmites_path %>>
-            <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
-            <h3><%= @bools["phragmites"][:total] %></h3>
-            <h2>phragmites</h2>
-            <cite><%= @bools["phragmites"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["loosestrife"].nil? %>
-        <li class="loosestrife danger">
-          <a href=<%= loosestrife_path %>>
-            <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
-            <h3><%= @bools["loosestrife"][:total] %></h3>
-            <h2>loosestrife</h2>
-            <cite><%= @bools["loosestrife"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["dog_strangling_vine_path"].nil? %>
-        <li class="dog-strangling-vine danger">
-          <a href=<%= dog_strangling_vine_path %>>
-            <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
-            <h3><%= @bools["dog_strangling_vine_path"][:total] %></h3>
-            <h2>dog-strangling vine</h2>
-            <cite><%= @bools["dog_strangling_vine_path"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["introduced_honeysuckle"].nil? %>
-        <li class="introduced-honeysuckle danger">
-          <a href=<%= introduced_honeysuckle_path %>>
-            <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
-            <h3><%= @bools["introduced_honeysuckle"][:total] %></h3>
-            <h2>introduced honeysuckle</h2>
-            <cite><%= @bools["introduced_honeysuckle"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["zebra_mussels"].nil? %>
-        <li class="zebra-mussels danger">
-          <a href=<%= zebra_mussels_path %>>
-            <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
-            <h3><%= @bools["zebra_mussels"][:total] %></h3>
-            <h2>zebra mussels</h2>
-            <cite><%= @bools["zebra_mussels"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-      <% unless @bools["giant_hogweed"].nil? %>
-        <li class="giant-hogweed danger">
-          <a href=<%= giant_hogweed_path %>>
-            <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
-            <h3><%= @bools["giant_hogweed"][:total] %></h3>
-            <h2>giant hogweed</h2>
-            <cite><%= @bools["giant_hogweed"][:date].strftime("%B %d,%Y") %></cite>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+        <% end %>
+        <% unless @bools["trash"].nil? %>
+          <li class="trash warning">
+            <a href=<%= trash_path %>>
+              <%= image_tag('badge-icons/trash.png', alt: "trash") %>
+              <h3><%= @bools["trash"][:total] %></h3>
+              <h2>Trash</h2>
+              <cite><%= @bools["trash"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+              <br />
+        <% unless @bools["red_blooms"].nil? %>
+          <li class="red-blooms danger">
+            <a href=<%= red_blooms_path %>>
+              <%= image_tag('badge-icons/red-blooms.png', alt: "red-blooms") %>
+              <h3><%= @bools["red_blooms"][:total] %></h3>
+              <h2>Algae Blooms</h2>
+              <cite><%= @bools["red_blooms"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["phragmites"].nil? %>
+          <li class="phragmites danger">
+            <a href=<%= phragmites_path %>>
+              <%= image_tag('badge-icons/phragmites.png', alt: "phragmites") %>
+              <h3><%= @bools["phragmites"][:total] %></h3>
+              <h2>phragmites</h2>
+              <cite><%= @bools["phragmites"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["loosestrife"].nil? %>
+          <li class="loosestrife danger">
+            <a href=<%= loosestrife_path %>>
+              <%= image_tag('badge-icons/loosestrife.png', alt: "loosestrife") %>
+              <h3><%= @bools["loosestrife"][:total] %></h3>
+              <h2>loosestrife</h2>
+              <cite><%= @bools["loosestrife"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["dog_strangling_vine_path"].nil? %>
+          <li class="dog-strangling-vine danger">
+            <a href=<%= dog_strangling_vine_path %>>
+              <%= image_tag('badge-icons/dog-strangling-vine.png', alt: "dog-strangling vine") %>
+              <h3><%= @bools["dog_strangling_vine_path"][:total] %></h3>
+              <h2>dog-strangling vine</h2>
+              <cite><%= @bools["dog_strangling_vine_path"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["introduced_honeysuckle"].nil? %>
+          <li class="introduced-honeysuckle danger">
+            <a href=<%= introduced_honeysuckle_path %>>
+              <%= image_tag('badge-icons/introduced-honeysuckle.png', alt: "introduced honeysuckle") %>
+              <h3><%= @bools["introduced_honeysuckle"][:total] %></h3>
+              <h2>introduced honeysuckle</h2>
+              <cite><%= @bools["introduced_honeysuckle"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["zebra_mussels"].nil? %>
+          <li class="zebra-mussels danger">
+            <a href=<%= zebra_mussels_path %>>
+              <%= image_tag('badge-icons/zebra-mussels.png', alt: "zebra mussels") %>
+              <h3><%= @bools["zebra_mussels"][:total] %></h3>
+              <h2>zebra mussels</h2>
+              <cite><%= @bools["zebra_mussels"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+        <% unless @bools["giant_hogweed"].nil? %>
+          <li class="giant-hogweed danger">
+            <a href=<%= giant_hogweed_path %>>
+              <%= image_tag('badge-icons/giant-hogweed.png', alt: "giant hogweed") %>
+              <h3><%= @bools["giant_hogweed"][:total] %></h3>
+              <h2>giant hogweed</h2>
+              <cite><%= @bools["giant_hogweed"][:date].strftime("%B %d,%Y") %></cite>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </section>
-  <% end %>
+  
   
   <ul class="comments">
     <li><h1>Comments</h1></li>
     <li>
       <!-- Initial comment when Observation was created -->
       <cite><%= @observation.created_at.strftime("%v ") %> by <span class="name"><%= @user.username %></span></cite>
-      <p><%= @observation.comment %></p>
+      <% if @observation.comment.blank? %>
+        <p>Observation Created</p>
+      <% else %>
+        <p><%= @observation.comment %></p>
+      <% end %>
     </li>
     <% @comments.each do |comment| %>
+    <% unless comment.body.empty? %>
       <li>
         <cite><%= comment.created_at.strftime("%v ") %> by <span class="name"><%= comment.user.username %></span></cite>
         <p><%= comment.body %></p>
       </li>
+      <% end %>
     <% end %>
     </ul>
     <section class="add-more">
@@ -242,172 +253,41 @@
     </section>
   
 
-  <% unless @tests.nil? %>
+<% unless @tests.nil? %>
+  <script>
+    // Set up some D3 defaults
+    var w = 300;
+    var h = 75;
+  </script>
   <section class="science">
     <ul>
-      <% unless @tests.ph.nil? %>
-        <li class="ph">
-          <a href="#"> <!--links to details page: on this page we again give the table of data, same as the tags (it will just be rendered into a graph-->
-            <h3>pH</h3>
-            <div class="current">
-              <h1><%= @tests.ph %></h1><!--this is always the last observation-->
-              <cite>4.12.2015</cite><!--last observation date-->
-            </div>
-            <div class="average">
-              <h2>5.5</h2><!--this is the average of all observations-->
-              <cite>average</cite>
-            </div>
-            <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite><!--this is the date range in months/years of the shown observations (nice to have feature)-->
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["ph"].nil? %>
+        <%= render "test", test: @tests["ph"], title: "pH", css_class: "ph", max_value: 20, url: ph_path %>
       <% end %>
-      <% unless @tests.temperature.nil? %>
-        <li class="temperature">
-          <a href="#">
-            <h3>Water Temperature &#8451;</h3>
-            <div class="current">
-              <h1><%= @tests.temperature %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>12</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["temperature"].nil? %>
+        <%= render "test", test: @tests["temperature"], title: "Water Temperature &#8451;", css_class: "temperature", max_value: 20, url: temperature_path %>
       <% end %>
-      <% unless @tests.phosphate.nil? %>
-        <li class="phosphates good">
-          <a href="#">
-            <h3>Phosphates mg/L</h3>
-            <div class="current">
-              <h1><%= @tests.phosphate %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>0</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["phosphate"].nil? %>
+        <%= render "test", test: @tests["phosphate"], title: "Phosphate", css_class: "phosphates", max_value: 20, url: phosphate_path %>
       <% end %>
-      <% unless @tests.clarity.nil? %>
-        <li class="secchi good">
-          <a href="#">
-            <h3>Water clarity (m)</h3>
-            <div class="current">
-              <h1><%= @tests.clarity %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>10</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["clarity"].nil? %>
+        <%= render "test", test: @tests["clarity"], title: "Water clarity (m)", css_class: "secchi", max_value: 20, url: clarity_path %>
       <% end %>
-      <% unless @tests.oxygen.nil? %>
-        <li class="dissolved-oxygen good">
-          <a href="#">
-            <h3>Dissolved oxygen (mg/L)</h3>
-            <div class="current">
-              <h1><%= @tests.oxygen %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>10</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["oxygen"].nil? %>
+        <%= render "test", test: @tests["oxygen"], title: "Dissolved oxygen (mg/L)", css_class: "dissolved-oxygen", max_value: 20, url: oxygen_path %>
       <% end %>
-      <% unless @tests.nitri.nil? %>
-        <li class="nitrites good">
-          <a href="#">
-            <h3>nitrites (mg/L)</h3>
-            <div class="current">
-              <h1><%= @tests.nitri %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>0.4</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["nitri"].nil? %>
+        <%= render "test", test: @tests["nitri"], title: "nitrites (mg/L)", css_class: "nitrites", max_value: 20, url: nitri_path %>
       <% end %>
-      <% unless @tests.nitrate.nil? %>
-        <li class="nitrates good">
-          <a href="#">
-            <h3>nitrates (mg/L)</h3>
-            <div class="current">
-              <h1><%= @tests.nitrate %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>0.4</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["nitrate"].nil? %>
+        <%= render "test", test: @tests["nitrate"], title: "nitrates (mg/L)", css_class: "nitrates", max_value: 20, url: nitrate_path %>
       <% end %>
-      <% unless @tests.ecoli.nil? %>
-        <li class="ecoli warning">
-          <a href="#">
-            <h3>E-coli Fecal coliforms/100mL</h3>
-            <div class="current">
-              <h1><%= @tests.ecoli %></h1>
-              <cite>4.12.2015</cite>
-            </div>
-            <div class="average">
-              <h2>150</h2>
-              <cite>average</cite>
-            </div>
-            <div class="graph">
-              <%= image_tag('fake-graph.png', alt: "just mockin it up") %>
-              <cite>&#126; 2.2 years</cite>
-            </div>
-            <%= image_tag('more.png', alt: "prompt", :class => "more-link") %>
-          </a>
-        </li>
+      <% unless @tests["ecoli"].nil? %>
+        <%= render "test", test: @tests["ecoli"], title: "E-coli Fecal coliforms/100mL", css_class: "ecoli", max_value: 20, url: ecoli_path %>
       <% end %>
     </ul>
   </section>
-  <% end %>
+<% end %>
   
   <!--if statement should wrap this whole section to not display if there are no reports-->
   <!--section class="research">
