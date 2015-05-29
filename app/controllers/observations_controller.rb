@@ -129,7 +129,7 @@ class ObservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
-      params.require(:observation).permit(:description, :loc_nic, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :_destroy])
+      params.require(:observation).permit(:description, :loc_nic, :observe_on, :comment, :coordinates, :user_id, bools_attributes: [:mammal, :reptile, :amphibian, :fish, :plant, :insect, :bird, :species_at_risk, :wildlife_death, :shoreline_alterations, :water_quality, :trash, :foam, :red_blooms, :phragmites, :loosestrife, :dog_strangling_vine, :introduced_honeysuckle, :zebra_mussels, :giant_hogweed, :other_invasive, :id, :observe_on, :_destroy], documents_attributes: [:document_file_name, :document_content_type, :document_file_size, :document_updated_at, :id, :_destroy], photos_attributes: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at, :id, :_destroy], studies_attributes: [:title, :author, :abstract, :url, :id, :_destroy], tests_attributes: [:ph, :temperature, :phosphate, :clarity, :oxygen, :nitri, :nitrate, :ecoli, :id, :observe_on, :_destroy])
     end
 
     def update_twitter
@@ -173,6 +173,7 @@ class ObservationsController < ApplicationController
     b.other_invasive = params[:observation][:bool][:other_invasive]
     
     b.observation_id = params[:observation][:id]
+    b.observe_on = params[:observation][:observe_on]
     return b
   end
 
@@ -188,6 +189,7 @@ class ObservationsController < ApplicationController
     t.ecoli = params[:observation][:test][:ecoli]
     
     t.observation_id = params[:observation][:id]
+    t.observe_on = params[:observation][:observe_on]
     return t
   end
 
@@ -196,6 +198,7 @@ class ObservationsController < ApplicationController
     c.body = params[:observation][:comment][:body]
     c.user_id = @current_user.id
     c.observation_id = params[:observation][:id]
+    c.observe_on = params[:observation][:observe_on]
     return c
   end
 end

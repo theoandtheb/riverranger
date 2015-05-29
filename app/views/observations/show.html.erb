@@ -3,11 +3,13 @@
     <% if @photo.image.exists? %>
       <%= image_tag @photo.image.url(:default_size) %>
     <% end %>
+    <!-- TODO: Not working at the moment as photos don't have a user linked to them.
     <div class="photographer">
       <cite>
         May 4, 2014 by Kat Kavanagh
       </cite>
     </div>
+    -->
   </section>
   <section class="tags">
     <h1>Observations</h1>

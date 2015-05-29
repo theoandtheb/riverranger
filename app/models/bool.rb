@@ -1,6 +1,10 @@
 class Bool < ActiveRecord::Base
 	belongs_to :observation
   
+  def self.observe_on(date)
+    observe_on = date
+  end
+  
   def self.find_all_by_observation_id(o_id)
     allBools = Bool.where(observation_id: o_id)
     parsedBools = {}
@@ -10,7 +14,7 @@ class Bool < ActiveRecord::Base
         if attr_val          
           if parsedBools[attr_name]
             parsedBools[attr_name][:total] += 1
-            parsedBools[attr_name][:date] = b.created_at
+            parsedBools[attr_name][:date] = b.observe_on
           else
             parsedBools[attr_name] = {total: 1, date: b.created_at}
           end

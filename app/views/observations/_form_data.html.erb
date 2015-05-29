@@ -210,7 +210,11 @@
         <% end %>
       </div>
       <hr/>
-
+      <div class="field">
+        <%= f.label :observe_on, "Date observed", :class=>"big-label" %><br>
+        <%= f.datetime_local_field :observe_on, value: Time.now.strftime("%FT%R") %>
+      </div>
+      <hr/>
       <div class="actions">
         <%= f.submit "Submit Additional Data", class: "button" %>
       </div>

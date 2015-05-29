@@ -73,12 +73,12 @@
         <%= f.label :loc_nic, "Location nickname" %><br>
         <%= f.text_field :loc_nic, :placeholder => "eg. Riverain Park" %>
       </div>
-
+<!-- TODO: Figure out how to apply this observed date, to all the other objects (bools, tests)
       <div class="field">
         <%= f.label :observe_on, "Date observed" %><br>
-        <%= datetime_local_field :observe_on, Time.now, value: Time.now.strftime("%FT%R") %>
+        <%= f.datetime_local_field :observe_on, value: Time.now.strftime("%FT%R") %>
       </div>
-
+-->
       <div class="field">
         <%= f.label :image %><br>
         <%= f.file_field :image, capture: "camera", accept: "image/*" %>
