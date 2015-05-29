@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528234405) do
+ActiveRecord::Schema.define(version: 20150529161840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150528234405) do
   create_table "ogrgeojsons", force: :cascade do |t|
     t.string   "name"
     t.geometry "wkb_geometry", limit: {:srid=>4326, :type=>"polygon"}
+    t.integer  "regtype"
   end
 
   create_table "ogrgeojsons_users", id: false, force: :cascade do |t|

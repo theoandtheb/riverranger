@@ -1,6 +1,35 @@
 <h1>Editing Ogrgeojson</h1>
 
-<%= render 'form' %>
+<%= form_for(@ogrgeojson) do |f| %>
+  <% if @ogrgeojson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ogrgeojson.errors.count, "error") %> prohibited this ogrgeojson from being saved:</h2>
+
+      <ul>
+      <% @ogrgeojson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :regtype %><br>
+    <%= f.text_field :regtype %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @ogrgeojson %> |
 <%= link_to 'Back', ogrgeojsons_path %>
+
+<br><br>
+
+<%= raw json_escape(@ogrgeojson.geojson) %>
