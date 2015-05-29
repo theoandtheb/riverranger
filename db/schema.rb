@@ -125,14 +125,6 @@ ActiveRecord::Schema.define(version: 20150529161840) do
 
   add_index "photos", ["observation_id"], name: "index_photos_on_observation_id", using: :btree
 
-  create_table "regions", primary_key: "ogc_fid", force: :cascade do |t|
-    t.geometry "wkb_geometry", limit: {:srid=>4326, :type=>"geometry"}
-    t.integer  "objectid"
-    t.string   "com_name"
-  end
-
-  add_index "regions", ["wkb_geometry"], name: "regions_wkb_geometry_geom_idx", using: :gist
-
   create_table "studies", force: :cascade do |t|
     t.text     "title"
     t.text     "author"

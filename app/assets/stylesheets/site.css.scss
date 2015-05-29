@@ -47,6 +47,7 @@ cite{
   font-size: 0.9em;
   border-bottom: 1px dashed $beige;
   margin-bottom: 20px;
+  padding: 10px 0;
 }
 
 p{
@@ -663,10 +664,17 @@ body#riverranger-app {
           font-size: 80px;
           line-height: 1em;
           margin: 0;
+          @media only screen and (max-width : 600px){
+            font-size: 65px;
+          }
         }
         h2{
           font-size: 35px;
           margin-top: 30px;
+          @media only screen and (max-width : 600px){
+            font-size: 30px;
+            margin-top: 22px;
+          }
         }
         h3{
           font-family: courier;
@@ -676,6 +684,17 @@ body#riverranger-app {
           width: 30%;
           img{
             max-height: 80px;
+          }
+        }
+        .graph{
+          float: right;
+          cite{
+            @media only screen and (max-width : 600px){
+              font-size: 80%;
+            }
+          }
+          .average, .average h2{
+            text-align: center;
           }
         }
       }
@@ -749,7 +768,7 @@ img.more-link{
     width: 100%;
   }
   .description{
-    padding: 20px;
+    padding: 0 20px;
     ul, p{
       font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
     }

@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get 'introduced_honeysuckle', to: 'help#introduced-honeysuckle'
   get 'zebra_mussels', to: 'help#zebra-mussels'
   get 'giant_hogweed', to: 'help#giant-hogweed'
+  get 'other_invasive', to: 'help#other-invasive'
 
   #Tests
   get 'ph', to: 'help#ph'
