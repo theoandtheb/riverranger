@@ -1,0 +1,39 @@
+<h1>Regions <%= current_user.username %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regions.each do |ogrgeojson| %>
+      <tr id="<%= ogrgeojson.id %>">
+        <td><%= ogrgeojson.id %></td>
+        <td><%= ogrgeojson.name %></td>
+        <td class="click<%= ogrgeojson.id %>",
+        	<% if @active_regions.include?("#{ogrgeojson.id}") %>
+        		style="display:none"
+    		<% end %>
+    	>
+        <%= link_to 'Add This Region', add_region_user_path(:region_id => ogrgeojson.id) %> </td>
+        <td class="click<%= ogrgeojson.id %>",
+        	<% unless @active_regions.include?("#{ogrgeojson.id}") %>
+        		style="display:none"
+    		<% end %>
+    	>
+    	<%= link_to 'Remove This Region', remove_region_user_path(:region_id => ogrgeojson.id) %></td>
+    	<script>
+    		$(".click<%= ogrgeojson.id %>").click(function(){
+    			$(".click<%= ogrgeojson.id %>").toggle();     
+  			});
+    	</script>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

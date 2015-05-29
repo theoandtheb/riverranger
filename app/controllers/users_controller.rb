@@ -71,6 +71,22 @@ def activate
   end
 end
 
+  def regions
+    @regions = Ogrgeojson.all
+    @active_regions = Array.new
+    @active_regions = current_user.ogrgeojson_ids.flatten.map(&:to_s)
+  end
+
+  def add_region
+    current_user.add_region(params['region_id'])
+    redirect_to(regions_user_path)
+  end
+
+  def remove_region
+    current_user.remove_region(params['region_id'])
+    redirect_to(regions_user_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -79,6 +95,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, authentications_attributes: [:provider, :uid])
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :region_id, authentications_attributes: [:provider, :uid])
     end
 end

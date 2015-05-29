@@ -75,6 +75,9 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :activate
+      get :regions
+      get :add_region
+      get :remove_region
     end
   end
 
