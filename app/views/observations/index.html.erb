@@ -155,14 +155,14 @@
         // Make sure we can still click on a location to add a marker
         onMapClick();
       });
-      var waterShedIcon = L.icon({
-        iconUrl: '<%= image_url("watershed-icon.png") %>',
-        iconSize: [20, 20], // size of the icon
-      });
-      var polygonCenter = layer.getBounds().getCenter();
-      //waterShedIcons = L.marker(polygonCenter, {icon: waterShedIcon})
-      layer.bindLabel(/*feature.properties['NAME']*/'Label name', { noHide: true });
-      //map.addLayer(waterShedIcons);
+      // var waterShedIcon = L.icon({
+      //   iconUrl: '<%= image_url("watershed-icon.png") %>',
+      //   iconSize: [20, 20], // size of the icon
+      // });
+      // var polygonCenter = layer.getBounds().getCenter();
+      // //waterShedIcons = L.marker(polygonCenter, {icon: waterShedIcon})
+      // layer.bindLabel(/*feature.properties['NAME']*/'Label name', { noHide: true });
+      // //map.addLayer(waterShedIcons);
     }
     waterShedLayer = L.geoJson(waterShedShapes,{
       style: waterShedStyle,
