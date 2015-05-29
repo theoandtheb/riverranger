@@ -139,7 +139,7 @@
     // geoJSON ----------------------------------------------
     // Watersheds
     var waterShedShapes = [
-      <% Ogrgeojson.all.each do |shape| %>
+      <% Ogrgeojson.where(regtype: '2').find_each do |shape| %>
         <%= raw json_escape(shape.geojson) %>,
       <% end %>
     ]
