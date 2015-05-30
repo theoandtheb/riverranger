@@ -4,6 +4,7 @@ require 'capistrano/deploy'
 require 'capistrano/rbenv'
 require 'capistrano/secrets_yml'
 require 'capistrano/rails'
+require 'capistrano/delayed-job'
 
 require 'capistrano/bundler'
 
