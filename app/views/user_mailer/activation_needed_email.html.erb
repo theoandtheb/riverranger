@@ -1,13 +1,24 @@
-<% if @user.first_name %>
-Welcome to River Ranger, <%= @user.first_name %>
-<% else %>
-Welcome to River Ranger, <%= @user.username %>
-<% end %>
-===============================================
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>
+	<% if @user.first_name %>
+		Welcome to River Ranger, <%= @user.first_name + " " + @user.first_name%>!
+	<% else %>
+		Welcome to River Ranger, <%= @user.username %>!
+	<% end %>
+	</h1>
+    <p>
+      You have successfully signed up to River Ranger.  To activate your new account, just follow this link: 
+      <br><br><%= @url %>
+<br>
+    </p>
+    <p>
+      Thanks for joining and have a great day!
+    </p>
 
-You have successfully signed up to River Ranger,
-your username is: <%= @user.username %>.
-
-To login to the site, just follow this link: <%= @url %>.
-
-Thanks for joining and have a great day!
+  </body>
+</html>
