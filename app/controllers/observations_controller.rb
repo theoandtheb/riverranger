@@ -61,7 +61,7 @@ class ObservationsController < ApplicationController
           format.html { render :new }
           format.json { render json: @observation.errors, status: :unprocessable_entity }
         end
-        ObservationMailer.delay.region_notice(@observation)
+        ObservationMailer.region_notice(@observation)
       else
         format.html { render :new }
         format.json { render json: @observation.errors, status: :unprocessable_entity }
