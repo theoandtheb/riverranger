@@ -33,7 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'unicorn'
-
+gem 'delayed_job_active_record'
+gem "daemons"
 gem 'twitter'
 gem 'twitter-text'
 gem 'dalli'
@@ -50,6 +51,7 @@ group :development do
 	gem 'capistrano-rails', '~> 1.1.1'
 	gem 'capistrano-rbenv', github: "capistrano/rbenv"
 	gem 'capistrano-secrets-yml', '~> 1.0.0'
+  gem 'capistrano3-delayed-job', '~> 1.0'
 end
 
 group :development, :test do

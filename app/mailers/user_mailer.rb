@@ -20,7 +20,7 @@ class UserMailer < ApplicationMailer
     @url  = "http://localhost:3000/users/#{user.activation_token}/activate"
   end
   mail(:to => user.email,
-       :subject => "Welcome to My Awesome Site")
+       :subject => "Greetings From River Ranger")
   end
 
   def activation_success_email(user)
@@ -31,6 +31,6 @@ class UserMailer < ApplicationMailer
     @url  = "http://localhost:3000/login"
   end
   mail(:to => user.email,
-       :subject => "Your account is now activated")
+       :subject => "Your River Ranger Account is Now Activated")
   end
 end

@@ -23,4 +23,13 @@ class Test < ActiveRecord::Base
     end
     return parsedTests
   end
+
+  def fix_seed
+    (1..169).each do |k|
+      a = Test.find(k)
+      b = a.observation
+      a.created_at = b.observe_on
+      a.save!
+    end
+  end
 end

@@ -40,6 +40,6 @@ class ObservationMailer < ApplicationMailer
   		@user = user
   		@observation = obs
   		@url  = observation_url(obs.id)
-  		mail(to: user.email, subject: 'A new observation has been reported in a region you are following')
+  		mail(to: user.email, subject: 'A New Observation Has Been Reported In A Region You Are Following')
   	end
 end

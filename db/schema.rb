@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529161840) do
+ActiveRecord::Schema.define(version: 20150530055534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +68,22 @@ ActiveRecord::Schema.define(version: 20150529161840) do
 
   add_index "comments", ["observation_id"], name: "index_comments_on_observation_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "document_file_name"
@@ -125,6 +142,14 @@ ActiveRecord::Schema.define(version: 20150529161840) do
 
   add_index "photos", ["observation_id"], name: "index_photos_on_observation_id", using: :btree
 
+  create_table "regions", primary_key: "ogc_fid", force: :cascade do |t|
+    t.geometry "wkb_geometry", limit: {:srid=>4326, :type=>"geometry"}
+    t.integer  "objectid"
+    t.string   "com_name"
+  end
+
+  add_index "regions", ["wkb_geometry"], name: "regions_wkb_geometry_geom_idx", using: :gist
+
   create_table "studies", force: :cascade do |t|
     t.text     "title"
     t.text     "author"
@@ -148,9 +173,9 @@ ActiveRecord::Schema.define(version: 20150529161840) do
     t.integer  "nitrate"
     t.integer  "ecoli"
     t.integer  "observation_id"
-    t.datetime "created_at",                                                             null: false
-    t.datetime "updated_at",                                                             null: false
-    t.datetime "observe_on",                             default: '2015-05-01 00:00:00'
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.datetime "observe_on"
   end
 
   add_index "tests", ["observation_id"], name: "index_tests_on_observation_id", using: :btree

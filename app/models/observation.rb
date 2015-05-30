@@ -1,10 +1,10 @@
 class Observation < ActiveRecord::Base
 	belongs_to :user
-	has_many :bools
-	has_many :documents
-	has_many :photos
-	has_many :studies
-	has_many :tests
+	has_many :bools, :dependent => :destroy
+	has_many :documents, :dependent => :destroy
+	has_many :photos, :dependent => :destroy
+	has_many :studies, :dependent => :destroy
+	has_many :tests, :dependent => :destroy
   has_and_belongs_to_many :ogrgeojsons
 
 	accepts_nested_attributes_for :bools, reject_if: :all_blank
