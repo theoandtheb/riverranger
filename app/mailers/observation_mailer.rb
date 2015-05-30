@@ -12,7 +12,7 @@ class ObservationMailer < ApplicationMailer
     	unless @user_ids.count == 0
     		@user_ids.each do |u|   			
     			@user = User.find(u)
-    			build_mail(@user,obs).deliver_later
+    			build_mail(@user,obs).deliver_now
     		end				
     	end
     end

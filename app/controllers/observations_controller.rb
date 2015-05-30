@@ -54,7 +54,7 @@ class ObservationsController < ApplicationController
       if @observation.save
         @photo.observation_id = @observation.id
         @observation.region_matches
-        ObservationMailer.region_notice(@observation)
+        ObservationMailer.delay.region_notice(@observation)
         if @photo.save
           format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
           format.json { render :show, status: :created, location: @observation }
