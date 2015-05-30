@@ -54,7 +54,6 @@ class ObservationsController < ApplicationController
       if @observation.save
         @photo.observation_id = @observation.id
         @observation.region_matches
-        ObservationMailer.delay.region_notice(@observation)
         if @photo.save
           format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
           format.json { render :show, status: :created, location: @observation }
@@ -62,6 +61,7 @@ class ObservationsController < ApplicationController
           format.html { render :new }
           format.json { render json: @observation.errors, status: :unprocessable_entity }
         end
+        ObservationMailer.delay.region_notice(@observation)
       else
         format.html { render :new }
         format.json { render json: @observation.errors, status: :unprocessable_entity }
@@ -140,9 +140,9 @@ class ObservationsController < ApplicationController
       if @photo.image.exists?
         photo_url = @photo.image.path(:medium).to_s
         observation_url = url_for(@observation)
-        $client.delay.update_with_media("A new observation has just been posted. #{Bitly.client.shorten(observation_url).short_url}", File.open(photo_url))
+        $client.update_with_media("A new observation has just been posted. #{Bitly.client.shorten(observation_url).short_url}", File.open(photo_url))
       else
-        $client.delay.update("A new observation has just been posted #{Bitly.client.shorten(observation_url).short_url}.")
+        $client.update("A new observation has just been posted #{Bitly.client.shorten(observation_url).short_url}.")
       end
     end
   
