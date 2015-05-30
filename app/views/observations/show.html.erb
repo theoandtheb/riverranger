@@ -225,8 +225,6 @@
       </ul>
     <% end %>
   </section>
-  
-  
   <ul class="comments">
     <li><h1>Comments</h1></li>
     <li>
@@ -312,6 +310,13 @@
   <br />
   
 <p><%= @observation.description %></p>
-  <%= link_to 'Edit', edit_observation_path(@observation) %> |
-  <%= link_to 'Back', observations_path %>
+
+  <%= link_to 'Back', observations_path %>|
+      <% if @observation.user == current_user %>
+    <%= link_to 'Edit', edit_observation_path(@observation) %> |
+    <%= link_to 'Delete', @observation, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>
+<br>
+<br>
+<br>
