@@ -6,7 +6,7 @@
       <cite><%= test[:date].strftime("%B %d,%Y") %></cite><!--last observation date-->
     </div>
     <div class="average">
-      <h2><%= test[:values].sum / test[:values].size %></h2><!--this is the average of all observations-->
+      <h2><%= (test[:values].sum / test[:values].size).round(1) %></h2><!--this is the average of all observations-->
       <cite>average</cite>
     </div>
     <div class="graph"><!--this is displaying the values for up to the last 5 observations-->
