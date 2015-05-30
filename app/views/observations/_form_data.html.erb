@@ -26,91 +26,92 @@
         <%= bools_form.check_box :mammal %>
         <%= bools_form.label :mammal, "Mammal" %>
         
-        <a href=<%= mammal_path %> class="info">?</a>
+        <%= info_link(mammal_path) %>
 
         <%= bools_form.check_box :reptile %>
         <%= bools_form.label :reptile, "Reptile" %>
-        <a href=<%= reptile_path %> class="info">?</a>
+        <%= info_link(reptile_path) %>
 
         <%= bools_form.check_box :amphibian %>
         <%= bools_form.label :amphibian, "Amphibian" %>
-        <a href=<%= amphibian_path %> class="info">?</a>
+        <%= info_link(amphibian_path) %>
 
         <%= bools_form.check_box :fish %>
         <%= bools_form.label :fish, "Fish" %>
-        <a href=<%= fish_path %> class="info">?</a>
+        <%= info_link(fish_path) %>
 
         <%= bools_form.check_box :plant %>
         <%= bools_form.label :plant, "Plant" %>
-        <a href=<%= plant_path %> class="info">?</a>
+        <%= info_link(plant_path) %>
 
         <%= bools_form.check_box :insect %>
         <%= bools_form.label :insect, "Insect" %>
-        <a href=<%= insect_path %> class="info">?</a>
+        <%= info_link(insect_path) %>
 
         <%= bools_form.check_box :bird %>
         <%= bools_form.label :bird, "Bird" %>
-        <a href=<%= bird_path %> class="info">?</a>
+        <%= info_link(bird_path) %>
 
         <%= bools_form.check_box :species_at_risk %>
         <%= bools_form.label :species_at_risk, "Species at Risk" %>
-        <a href=<%= species_at_risk_path %> class="info">?</a>
+        <%= info_link(species_at_risk_path) %>
 
         <h2>I've noticed changes in conditions</h2>
 
         <%= bools_form.check_box :wildlife_death %>
         <%= bools_form.label :wildlife_death, "Wildlife Death" %>
-        <a href=<%= wildlife_death_path %> class="info">?</a>
+        <%= info_link(wildlife_death_path) %>
 
         <%= bools_form.check_box :shoreline_alterations %>
         <%= bools_form.label :shoreline_alterations, "Shoreline Alterations" %>
-        <a href=<%= shoreline_alterations_path %> class="info">?</a>
+        <%= info_link(shoreline_alterations_path) %>
+
 
         <%= bools_form.check_box :water_quality %>
         <%= bools_form.label :water_quality, "Water Quality" %>
-        <a href=<%= water_quality_path %> class="info">?</a>
+        <%= info_link(water_quality_path) %>
 
         <%= bools_form.check_box :trash %>
         <%= bools_form.label :trash, "Trash" %>
-        <a href=<%= trash_path %> class="info">?</a>
+        <%= info_link(trash_path) %>
 
         <%= bools_form.check_box :foam %>
         <%= bools_form.label :foam, "Foam" %>
-        <a href=<%= foam_path %> class="info">?</a>
+        <%= info_link(foam_path) %>
 
         <%= bools_form.check_box :red_blooms %>
         <%= bools_form.label :red_blooms, "Algae blooms" %>
-        <a href=<%= red_blooms_path %> class="info">?</a>
+        <%= info_link(red_blooms_path) %>
 
         <h2>I've spotted an invasive species</h2>
 
         <%= bools_form.check_box :phragmites %>
         <%= bools_form.label :phragmites, "Phragmites" %>
-        <a href=<%= phragmites_path %> class="info">?</a>
+        <%= info_link(phragmites_path) %>
 
         <%= bools_form.check_box :loosestrife %>
         <%= bools_form.label :loosestrife, "Loosestrife" %>
-        <a href=<%= loosestrife_path %> class="info">?</a>
+        <%= info_link(loosestrife_path) %>
 
         <%= bools_form.check_box :dog_strangling_vine %>
         <%= bools_form.label :dog_strangling_vine, "Dog-Strangling Vine" %>
-        <a href=<%= dog_strangling_vine_path %> class="info">?</a>
+        <%= info_link(dog_strangling_vine_path) %>
 
         <%= bools_form.check_box :introduced_honeysuckle %>
         <%= bools_form.label :introduced_honeysuckle, "Introduced Honeysuckle" %>
-        <a href=<%= introduced_honeysuckle_path %> class="info">?</a>
+        <%= info_link(introduced_honeysuckle_path) %>
 
         <%= bools_form.check_box :zebra_mussels %>
         <%= bools_form.label :zebra_mussels, "Zebra Mussels" %>
-        <a href=<%= zebra_mussels_path %> class="info">?</a>
+        <%= info_link(zebra_mussels_path) %>
 
         <%= bools_form.check_box :giant_hogweed %>
         <%= bools_form.label :giant_hogweed, "Giant Hogweed" %>
-        <a href=<%= giant_hogweed_path %> class="info">?</a>
+        <%= info_link(giant_hogweed_path) %>
 
         <%= bools_form.check_box :other_invasive %>
         <%= bools_form.label :other_invasive, "Other Invasive (describe in comments below)" %>
-        <a href="#" class="info">?</a>
+        <%= info_link(other_invasive_path) %>
         <% end %>
       </div>
       <hr/>
@@ -125,35 +126,35 @@
         <div class="field">
           <%= f.fields_for @tests_attributes do |tests_form| %>
           <%= tests_form.label :ph, "pH value (0-14)", :class=>'big-label' %>
-          <a href=<%= ph_path %> class="info">?</a><br>
+          <a href=<%= ph_path %> class="info ajax-popup">?</a><br>
           <%= tests_form.number_field :ph, in: 0.0..14.0, :step => '.1', :placeholder=>"eg. 6.2" %>
           
         </div>
 
         <div class="field">
           <%= tests_form.label :temperature, "Water Temperature  ℃", :class=>'big-label' %>
-          <a href=<%= temperature_path %> class="info">?</a><br>
+          <a href=<%= temperature_path %> class="info ajax-popup">?</a><br>
           <%= tests_form.number_field :temperature, in: 0.0..100.0, :step => '.1', :placeholder=>"eg. 14" %>
           
         </div>
 
         <div class="field">
           <%= tests_form.label :oxygen, "Dissolved oxygen (mg/L)", :class=>'big-label' %>
-          <a href=<%= oxygen_path %> class="info">?</a><br>
+          <a href=<%= oxygen_path %> class="info ajax-popup">?</a><br>
           <%= tests_form.number_field :oxygen, in: 0.0..1000000.0, :step => '.01', :placeholder=>"eg. 5.2" %>
           
         </div>
 
         <div class="field">
           <%= tests_form.label :ecoli, "Ecoli Fecal coliforms/100mL", :class=>'big-label' %>
-          <a href=<%= ecoli_path %> class="info">?</a><br>
+          <a href=<%= ecoli_path %> class="info ajax-popup">?</a><br>
           <%= tests_form.number_field :ecoli, in: 0.0..1000000.0, :step => '1', :placeholder=>"eg. 120" %>
           
         </div>
 
         <div class="field with-threshold">
           <%= tests_form.label :phosphate, "Phosphates total (mg/L)", :class=>'big-label' %>
-          <a href=<%= phosphate_path %> class="info">?</a><br>
+          <a href=<%= phosphate_path %> class="info ajax-popup">?</a><br>
           <!--two options for this one, >0.2 or input value-->
           <!-- I think we can find a better solution than this -->
           <!--%= radio_button_tag(:phosphates_threshold, "less than 0.2") %-->
@@ -166,7 +167,7 @@
 
         <div class="field">
           <%= tests_form.label :clarity, "Water clarity (Secchi depth in metres)", :class=>'big-label' %>
-          <a href=<%= clarity_path %> class="info">?</a><br>
+          <a href=<%= clarity_path %> class="info ajax-popup">?</a><br>
           <!--two options for this one, bottom visible or input value-->
           <!--%= radio_button_tag(:secchi_bottom_visible, "bottom visible") %-->
           <!--%= label_tag(:secchi_bottom_visible, "bottom visible") %-->
@@ -177,7 +178,7 @@
 
           <div class="field">
           <%= tests_form.label :nitri, "Nitrites (mg/L)", :class=>'big-label' %>
-          <a href=<%= nitri_path %> class="info">?</a><br>
+          <a href=<%= nitri_path %> class="info ajax-popup">?</a><br>
           <!--two options for this one, less than 0.5 or input value-->
           <!-- I think we can find a better solution for this -->
           <!--%= radio_button_tag(:nitrites_threshold, "Less than 0.5") %-->
@@ -189,7 +190,7 @@
 
         <div class="field">
           <%= tests_form.label :nitrate, "Nitrates (mg/L)", :class=>'big-label' %>
-          <a href=<%= nitrate_path %> class="info">?</a><br>
+          <a href=<%= nitrate_path %> class="info ajax-popup">?</a><br>
           <!--two options for this one, less than 0.5 or input value-->
           <!-- I think we can find a better solution for this -->
           <!--%= radio_button_tag(:nitrates_threshold, "Less than 0.5") %-->
