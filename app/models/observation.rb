@@ -39,4 +39,22 @@ class Observation < ActiveRecord::Base
       end
     end
   end
+
+    def region_notice
+        @region_ids = self.ogrgeojson_ids.flatten.map(&:to_s)
+      @user_ids = Array.new
+      unless @region_ids.count == 0
+        @region_ids.each do |r|
+          @user_ids << Ogrgeojson.find(r).user_ids
+        end
+        @user_ids = @user_ids.flatten.uniq.map(&:to_s)
+      end
+      unless @user_ids.count == 0
+        @user_ids.each do |u|         
+          @user = User.find(u)
+          ObservationMailer.delay.build_mail(@user,self)
+        end       
+      end
+    end
+
 end

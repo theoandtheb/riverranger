@@ -54,7 +54,7 @@ class ObservationsController < ApplicationController
       if @observation.save
         @photo.observation_id = @observation.id
         @observation.region_matches
-        ObservationMailer.delay.region_notice(@observation)
+        @observation.region_notice
         if @photo.save
           format.html { redirect_to @observation, notice: 'Observation was successfully created.' }
           format.json { render :show, status: :created, location: @observation }
@@ -146,6 +146,8 @@ class ObservationsController < ApplicationController
       #   $client.update("A new observation has just been posted #{Bitly.client.shorten(observation_url).short_url}.")
       end
     end
+
+
   
   def photo_params
     params.require(:observation).permit(:image)
