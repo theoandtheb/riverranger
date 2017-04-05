@@ -862,7 +862,7 @@ a.settings{
 }
 
 .about{
-  max-width: 900px;
+  max-width: 80%;
   padding: 30px;
   margin: 50px auto 100px;
   background: rgba(255,255,255,0.85) image-url("main-texture.png");
@@ -912,6 +912,19 @@ a.settings{
   }
   table #1 td{
     width: 45px;
+  }
+  table {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .region_td {
+    width: 1%;
+  }
+  .desc_td {
+    width: 50%;
+  }
+  th {
+    width: 33%;
   }
 }
 

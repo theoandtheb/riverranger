@@ -72,6 +72,9 @@ def activate
 end
 
   def regions
+      def within(distance)
+    Observation.find_by_sql("SELECT * FROM observations WHERE ST_DWithin(coordinates::geography, '#{self.coordinates}', #{distance})")
+  end
     @regions = Ogrgeojson.all
     @active_regions = Array.new
     @active_regions = current_user.ogrgeojson_ids.flatten.map(&:to_s)

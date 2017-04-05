@@ -5,17 +5,17 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>Region Type</th>
+      <th>Description</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @regions.each do |ogrgeojson| %>
       <tr id="<%= ogrgeojson.id %>">
-        <td><%= ogrgeojson.id %></td>
-        <td><%= ogrgeojson.name %></td>
+        <td class="region_td"><%= regtype_text(ogrgeojson.regtype) %></td>
+        <td class="desc_td"><%= ogrgeojson.name %>  </td>
         <td class="click<%= ogrgeojson.id %>",
         	<% if @active_regions.include?("#{ogrgeojson.id}") %>
         		style="display:none"

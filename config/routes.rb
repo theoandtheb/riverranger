@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
   resources :password_resets
 
-  resources :users do
+  resources :users, except: [:index, :show] do
     member do
       get :activate
       get :regions
